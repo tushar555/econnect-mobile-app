@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+    <ion-title>Holiday</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openYearlyHoliday()">
+        <ion-icon name="ios-list-box-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card class="calendar-body">
+    <!-- <div class="calendar-header">
+      <ion-row class="calendar-month">
+        <ion-col col-2 (click)="goToLastMonth()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()">
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div> -->
+    <ion-row class="calendar-month" no-padding>
+      <ion-col>
+        <ion-item class="iondatemonth dateIcon">
+          <ion-label>Select Month</ion-label>
+          <ion-datetime  displayFormat="MMM, YYYY" pickerFormat="MMM, YYYY"  [min]="ionDTMin" (ionChange)="ionDateTimeChange()" [(ngModel)]="ionDTmd"></ion-datetime>
+        <!-- <ion-datetime  displayFormat="MMMM, YYYY" pickerFormat="YYYY-MMM"  [min]="ionDTMin" [max]="ionDTmdMax" (ionChange)="ionDateTimeChange()" [(ngModel)]="ionDTmd"></ion-datetime>-->
+        <ion-icon name="ios-arrow-down" item-right></ion-icon>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row class="calendar-month" no-padding>
+        <ion-col>
+          <ion-item class="iondatemonth">
+            <ion-label>Select Month</ion-label>
+            <ion-datetime mode="md" displayFormat="MMMM, YYYY" pickerFormat="YYYY-MMM" [max]="ionDTmdMax" (ngModelChange)="ionDateTimeChange()" [(ngModel)]="ionDTmd"></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row> -->
+    <div>
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>S</ion-col>
+          <ion-col>M</ion-col>
+          <ion-col>T</ion-col>
+          <ion-col>W</ion-col>
+          <ion-col>T</ion-col>
+          <ion-col>F</ion-col>
+          <ion-col>S</ion-col>
+        </ion-row>
+        <ion-row class="calendar-date" (swipe)="swipeCalendar($event)" [ngClass]="{'swipe-left': direction == '2', 'swipe-right': direction == '4'}">
+          <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">
+            <!-- {{lastDay}}  -->
+          </ion-col>
+          <ion-col col-1 *ngFor="let d of daysInThisMonth" [ngClass]="{'currentDateCol': currentDate === d.day, 'date-holiday':d.Status === 'H', 'week-holiday':d.StatusDescription=== 'Weekly Off', 'optional-holiday':(d.Status=='o' || d.Status=='O')}">
+            <span class="currentDate" *ngIf="currentDate === d.day; else otherDate">{{d.day}}</span>
+            <ng-template #otherDate class="otherDate">
+              <ng-container *ngIf="d.day < currentDate; else disabledDate">
+                <!-- <span *ngIf="d.Status=='H' || d.Status=='O' " class="font-10"> {{d.Status}} </span>
+                <span class="font-10">{{d.day}}</span><br> -->
+                <!--<span [ngClass]="{'optional-holiday':(d.Status=='O'||d.Status=='H'||d.isOptionalHoliday==true)}" class="font-bold"> {{d.day}}-->
+                <span class="font-bold"> {{d.day}}
+                  <div class="bullet" [ngClass]="{'bulletH': d.Status=='H','bulletO': (d.Status=='O' || d.isOptionalHoliday==true), 'bulletW': (d.Status=='W' || d.isWeeklyOff==true)}"></div>
+                </span><br>
+              </ng-container>
+            </ng-template>
+            <ng-template #disabledDate>
+              <ng-container *ngIf="d.day > currentDate">
+                <span class="font-bold disabled-date"> {{d.day}}
+                  <div class="bullet" [ngClass]="{'bulletH': d.Status=='H','bulletO': (d.Status=='O' || d.isOptionalHoliday==true), 'bulletW': (d.Status=='W' || d.isWeeklyOff==true)}"></div>
+                </span><br>
+                <!-- <span *ngIf="d.Status=='H' || d.Status=='O' " class="font-10"> {{d.Status}} </span>
+                <span class="disabled-date" [ngClass]="{'optional-holiday':d.Status=='O', 'date-holiday':d.Status === 'H', 'week-holiday':d.StatusDescription=== 'Weekly Off'}">{{d.day}}</span><br> -->
+              </ng-container>
+            </ng-template>
+          </ion-col>
+          <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">
+            <!-- {{nextDay}} -->
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+      <div class="weekly-hours" *ngFor="let holiday of monthWiseHolidays">
+        <!-- <ion-icon name="ios-square" [ngClass]="{'optionalHoliday':(holiday.holidayType=='o' || holiday.holidayType=='O'), 'generalHoliday':(holiday.holidayType=='h' || holiday.holidayType=='H')}"></ion-icon> -->
+        {{holiday.date|date:'dd-MMM-yyyy'}} : <b>{{holiday.holidayDescription}}</b>
+      </div>
+    </div>
+    <ion-footer color="white-main">
+      <div class="legend-grid" text-center>
+        <ion-col col-4>
+            <button ion-button clear>
+                <ion-icon name="ios-square" class="icon-holiday"></ion-icon>
+                <span>Holiday</span>
+              </button>
+        </ion-col>
+        <ion-col col-4>
+            <button ion-button clear>
+                <ion-icon name="ios-square" class="icon-weeklyoff"></ion-icon>
+                <span>Weekly Off</span>
+              </button>
+        </ion-col>
+        <ion-col col-4>
+           <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-optional"></ion-icon>
+          <span>Optional Holiday</span>
+        </button>
+        </ion-col>
+     
+      
+       
+      </div>
+    </ion-footer>
+
+    <!-- <ion-footer color="white-main">
+      <div class="legend-grid">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4 align="left" class="no_padding">
+              <div ion-button clear class="no_padding">
+                <ion-icon name="ios-square" class="icon-public"></ion-icon>
+                <span>(H) Public Holiday / Weekly Holiday / (O) Optional Holiday</span>
+              </div>
+            </ion-col>
+            <ion-col col-4 class="no_padding">
+              <div ion-button clear class="no_padding left-align">
+              </div>
+            </ion-col>
+            <ion-col col-4 align="left" class="no_padding left-align">
+              <div ion-button clear class="no_padding">
+              </div>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-footer> -->
+  </ion-card>
+</ion-content>

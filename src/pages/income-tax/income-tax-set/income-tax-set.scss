@@ -1,0 +1,78 @@
+page-income-tax-set {
+  .btnit {
+    background-color: #797a7c;
+  }
+  .maindiv {
+    // position: absolute;
+    // top: 20%;
+    // text-align: center !important;
+    margin: 0 auto; //width: 50%;
+    //border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-30%);
+    width: 100%;
+  }
+  .center-img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 40%;
+    transform: translateY(-50%)
+  }
+  .scroll-content {
+    padding: 0px !important;
+    background-color: #fff !important;
+  }
+  .selected {
+    background: #535353 !important;
+    font-weight: 500;
+    color: #fff !important;
+  }
+  .yearCard{
+    width: 100% !important;
+    margin: 0px !important;
+    border-left: .2rem solid #fed700;
+    box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+    cursor: pointer;
+    font-weight: 700;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+  .view-options{
+    padding: 0px;  
+  }
+  .view-options .row:first-child .col {
+    padding: 10px;
+    background: #f4f4f4;
+    color: #000000;
+    text-align: center;
+}
+  .card-md,
+  .card-ios {
+    border-radius: 5px !important;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important;
+  }
+  .fab-md,
+  .fab-ios {
+    color: #fff;
+    background-color: #454545 !important;
+  }
+  .menu-title {
+    .t1 {
+      .timestamp {
+        color: #848484;
+      }
+      float: left;
+      padding-bottom: 10px;
+    }
+    .t2 {
+      float: right;
+      padding-bottom: 10px;
+      margin-top: 8px;
+    }
+  }
+}

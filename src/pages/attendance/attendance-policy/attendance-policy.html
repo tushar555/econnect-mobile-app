@@ -1,0 +1,65 @@
+<!--
+  Generated template for the AttendancePolicyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar  color="theme-red">
+    <ion-buttons left>
+      <button ion-button icon-only>
+        <ion-icon name="md-time"></ion-icon>
+      </button>
+    </ion-buttons>
+      <!-- <button ion-button text-only class="nav-label">
+        Attendance Policies
+      </button>   -->
+      <ion-title> Attendance Policies</ion-title>
+      <ion-buttons right>
+      <button (click)="close()"ion-button icon-only float-right>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div>
+    <ul *ngIf="usertype=='HO'" class="policyContent">
+      <li>The time span of availing flexi hours will be from 8:00 a.m. to 7:00 p.m. It is necessary that employee completes 8 hours on a daily basis or 40 hours in a week. Employee is required to report to office daily.</li>
+      <li>Timings for any meetings called for by Reporting Managers will have to be adhered to.</li>
+      <li>It is necessary that the customer servicing sections, and Reception should be functional during regular office timings.</li>
+      <li>Department Head/Product Head/Business Head will decide the office timings for his/her function.</li>
+      <li>Employee needs to apply Local duty/Seminars/Training/Business Tour in advance and it should be approved by the Reporting Manager on or before 18th of the month.</li>
+      <li>In case, employees wish to avail leave, it is required to be applied & approved by Reporting Manager in the system.</li>
+      <li>In case leave balance is not available with the employee, Employee/Reporting Manager should inform Time Administrator Process Owner & leave will be marked as Loss of Pay.</li>
+      <li>If an employee does not apply for leave, or regularize attendance in the system for any particular day(s) where Clock-in-Time & Clock-in-Time has not been recorded, the employee will be deemed to be “PRESENT” on that day(s). However, it is the responsibility of the employee to record Leave/Optional holiday/Local duty/ Seminar/Training/Business Tour & get it approved by Reporting Manager.</li>
+      <li>Regularization & corresponding approvals of attendance will be allowed for current and last month attendance cycle only. Any regularization or approvals beyond the set limit will not be considered.</li>
+      <!-- <li>The attendance cycle will be 16th to 15th of the month.</li>
+      <li>Timings for any meetings called for by reporting managers will have to be adhered to for the defined timings.</li>
+      <li>In case of any conflict of interpretation, departmental preferences will precede individual preferences.</li>
+      <li>Customer facing employees are required to follow counter timings.</li>
+      <li>An employee need to apply Local duty / Seminar / Training / Business Tour in advance and it should be approved
+        by the reporting manager on or before 18th of the month.</li>
+      <li>In case employee wishes to avail leave, it is required to be applied in the system and it has to be approved as
+        per Leave Policy. </li>
+      <li>The employee is expected to complete 40 hours in a week failing which appropriate leave/LOP will be deducted.</li>
+      <li>In case of no swipe, LOP will marked by the time administrator unless it is regularized.</li>
+      <li>The reporting manager shall ensure that all his reportees adhere to the attendance policy.</li> -->
+    </ul>
+    <ul *ngIf="usertype=='RO'">
+        <li>Office Timing: 09:30 AM to 5:30 PM</li>
+        <li>All Employees to Complete 8 Hrs every day</li>
+        <li>Late Coming – Clock In time between 09:45:00 AM to 11:30:00 AM –Flag as Deviation</li>
+        <li>Early Leaving – 1 Hrs early going is allowed, if an employee came at 9:45 AM he can leave by 5:45 PM – Flag as Deviation</li>
+        <li>2 Deviations are allowed in 1 attendance cycle. For every 3rd Deviation 0.5 Day EL to be deducted. If EL Balance is exhausted LOP to be marked</li>
+        <li>Single Swipe – (Where Only Clock In Time or Clock Out Time is available) – 1 Day EL to be deducted. If EL Balance is exhausted LOP to be marked</li>
+        <li>Clock in Time after 11:30:00 AM – 0.5 Day LOP to be marked</li>
+        <li>Clock In Time after 1:30:00 PM – 1 Day LOP to be marked</li>
+        <li>Clock In Time is within Flexi Time & Total Working Hours Less than 7 Hrs – 0.5 Days LOP to be marked</li>
+    </ul>  
+  </div>
+</ion-content>

@@ -1,0 +1,49 @@
+page-user-emergency-contact {
+  ion-title{
+    span{
+      font-size: 1.7rem;
+    }
+  }
+  .username{
+    margin: 0px;
+    width: 100%;
+    padding: 7px;
+    font-size: 2.2rem;
+  }
+  .contact-card{
+    margin: 0px;
+    width: 100%;
+    background: transparent;
+  }
+  .contact-row{
+    margin: 10px;
+    border-bottom: 1px solid #d1d1d1;
+    .name{
+      color: #848484;
+      margin-bottom: 5px;
+    }
+    .mobileno{
+      letter-spacing: 0.5px;
+      font-size: 1.5rem;
+      padding-bottom: 15px;
+    }
+  }
+  .card-md{
+    box-shadow: none;
+  }
+  .call-container{
+    display: flex;
+    align-items: center;
+    a{
+      text-decoration: none;
+      color: #000000;
+    }
+    ion-icon{
+      text-align: right;
+      font-size: 2.5rem;
+    }
+  }
+  .content-md .scroll-content, .content-ios .scroll-content{
+    background-color: #f9f9f9;
+  }
+}

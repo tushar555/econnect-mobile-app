@@ -1,0 +1,21 @@
+<!--
+  Generated template for the PaySlipDocumentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+    <ion-title>Payslip Documents </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ng-container *ngFor="let document of documents">
+      <button *ngIf="document.Base64File" ion-item (click)="showFile(document)">
+        {{ document.Type +' '}}{{document.Date || ''}}
+      </button>
+    </ng-container>
+  </ion-list>
+</ion-content>

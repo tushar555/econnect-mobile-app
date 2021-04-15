@@ -1,0 +1,169 @@
+<!--
+  Generated template for the ModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header (click)="closeModal()">
+
+  <ion-navbar color="theme-red">
+    <ion-title>Income Tax </ion-title>
+    <ion-icon class="add-icon" ios="ios-close" md="md-close"></ion-icon>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card class="accordion-list">
+    <!-- First Level -->
+    <!-- <ion-card-content *ngFor="let item of hraForm.value.formDetails; let i = index" no-lines no-padding> -->
+    <!-- Toggle Button -->
+    <!--  -->
+
+
+    <form [formGroup]="hraForm" novalidate>
+      <div formArrayName="formDetails">
+
+        <div *ngFor="let formDetail of hraForm.controls.formDetails.controls; let i=index">
+          <button ion-item (click)="toggleSection(i)" class="section-active">
+                <img height="9"  id="{{'downarrow'+i}}" item-right style="width: auto"  src="assets/img/down-arrow.png">
+                <img height="9" hidden id="{{'uparrow'+i}}" item-right style="width: auto" src="assets/img/up-arrow.png">        
+                <span class="font-12 counter-form">Form {{i+1}}</span>
+            </button>
+          <div id="{{'showList'+i}}" hidden class="panel-body" [formGroupName]="i">
+            <ion-grid style="background-color: #E8E8E8;">
+              <ion-row>
+                <ion-col col-12>
+                  <ion-select formControlName="cityType" [ngClass]="{'border-class': checkError(formDetail.controls.cityType)}" placeholder='City type'
+                    class="select">
+
+                    <ion-option value="1">Metro</ion-option>
+                    <ion-option value="2">Non Metro</ion-option>
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-select formControlName="housingType" [ngClass]="{'border-class': checkError(formDetail.controls.housingType)}" placeholder='Housing type'
+                    class="select">
+                    <ion-option value="Rent">Rented Accom.</ion-option>
+                    <ion-option value="Company_lease_old">Company Leased(Old)</ion-option>
+                    <ion-option value="Company_owned_old">Company Owned(Old)</ion-option>
+                    <ion-option value="Own">Owned Accom(Old)</ion-option>
+                  </ion-select>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-input placeholder='Landlord Name' formControlName="llName" class="input" type="text" [ngClass]="{'border-class': checkError(formDetail.controls.llName)}"></ion-input>
+                  <div *ngIf="(formDetail.controls.llName.dirty && formDetail.controls.llName.errors)">
+                    Please Enter Landlord Name
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-input placeholder='Landlord PAN No.' [ngClass]="{'border-class': checkError(formDetail.controls.llPANNo)}" formControlName="llPANNo"
+                    class="input" type="text"></ion-input>
+                  <div *ngIf=" (formDetail.controls.llPANNo.dirty && formDetail.controls.llPANNo.errors)">
+                    Please Enter Valid Pan Card No.
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-textarea rows="3" placeholder='Landlord Address' [ngClass]="{'border-class': checkError(formDetail.controls.llAddress)}"
+                    formControlName="llAddress" maxLength="500"></ion-textarea>
+                  <div *ngIf=" (formDetail.controls.llAddress.dirty && formDetail.controls.llAddress.errors)">
+                    Please Enter Address
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-input placeholder='Landlord Pincode' [ngClass]="{'border-class': checkError(formDetail.controls.llPincode)}" formControlName="llPincode"
+                    class="input" type="number"></ion-input>
+                  <div *ngIf=" (formDetail.controls.llPincode.dirty && formDetail.controls.llPincode.errors)">
+                    Please Enter Address
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-6>
+                  <ion-datetime placeholder='From' formControlName="fromDate" [ngClass]="{'border-class': checkError(formDetail.controls.fromDate)}"
+                    class="input" displayFormat="MM/DD/YYYY"></ion-datetime>
+                  <div *ngIf=" (formDetail.controls.fromDate.dirty && formDetail.controls.fromDate.errors)">
+                    Please Enter From Date
+                  </div>
+                </ion-col>
+                <ion-col col-6>
+                  <ion-datetime placeholder='To' [ngClass]="{'border-class': checkError(formDetail.controls.toDate)}" (ionChange)="checkDate($event,formDetail.controls.fromDate,formDetail.controls.toDate)"
+                    formControlName="toDate" class="input" displayFormat="MM/DD/YYYY"></ion-datetime>
+                  <div *ngIf=" (formDetail.controls.toDate.dirty && formDetail.controls.toDate.errors)">
+                    Please Enter To Date
+                  </div>
+                  <div *ngIf="!isvalidDate">
+                    Please Enter Valid To Date
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-textarea rows="3" [ngClass]="{'border-class': checkError(formDetail.controls.rentalAddress)}" placeholder='Rental Address'
+                    formControlName="rentalAddress" maxLength="500"></ion-textarea>
+                  <div *ngIf=" (formDetail.controls.rentalAddress.dirty && formDetail.controls.rentalAddress.errors)">
+                    Please Enter Address
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-input placeholder='Rental Pincode' [ngClass]="{'border-class': checkError(formDetail.controls.rentalPincode)}" formControlName="rentalPincode"
+                    class="input" type="number"></ion-input>
+                  <div *ngIf=" (formDetail.controls.rentalPincode.dirty && formDetail.controls.rentalPincode.errors)">
+                    Please Enter Rental Pincode
+                  </div>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-12>
+                  <ion-input placeholder='Rental Amount' [ngClass]="{'border-class': checkError(formDetail.controls.rentalAmount)}" formControlName="rentalAmount"
+                    class="input" type="number"></ion-input>
+                  <div *ngIf=" (formDetail.controls.rentalAmount.dirty && formDetail.controls.rentalAmount.errors)">
+                    Please Enter Amount
+                  </div>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </div>
+        </div>
+
+      </div>
+
+    </form>
+
+    <!-- </ion-list> -->
+
+    <!-- </ion-card-content> -->
+
+
+
+  </ion-card>
+
+
+  <ion-fab right bottom (click)="addAddress()">
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+
+</ion-content>
+<ion-footer>
+
+
+  <!-- <div disabled id="block1" (click)="checkTaxableAmt('click')" class="toast-message font-12-bold" text-center color="dark-gray">Calculate Tax</div> -->
+  <div (click)="onSubmit()" class="toast-message font-12-bold" text-center color="dark-gray">Submit</div>
+
+</ion-footer>

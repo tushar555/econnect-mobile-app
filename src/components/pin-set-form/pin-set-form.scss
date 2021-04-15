@@ -1,0 +1,79 @@
+pin-set-form {
+
+    .sf-input {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid #c7c7c7;
+        border-radius: 3px;
+        margin-bottom: 10px;
+        background: #ffffff !important;
+    }
+
+    .card-md,
+    .card-ios {
+        -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+        box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+    }
+
+    ion-card-content {
+        padding: 10px !important;
+    }
+
+    .radioDanger .radio-inner {
+        background-color: #e41f3d !important;
+    }
+
+    .radio-icon {
+        border-color: #e6e6e6 !important;
+
+        .radio-inner {
+            background-color: #16f316;
+        }
+    }
+
+    .rating {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 5px;
+
+        ion-icon {
+            color: #fef200;
+            font-size: 1.8em;
+        }
+    }
+
+    .yes-no-radio {
+        position: absolute;
+        padding-left: 5px;
+    }
+
+    ion-textarea {
+        border: 1px solid #e6e6e6;
+        border-radius: 3px;
+        margin-top: 5px;
+    }
+
+    ion-footer {
+        .toast-message {
+            height: 45px;
+        }
+    }
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-device-pixel-ratio : 3) {
+        ion-footer {
+            .toast-message {
+                height: 58px;
+            }
+        }
+    }
+
+    @media only screen and (device-width : 414px) and (device-height : 736px) and (-webkit-device-pixel-ratio : 3) {
+        ion-footer {
+            .toast-message {
+                height: 45px;
+            }
+        }
+    }
+}

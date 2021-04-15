@@ -1,0 +1,82 @@
+page-year-holiday {
+  .scroll-content {
+    background-color: #f7f8fa !important;
+  }
+
+  .headertitle {
+    text-align: center;
+
+    button {
+      color: #000;
+    }
+  }
+
+  .view-options {
+    text-align: center;
+    padding: 0px;
+    .row:first-child {
+      margin-bottom: 0px;
+      .col {
+        padding: 15px 12px;
+        background: #e9edf3;
+        color: #000000;
+        font-weight: 600;
+        font-size: 15px;
+        border-right: 1px solid #f7f8fa;
+        ion-icon {
+          margin-right: 5px;
+        }
+      }
+    }
+    .selected {
+      background: #f7f8fa !important;
+      font-weight: 500;
+      color: #000 !important;
+    }
+  }
+
+  .toolbar-background {
+    background: #e51837;
+  }
+
+  .toolbar {
+    padding: 10px;
+  }
+
+  .toolbar-content {
+    .nav-label {
+      color: #fff;
+      text-transform: uppercase;
+    }
+  }
+
+  .row-class {
+    border: 1px solid #eee;
+  }
+
+  .card-class {
+    margin-bottom: 8px !important;
+    margin: 0px;
+    width: 100%;
+    box-shadow: none !important;
+
+    .col-class {
+      padding: 8px;
+      font-size: 13px;
+      text-align: left;
+      line-height: 33px;
+    }
+
+    .headerrow {
+      background: #535353;
+      color: #fff;
+      font-size: 15px;
+    }
+  }
+
+  .col-class {
+    width: 33.33%;
+    border-right: 1px solid #eee;
+    text-align: center;
+  }
+}

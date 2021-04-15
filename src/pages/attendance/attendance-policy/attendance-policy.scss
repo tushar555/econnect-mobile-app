@@ -1,0 +1,40 @@
+page-attendance-policy {
+  ion-navbar{
+    // .toolbar-background{
+    //   // background: #fef2004d !important;
+    //   // background: rgba(254, 242, 0, 0.161) !important;
+    //   .bar-button-default-md{
+    //     font-weight: 500;
+    //   }
+    // }
+    // .nav-label{
+    //   font-size: 15px;
+    // }
+    .toolbar-title{
+      margin: 7px;
+    }
+  }
+  ion-content{
+    .scroll-content{
+      background-color: #ffffff !important;
+    }
+    .policyContent{
+      padding-left: 16px;
+      margin-top: 0px;
+    }
+  }
+  .bar-button-default-ios{
+    color: #424242;
+  }
+  ul{
+    padding-left: 16px;
+    margin-top: 0px;
+    li{
+      margin-bottom: 15px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #000;
+      line-height: 1.8;
+    }
+  }
+}

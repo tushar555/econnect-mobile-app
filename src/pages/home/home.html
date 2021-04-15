@@ -1,0 +1,107 @@
+<ion-header>
+  <!--<ion-navbar color = 'yellow-main' [color]="companyName == 'MIBL' ? 'theme-red':'yellow-main'">-->
+  <ion-navbar color="theme-red">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span>Welcome</span>
+      <span>{{userName}}</span>
+    </ion-title>
+    <ion-buttons left>
+      <button (click)="openProfile()" ion-button clear icon-only>
+        <!--<ion-icon  [color]="companyName !== 'MIBL'?'black':''" name="contact"></ion-icon>-->
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!-- <ion-buttons end>
+            <button (click)="openNotification()" ion-button clear icon-only>
+                <ion-icon name="notifications"></ion-icon>
+
+            </button>
+        </ion-buttons> -->
+    <ion-buttons end>
+      <button (click)="logout()" ion-button clear icon-only>
+        <!--<ion-icon [color]="companyName !== 'MIBL'?'black':''" name="md-log-out"></ion-icon>-->
+        <ion-icon name="md-log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<!--<ion-content padding class="bgImage homeBg" *ngIf="menu?.length != 0" [ngClass]="companyName == 'MIBL'? 'MIBLEMP border-red' : 'border-yellow'">-->
+<ion-content padding class="bgImage homeBg border-red" *ngIf="menu?.length != 0"
+  [ngClass]="companyName == 'MIBL'? 'MIBLEMP' : ''">
+  <!-- <span class="version">&#174; {{appversion}}</span> -->
+  <div class="container">
+    <img class="upperpatternImg" src="assets/img/bg-top.png" *ngIf="companyName == 'MIBL'">
+    <img class="upperbottomImg" *ngIf="companyName == 'MIBL'" src="assets/img/pattern-bottom2.png">
+    <div>
+    </div>
+    <div>
+
+    </div>
+    <div padding class="logoImg">
+      <div class="connectLogo"><img src="assets/img/weconnect-badge.png"></div>
+      <div class="brandLogo" *ngIf="companyName == 'MIBL'"><img src="assets/img/MIBL-logo.png"></div>
+    </div>
+    <div class="MenuButton">
+      <img [ngStyle]="{'filter':companyName !== 'MIBL'? '' : 'invert(1)' }" src="assets/img/feedback.svg" height="20px"
+        width=" 23px" (click)="goToFeedback()">
+    </div>
+    <div class="menu-container">
+      <div class="Eicon">
+        <img src="assets/img/e-logo-white.svg">
+      </div>
+      <div class="core">
+        <div id="circle" [@rotatedState]='state'>
+          <div id="q{{i+1}}" class="quarter" *ngFor="let menus of menu; let i = index"
+            (click)="menus.isActive=='1' ? menuOpen(menus,i) : null" [ngClass]="{'MenuActive': sIndex == i}">
+            <div class="contentBox" [@textRotate]='state'>
+              <div class="mainMenuIcon">
+                <ion-icon class="grid-icon" [ngClass]="menus.menuImage"></ion-icon>
+              </div>
+              <div class="menuText">{{menus.tab}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-border-circle" *ngIf="companyName == 'MIBL'">
+        <ul class="circle">
+          <li *ngFor="let menus of subMenuData; let i = index"
+            [hidden]="menus.menu == '' || ( (menus.menu==='25 years' && IsGiftEligible) || (menus.menu==='CSR' || isCSR))"
+            (click)="menus.isActive=='1' ? subMenuOpen(menus) : null"
+            [ngStyle]="{'background-color':(menus.border) ? menus.border:'transparent','box-shadow': (menus.position == '1') ? '0px 5px 8px 0px rgba(0, 0, 0, 0.2)' : 'none' }">
+
+          </li>
+
+          <!-- <li *ngFor="let menus of subMenuData; let i = index"
+            [hidden]="menus.menu == '' || (menus.menu==='CSR' && isCSR)"
+            (click)="menus.isActive=='1' ? subMenuOpen(menus) : null"
+            [ngStyle]="{'background-color':(menus.border) ? menus.border:'transparent','box-shadow': (menus.position == '1') ? '0px 5px 8px 0px rgba(0, 0, 0, 0.2)' : 'none' }">
+          </li> -->
+
+        </ul>
+      </div>
+      <div class="inner-circle">
+        <ul class="circle">
+          <li *ngFor="let menus of subMenuData; let i = index"
+            [hidden]="(menus.menu==='CSR' && !isCSR) || menus.menu == ''"
+            (click)="menus.isActive=='1' ? subMenuOpen(menus) : null"
+            [ngStyle]="{'box-shadow': (menus.position == '1') ? '0px 5px 8px 0px rgba(0, 0, 0, 0.2)' : 'none' }">
+            <div class="submenu-container">
+              <div class="submenuIcon">
+                <ion-icon class="grid-icon" [ngClass]="menus.menuImage"></ion-icon>
+              </div>
+              <div class="text">
+                {{menus.menu}}
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

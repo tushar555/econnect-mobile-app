@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-navbar color="theme-red">
+    <ion-title>Employee Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="backGroundContent" padding
+  [ngStyle]="showMapflag?{'pointerEvents': 'auto'} : {'pointerEvents': 'auto'}">
+  <ion-card class="detail-card" *ngIf="empData">
+    <ion-list>
+      <ion-item>
+        <h2 style="display: inline;">{{empData.EmployeeName}}</h2>
+        <p style="display: inline; font-size: 12px;"> {{empData.TokenID ? (' | '+empData.TokenID | uppercase) : ''}}
+          {{empData.JobTitle ? (' | '+empData.JobTitle | uppercase) : ''}}
+          {{empData.Department ? (' | '+empData.Department | uppercase) : ''}}
+          {{empData.LocationName ? (' | '+empData.LocationName | uppercase): ''}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-row class="header-cont">
+    <ion-col col-1 text-center [ngClass]="CountAprrovedReject == attendanceData.length ? 'hidefooter' : ''">
+      <!-- <button ion-button color="dark-gray" (click)="checkboxChange()">{{selectAll ? 'Unselect all' : 'Select all'}}</button> -->
+      <div class="checbox-cont" *ngIf="attendanceData.length>0">
+        <ion-checkbox color="dark-gray" (ionChange)="checkboxChange()" [checked]="selectAll"></ion-checkbox>
+      </div>
+    </ion-col>
+    <ion-col col-11 class="week">
+      <!-- <b>Week  (07-Apr-2019 to 13-Apr-2019)</b> -->
+      <p>Week {{empData?.curWeek?.WeekNo}} ({{(empData?.curWeek?.WeekStartDate) | date:'dd-MMM-yyyy'}} to
+        {{(empData?.curWeek?.WeekEndDate) | date:'dd-MMM-yyyy'}})</p>
+    </ion-col>
+  </ion-row>
+  <ion-list class="details-table">
+    <ion-row *ngFor="let attn of attendanceData">
+      <ion-col col-1 text-right>
+        <div class="checbox-cont">
+          <ion-icon name="md-checkmark-circle" class="approve" *ngIf="attn.ApprovalStatus==='approved'"></ion-icon>
+          <ion-icon name="md-close-circle" class="rejected" *ngIf="attn.ApprovalStatus==='rejected'"></ion-icon>
+          <ion-checkbox *ngIf="attn.ApprovalStatus===null || attn.ApprovalStatus==='Pending'" color="dark-gray"
+            [(ngModel)]="attn.IsChecked"></ion-checkbox>
+        </div>
+      </ion-col>
+      <ion-col col-3>
+        <span class="col-label">Date: &nbsp;</span> {{attn.AttendanceDate | date : 'dd-MMM-yyyy'}}
+      </ion-col>
+      <ion-col col-3>
+        <span class="col-label">Punch In: &nbsp;</span> {{(attn.TimeIn | dateTimeFormatPipe : 'hh:mm a') || '--'}}
+      </ion-col>
+      <ion-col col-3>
+        <span class="col-label">Punch Out: &nbsp;</span> {{(attn.TimeOut | dateTimeFormatPipe : 'hh:mm a') || '--'}}
+      </ion-col>
+      <ion-col col-1>
+        <span class="col-label"> &nbsp;</span>
+        {{(!attn.TimeOut || !attn.TimeIn) ? '--' : getHours(attn.TimeOut,attn.TimeIn)}}
+      </ion-col>
+      <ion-col col-1 (click)="showMap(attn)">
+        <img width="20" src="assets/icon/profile/location.svg" />
+      </ion-col>
+    </ion-row>
+  </ion-list>
+
+
+</ion-content>
+<ion-footer no-paddding *ngIf="!showMapflag"
+  [ngClass]="CountAprrovedReject == attendanceData.length ? 'hidefooter' : ''">
+  <ion-row no-padding>
+    <ion-col no-padding style="border-right: 1px solid lightgrey;">
+      <button ion-button full text-center class="mybtn" color="dark-gray"
+        (click)="takeRemarks('rejected')">Reject</button>
+    </ion-col>
+    <ion-col no-padding>
+      <button ion-button full text-center class="mybtn" color="dark-gray"
+        (click)="takeRemarks('approved')">Approve</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+<div class="mapMain" *ngIf="showMapflag">
+  <div class="secondMap">
+    <ion-grid class="map-details gridStyle" *ngIf="latitudeIn || latitudeOut">
+      <ion-row class="attendanceBtns">
+        <ion-col *ngIf="latitudeIn && longitudeIn" [ngClass]="showLoginMap ? 'selected' : ''" (click)="loadInMap()">Time
+          In</ion-col>
+        <ion-col *ngIf="latitudeOut && longitudeOut" [ngClass]="showLoginMap ? '' : 'selected'" (click)="loadOutMap()">
+          Time Out</ion-col>
+      </ion-row>
+    </ion-grid>
+    <iframe id="loginMap" #loginMap
+      [ngStyle]="(showLoginMap) && latitudeIn && longitudeIn?{'display': 'block'} : {'display': 'none'}"
+      class="mapMargin" width="100%" height="250" *ngIf="loginMapSrc" frameborder="0" style="border:0"
+      [src]="loginMapSrc" allowfullscreen></iframe>
+
+    <iframe id="logoutMap" #logoutMap
+      [ngStyle]="(!showLoginMap) && latitudeIn && longitudeIn?{'display': 'block'} : {'display': 'none'}"
+      class="mapMargin" width="100%" height="250" *ngIf="logoutMapSrc" frameborder="0" style="border:0"
+      [src]="logoutMapSrc" allowfullscreen></iframe>
+
+    <!-- <div id="loginMap" #loginMap   [ngStyle]="(showLoginMap) && latitudeIn && longitudeIn?{'display': 'block'} : {'display': 'none'}"  class="mapMargin">
+      </div> -->
+    <!-- <div id="logoutMap" #logoutMap   [ngStyle]="(!showLoginMap) && latitudeIn && longitudeIn?{'display': 'block'} : {'display': 'none'}"  class="mapMargin"></div> -->
+    <div class="buttonMain"><button class="mapButton" (click)="hideMap()">OK</button></div>
+  </div>
+
+</div>

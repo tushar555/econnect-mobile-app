@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar color="theme-red">
+    <ion-title > {{headerInfo.title | uppercase}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showHome()">
+        <ion-icon name="ios-apps"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end [navPush]="profilePage">
+      <button ion-button icon-only>
+        <ion-icon name="ios-contact-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>

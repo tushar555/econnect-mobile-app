@@ -1,0 +1,165 @@
+page-admin-employee-details {
+  ion-navbar.toolbar {
+    min-height: 40px;
+    // padding-top: 0px;
+  }
+  .detail-card {
+    margin: -16px -16px 0px -16px !important;
+    width: calc(100% + 32px) !important;
+    top: -17px;
+    position: sticky;
+    z-index: 2;
+    h2 {
+      font-weight: 600;
+    }
+    .card-icon {
+      font-size: 11px;
+      margin-top: 5px;
+      white-space: normal;
+      line-height: 1.8;
+      img {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .hidefooter{
+    display: none
+  }
+  .backGroundContent{
+    background: #e8e8e8;
+  }
+  #loginMap,
+  #logoutMap {
+    height: calc(100% - 100px);
+    margin: auto;
+    left: 0;
+    margin: 50px 0 0 0;
+  }
+  .map-details.grid {
+    padding: 0px 0 0 0;
+    text-align: center;
+    height: 70px;
+    .attendanceBtns{
+      margin: 0px 0px;
+    }
+    .row:first-child {
+      border: 1px solid #c1c1c1;
+      margin-bottom: 10px;
+      border-top-right-radius: 3px;
+      border-top-left-radius: 3px;
+      border-bottom: none;
+      border-left: none;
+      border-right: none;
+      .col {
+        padding: 15px;
+        background: whitesmoke;
+        color: $dark-gray;
+      }
+    }
+    .selected {
+      background: #ffffff !important;
+    }
+  }
+  .details-table {
+    font-size: 12px !important;
+    .col-label {
+      color: #959595;
+    }
+    ion-row{
+      background: #ffffff;
+      border-radius: 4px;
+      border: 1px solid #cccccc;
+      padding: 6px;
+      margin: 4px 0px;
+      ion-col{
+        display: flex;
+        align-items: center;
+      }
+      .checbox-cont{
+        margin: auto;
+        .approve{
+          color: green;
+          font-size: 20px;
+        }
+        .rejected{
+          color: red;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .week{
+    margin: auto;
+    padding: 0px;
+    p{
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+  
+  .mapMain{
+    top: 44px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: calc(100% - 44px);
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.54);
+    
+    // top: 0px;
+    // position: fixed;
+    // width: 100%;
+    // left: 0;
+    // right: 0;
+    // margin: auto;
+    // height: calc(100% - 0px);
+    // z-index: 100;
+    // background: rgba(0, 0, 0, 0.54);
+  }
+  .buttonMain{
+    margin: auto;
+    text-align: right
+  }
+  .mapButton{
+    height: 40px;
+    width: 100px;
+    margin: 10px 0 0 0;
+    background: #535353 ;
+    color: white;
+    border-radius: 4px;
+  }
+  .secondMap{
+    height: calc(100% - 20px);
+    width: 76%;
+    margin: 10px auto;
+    padding: 11px 10px;
+    background: #fff;
+    border-radius: 3px;
+    position: relative;
+  }
+  
+  .mybtn{
+    // height: 100%;
+    // margin: 0;
+  }
+}
+.gridStyle{
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.header-cont{
+  padding-left: 6px;
+  line-height: 1px;
+  margin-top: 5px;
+}
+.checkbox-ios .checkbox-icon{
+  border-radius: 0% !important;
+}

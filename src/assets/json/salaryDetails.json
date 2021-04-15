@@ -1,0 +1,30 @@
+[
+    {
+        "month":"January",
+        "salary":"103150"
+    },
+    {
+        "month":"February",
+        "salary":"67150"
+    },
+    {
+        "month":"March",
+        "salary":"95310"
+    },
+    {
+        "month":"April",
+        "salary":"98390"
+    },
+    {
+        "month":"May",
+        "salary":"87976"
+    },
+    {
+        "month":"June",
+        "salary":"87976"
+    },
+    {
+        "month":"July",
+        "salary":"87976"
+    }
+]

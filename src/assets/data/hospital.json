@@ -1,0 +1,29 @@
+{
+  "hospital": [{
+      "name": "P.D. Hinduja National Hospital and Medical Research Centre",
+      "address": "Veer Sawarkar Marg, Mahim West, Mahim, Mumbai, Maharashtra 400016",
+      "contactNo": "022 6766 8181",
+      "startTime": "8 AM",
+      "endTime": "8 PM"
+    },
+    {
+      "name": "P.D. Hinduja National Hospital and Medical Research Centre",
+      "address": "Veer Sawarkar Marg, Mahim West, Mahim, Mumbai, Maharashtra 400016",
+      "contactNo": "022 6766 8181",
+      "startTime": "8 AM",
+      "endTime": "8 PM"
+    }, {
+      "name": "P.D. Hinduja National Hospital and Medical Research Centre",
+      "address": "Veer Sawarkar Marg, Mahim West, Mahim, Mumbai, Maharashtra 400016",
+      "contactNo": "022 6766 8181",
+      "startTime": "8 AM",
+      "endTime": "8 PM"
+    }, {
+      "name": "P.D. Hinduja National Hospital and Medical Research Centre",
+      "address": "Veer Sawarkar Marg, Mahim West, Mahim, Mumbai, Maharashtra 400016",
+      "contactNo": "022 6766 8181",
+      "startTime": "8 AM",
+      "endTime": "8 PM"
+    }
+  ]
+}

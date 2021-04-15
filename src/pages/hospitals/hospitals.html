@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+    <ion-title>hospitals</ion-title>
+  </ion-navbar>
+  <div class="fake-input">
+    <ion-searchbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'" (ionClear)="reset()" (keyup)="searchFn($event)"></ion-searchbar>
+    <img src="assets/loader.gif" *ngIf="smallLoader" width="25">
+  </div>
+  <!-- class="search-loader"  -->
+</ion-header>
+<ion-content>
+    <div class="no-records" *ngIf="hospitalList?.length===0">
+      <span class="img_center">
+      </span>
+      <img src="assets/img/notfound.png">
+    </div>
+  <div class="hospital-card">
+    <div>
+      <ion-card *ngFor="let h of hospitalList">
+        <ion-row>
+          <ion-col class="hospital-name">
+            {{h.Name}}
+          </ion-col>
+        </ion-row>
+        <ion-row class="hospital-address">
+          <ion-col>
+            <ion-icon name="ios-pin"></ion-icon><a [href]="getSafeContent(h.Lat,h.Long,h.HospitalName)"> {{h.Address}}</a></ion-col>
+        </ion-row>
+        <ion-row *ngIf="h.ContactNo" class="hospital-info">
+          <ion-col ngClass="h.startTime ? 'contact' : ''" (click)="callHospital(h.ContactNo)">
+            <ion-icon name="ios-call"></ion-icon> {{h.ContactNo}}
+          </ion-col>
+          <!--<ion-col *ngIf="h.FromTime" text-center>
+            <ion-icon name="ios-clock"></ion-icon> {{h.FromTime}} - {{h.ToTime}}</ion-col>-->
+        </ion-row>
+      </ion-card>
+    </div>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="loadHospitals($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

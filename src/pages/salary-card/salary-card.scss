@@ -1,0 +1,372 @@
+page-salary-card {
+  .content-ios{
+    .scroll-content {
+    padding-left: env(safe-area-inset-left) !important;   
+    //padding-right: env(safe-area-inset-right) !important;   
+    }
+  }
+  ion-navbar.toolbar {
+    min-height: 40px;
+    // padding-top: 0px;
+  }
+  .scroll-content{
+    padding: 8px !important;
+  }
+  
+  .card-content-md {
+    padding: 0px;
+  }
+  #userData{
+    padding: 15px;
+    ion-card{
+      margin: 0px;
+      width: 100%;
+      background: transparent !important;
+      box-shadow: none;
+    }
+  }
+  .total {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem;
+  }
+  .ion-card-content {
+    background-color: #6D6E72;
+    color: #ffffff;
+    border-bottom: 2px solid $yellow; //padding-top: 1rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .emp-details {
+    .border-details {
+      border-right: 1px solid #DFE0E2;
+      border-top: 0px !important;
+    }
+  }
+  .details-card {
+    border: 1px solid #CDCDCF;
+    // max-height: 56%;
+    overflow-y: auto;
+    .sal-header {
+      background-color: #DBDEE5;
+      .sal-details-header {
+        font-size: 1.1rem;
+        font-weight: bold; //
+      }
+      .border-details {
+        border-right: 1px solid #C0C1C6;
+      }
+    }
+  }
+  .sal-details-content {
+    // font-size: 1.1rem;
+    .col-border {
+      border-right: 1px solid #DFE0E2;
+    }
+  }
+  .no-padding {
+    padding: 0px;
+  }
+  .total {
+    font-weight: bold;
+    font-size: 2.0rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem;
+  }
+  .download-btn {
+    width: 100%;
+    margin-left: 5px;
+    padding-right: 2%;
+  }
+  .dec-none {
+    text-decoration: none;
+  }
+  .card-item {
+    padding: 1rem;
+  }
+  .view {
+    background-color: #fef200;
+  }
+  .no-padding {
+    padding: 0px !important;
+  }
+  .card-padding {
+    padding: 0.6rem;
+  }
+  .year {
+    padding: 4px;
+  }
+  .btn {
+    width: 100%
+  }
+  .yearSelection{
+    margin: 0px 10px;
+
+    ion-select{
+      padding: 10px 10px;
+      width: 100%;
+      max-width: 100%;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #eee;
+    }
+    .p-l-0{
+      padding-left: 0px;
+    }
+    .p-r-0{
+      padding-right: 0px;
+    }
+  }
+  .displayBlock{
+    display: block;
+  }
+  .notDataImg{
+    margin: auto;
+    height: 50px;
+    width: 50px
+  }
+  .personalDetails{
+    padding: 10px;
+    .headerTxt{
+      p{
+        text-transform: uppercase;
+        color: gray;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+    .detailTxt{
+      p{
+        text-transform: capitalize;
+        color: $dark-gray;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+  }
+  .parentTbl table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+  }
+  .childTbl table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #d7d7d7;
+    width: 100%;
+  }
+  .childTbl th,
+  .childTbl td {
+    border: 1px solid #d7d7d7;
+    width: 33%;
+    /* padding: 8px 8px; */
+    text-align: left;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    /* padding: 10px; */
+    padding: 6px 0px 6px 10px;
+  }
+  .scrollData {
+    width: 690;
+    overflow-x: hidden;
+  }
+  .tblHeader{
+    background: #F2F4F7;
+    height: 33px;
+  }
+
+  .detailData{
+    padding: 0px;
+    height: 100%;
+    table{
+      thead{
+        tr{
+          display: block;
+        }
+      }
+      tbody{
+        display: block;
+        overflow: auto;
+        height: 100%;
+      }
+    }
+  }
+  /*.yearSelectionDiv{
+    position: absolute;
+    right: 4px;
+    top: 0;
+    width: 20%;
+    height: calc(100% - 8px);
+    padding: 0px;
+    background-color: #fff;
+    margin-top: 4px;
+    !*.toolbar-background{
+      background: #fff;
+      height: 70%;
+      top: 0%;
+      bottom: 0%;
+      top: 50%;
+      transform: translateY(-50%);
+     
+    }*!
+    ion-select{
+      padding: 7px 10px;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }*/
+  ion-title{
+    .toolbar-title{
+      margin-right: 20px;  
+    }
+  }
+}
+.newTbls{
+  height: 100%;
+  overflow-y: hidden;
+  position: relative;
+  .selectDateMonth{
+    height: 45px;
+    background: #fff;
+    color: #3a3535;
+    font-size: 18px;
+    font-weight: 600;
+    
+  }
+  .grid-container {
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    /* padding-bottom: 20px; */
+  }
+  .gridnew {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .grid-col {
+    width: 80px;
+    min-width: 80px;
+    height: fit-content;
+  }
+  
+  .grid-item--header {
+    position: sticky;
+    background: #EDEFF1 !important;
+    top: -1px;
+    z-index: 999;
+    background-color: #EDEFF1;
+    border-bottom: 0px;
+    font-weight: 500;
+    font-size: 14px;
+  }
+  
+  .grid-col--fixed-left {
+    position: sticky;
+    left: 0;
+    z-index: 9998;
+    width: 165px !important;
+    min-width: 165px !important;
+    .grid-item{
+      background: #edeff1;
+      text-align: left;
+      padding-left: 5px;
+    }
+  }
+  .grid-col--fixed-right {
+    position: sticky;
+    right: 0;
+    z-index: 9998;
+    background: white;
+  }
+  
+  .grid-item {
+    height: 24px;
+    border-right: 1px solid #c8c8ca !important;
+    text-align: center;
+    line-height: 24px;
+    border-bottom: 1px solid #c8c8ca;
+    background: #fff;
+   p{
+    // padding: 10px 0px !important;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #000;
+    line-height: 24px;
+   }
+  }
+  .darkWeekRow{
+    background: #535353;
+    color: #fff;
+    border: 1px solid #535353;
+  }
+  .weekCounthours{
+    white-space: nowrap;
+    padding-left: 20px;
+  }
+  .posRel{
+    position: relative;
+  }
+  .week-off{
+    background: #fed598 !important;
+    border-right: 0px !important;
+  }
+  // .gridnew{
+  //   background-color: #cbcdd2 !important;
+  // }
+  .salComponent{
+    background-color: #cbcdd2 !important;
+
+  }
+ 
+  
+}
+.newTbls{
+  .grid-item:nth-last-child(1){
+    position: sticky;
+     bottom: 0px;
+    z-index: 999;
+    background-color: #EDEFF1;
+    border-bottom: 0px;
+    font-weight: 500;
+    font-size: 14px;
+    
+  }
+  .grid-col--fixed-left{
+      .grid-item:nth-last-child(1){
+        background: #cbcdd2;
+      }
+    }
+      
+    .ScrollBtn{
+      position: absolute;
+      bottom: 12%;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      background: #D5D5D5;
+      border-radius: 50%;
+      cursor: pointer;
+       i{
+        line-height: 30px;
+        font-size: 17px;
+      }
+      
+    }
+    .leftBtn{
+      right: 5.5%;
+    }
+    .rightBtn{
+      right: 2%;
+    }
+}
+

@@ -1,0 +1,234 @@
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+    <ion-title>LTA Summary</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Year</ion-label>
+      <ion-select [(ngModel)]="year" (ionChange)="getLtaInfo()" value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-option *ngFor="let year of yearsArray" [value]="year">{{year}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-card class="personalDetails">
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4 class="headerTxt">
+          <p>Name:</p>
+        </ion-col>
+        <ion-col col-8 class="detailTxt">
+          <p><b>{{name|titlecase}}</b></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 class="headerTxt">
+          <p>Employee ID:</p>
+        </ion-col>
+        <ion-col col-8 class="detailTxt">
+          <p><b>{{userToken}}</b></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 class="headerTxt">
+          <p>Designation:</p>
+        </ion-col>
+        <ion-col col-8 class="detailTxt">
+          <p><b>{{designation}}</b></p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-4 class="headerTxt">
+          <p>Location:</p>
+        </ion-col>
+        <ion-col col-8 class="detailTxt">
+          <p><b>{{location|titlecase}}</b></p>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="LTADeatilCard" *ngIf="ltaRecords?.length>0" style="display: none;">
+    <div>
+      <ion-card-header no-padding>
+        <ion-row>
+          <ion-col col-3 text-center>
+            <h2>Description</h2>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <h2>Start Date</h2>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <h2>End Date</h2>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <h2>Amount</h2>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+
+      <ion-list>
+        <ion-row *ngFor="let data of ltaRecords; let i=index">
+          <ion-col col-3>
+            <p>{{data.WageTypeDescription }}</p>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <p>{{data.PeriodStart | date: 'dd/MM/yyyy'}}</p>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <p>{{data.PeriodEnd | date: 'dd/MM/yyyy' }}</p>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <p>₹ {{data.Amount }}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-9>
+            <p><b>Total</b></p>
+          </ion-col>
+          <ion-col col-3 text-center>
+            <p>₹ {{totalTax}}</p>
+          </ion-col>
+        </ion-row>
+      </ion-list>
+    </div>
+
+  </ion-card>
+  <ng-container *ngIf="ltaRecords?.length>0">
+    <ion-card *ngFor="let data of ltaRecords; let i=index">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="lta-data-label">Company Code</ion-col>
+            <ion-col>{{data.CompanyCode}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="lta-data-label">LTA Block Period</ion-col>
+            <ion-col>{{data.LTABlockPeriod}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="lta-data-label">Flexi Blocked Amount</ion-col>
+            <ion-col>{{data.FlexiBlockedAmount}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="lta-data-label">Claimed Amount</ion-col>
+            <ion-col>{{data.Claimed}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="lta-data-label">Calendar Year</ion-col>
+            <ion-col>{{data.CalenderYear}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="lta-data-label">Exemption Requested</ion-col>
+            <ion-col>{{data.ExempionReqested}}</ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="lta-data-label">Exempted Amount</ion-col>
+            <ion-col>{{data.ExemptedAmount}}</ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="lta-data-label">Total Amount</ion-col>
+            <ion-col><b>₹ {{totalTax}}</b></ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+
+  <ion-card *ngIf="ltaRecords?.length===0">
+    <!-- <p class="font-12-bold" style="text-align: center;margin: 30px 0px;">Data Not Present</p> -->
+    <div class="text-center errorBlock">
+      <img src="assets/img/no-record.png" height="100px" width="100px">
+      <div class="total-text">
+        No Records Found
+      </div>
+    </div>
+    <!-- <span class="font-12-bold">   </span> -->
+  </ion-card>
+
+  <ion-card style="display: none;">
+    <ion-card-content align="center" color="gray-main" class="ion-card-content">
+
+      <!-- <span class="salary"> ₹  {{total }} </span> -->
+    </ion-card-content>
+    <ion-card-content class="no-padding emp-details">
+      <ion-grid class="no-padding ">
+        <ion-row text-center>
+          <ion-col col-3 class="border-details">
+            <b> Name </b> {{name|titlecase}}
+          </ion-col>
+          <ion-col col-3 class="border-details">
+            <b> EmployeeID </b> {{userToken}}
+          </ion-col>
+          <ion-col col-3 class="border-details">
+            <b> Designation </b>{{designation}}
+          </ion-col>
+          <ion-col col-3 class="border-details">
+            <b> Location </b> {{location|titlecase}}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="no-padding details-card" style="display: none;">
+    <ion-card-content>
+      <ion-grid class="no-padding">
+        <ion-row align="left" class="no-padding sal-header">
+          <ion-col col-3 class="sal-details-header border-details">
+            Description
+          </ion-col>
+          <ion-col col-3 class="sal-details-header border-details">
+            Start
+          </ion-col>
+          <ion-col col-3 class="sal-details-header  border-details">
+            End
+          </ion-col>
+          <ion-col col-3 class="sal-details-header">
+            Amount
+          </ion-col>
+        </ion-row>
+
+        <div *ngIf="ltaRecords?.length>0">
+          <ion-row align="left" class="no-padding sal-details-content" *ngFor="let data of ltaRecords; let i=index">
+            <ion-col col-3 class="col-border" [ngStyle]="{'border-bottom':(ltaRecords.length-1) === i ? ' 1px solid #C0C1C6 ': '0px'}">
+              <span> {{data.WageTypeDescription }}</span>
+            </ion-col>
+            <ion-col col-3 class="col-border" [ngStyle]="{'border-bottom':(ltaRecords.length-1) === i ? ' 1px solid #C0C1C6 ': '0px'}">
+              {{data.PeriodStart | date: 'dd/MM/yyyy'}}
+            </ion-col>
+            <ion-col col-3 class="col-border" [ngStyle]="{'border-bottom':(ltaRecords.length-1) === i ? ' 1px solid #C0C1C6': '0px'}">
+              {{data.PeriodEnd | date: 'dd/MM/yyyy' }}
+            </ion-col>
+            <ion-col col-3 class="col-border" [ngStyle]="{'border-bottom':(ltaRecords.length-1) === i ? ' 1px solid #C0C1C6': '0px'}">
+              {{data.Amount }}
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <ion-row *ngIf="ltaRecords?.length>0" align="left" class="no-padding sal-header">
+          <ion-col col-6 class="sal-details-header border-details">
+            Total
+          </ion-col>
+          <ion-col col-3 class="sal-details-header border-details">
+            {{totalEarnings}}
+          </ion-col>
+          <ion-col col-3 class="sal-details-header">
+            {{totalDeductions }}
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div *ngIf="ltaRecords?.length===0" class="total">
+        <span class="font-12-bold"> Data Not Present </span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

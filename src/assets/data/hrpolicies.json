@@ -1,0 +1,36 @@
+{
+  "menulist": [{
+      "name": "Introduction",
+      "icon": "document"
+    },
+    {
+      "name": "Global Policies",
+      "icon": "document"
+    },
+    {
+      "name": "India Specific Policies",
+      "icon": "document"
+    },
+    {
+      "name": "Employment Terms & Agreements",
+      "icon": "document"
+    },
+    {
+      "name": "EMEA Specific Policies",
+      "icon": "document"
+    },
+    {
+      "name": "Guidlines",
+      "icon": "document"
+    },
+    {
+      "name": "Labour Laws",
+      "icon": "document"
+    },
+    {
+      "name": "Act in Mahindra",
+      "icon": "document"
+    }
+  ]
+
+}

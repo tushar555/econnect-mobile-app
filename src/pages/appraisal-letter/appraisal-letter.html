@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+    <ion-title>Appraisal Letter</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Financial Year</ion-label>
+      <ion-select [(ngModel)]="year" (ngModelChange)="downloadPdf()" value="brown" okText="Okay" cancelText="Dismiss">
+        <ion-option *ngFor="let year of yearsArray" [value]="year">{{year}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list>
+  <ion-item>
+    <ion-label>Year</ion-label>
+    <ion-select  [(ngModel)]="year" value="brown" okText="Okay" cancelText="Dismiss" (change)="downloadPdf()">
+      <ion-option  *ngFor="let year of yearsArray;let i=index" [value]="year">{{yearsArray[i]}}</ion-option>
+   </ion-select>
+  </ion-item>
+</ion-list> -->
+
+  <!--
+<ion-row>
+     <ion-col  col-12 class="monthBlock"  (click)="downloadPdf(year)" *ngFor="let year of yearsArray;let i=index">
+      <ion-card class="yearCard">
+          <ion-card-content>
+            <ion-item>
+              <ion-label>FY {{yearsArray[i]}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+     </ion-col>
+ </ion-row> -->
+
+  <ion-row *ngIf="!showNoRecord">
+    <ion-col col-12 class="monthBlock" (click)="getPDFFile(resp)" *ngFor="let resp of responseData;let i=index">
+      <ion-card class="yearCard">
+        <ion-card-content>
+          <ion-item>
+            <ion-label *ngIf="resp.Type=='AP'"> Compensation Letter</ion-label>
+            <ion-label *ngIf="resp.Type=='PP'"> Performance Pay Letter</ion-label>
+            <ion-label *ngIf="resp.Type=='HYPP'"> Half Yearly Performance Pay Letter</ion-label>
+
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="showNoRecord">
+    <ion-col col-12 class="monthBlock">
+      <ion-card>
+        <ion-card-content class="no-record">
+          No Record Found
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,76 @@
+page-salary-statement {
+    .scroll-content {
+         padding: 0px !important; 
+    }
+    .header{
+        font-size: 1.1rem;
+    }
+    .header-detail{
+        font-size: 1rem;
+        font-weight: bold
+    }
+    .ion-card-content{
+        font-weight: 400;
+        background-color: darkgray;
+        border-bottom: 2px solid #fed700;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;     
+    }
+    .salary{
+        font-size: 3rem;
+    }
+   
+    .no-padding{
+        padding: 0px;
+    }
+    .emp-info-header{
+        font-size: 1.1rem;
+        color: grey;
+    }
+    .emp-info-content{
+        font-size:1.0rem;
+        font-weight: bold; 
+    }
+    
+    .sal-details-header{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+   
+   .sal-header {
+       background-color: darkgrey;
+   }
+   
+   .sal-details-content{
+       font-size: 1.2rem;
+      // border: 1px solid grey;
+   }    
+   
+   .coloumn-border-right{
+      border-right:  1px solid lightgray;
+   }
+   
+   .coloumn-border-top{
+       border-top:  1px solid lightgray;
+    }
+   
+   .coloumn-border-left{
+       border-left:  1px solid lightgray; 
+    }
+   
+    .coloumn-border-bottom{
+       border-bottom:  1px solid lightgray; 
+    }
+    .card-content-md {
+        padding: 0px;
+       }
+    .download-btn{
+        width: 100%;
+        margin-left:5px;
+        padding-right: 2%;
+     }
+
+     .allpadding{
+        padding: 10px;
+     }
+}

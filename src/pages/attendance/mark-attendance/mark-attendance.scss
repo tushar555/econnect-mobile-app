@@ -1,0 +1,47 @@
+page-mark-attendance {
+  .currentDate.input-ios {
+    height: 3.6em;
+    .text-input-ios {
+      margin-top: calc(11px + 0.4em);
+    }
+  }
+  #map {
+    height: 75%;
+    margin-top: 10px;
+  }
+  .text-input-md{
+    margin: 14px 8px;
+  }
+  .text-input-ios {
+    margin: 14px 8px;
+   
+}
+  ion-row {
+    // border: 1px solid $light-gray;
+  }
+  #resetButtom{
+    position: absolute;
+    margin: -58px 0 0 0px;
+    width: 40px;
+    right: 26px;
+    height: 40px;
+    background: white;
+    font-weight: bold;
+    border-radius: 3px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+  }
+  ion-col {
+    padding: 0 5px !important;
+    text-transform: capitalize;
+    background: #fff;
+    color: $dark-gray;
+    font-weight: 600;
+  }
+  [col-4] {
+    background-color: $dark-gray;
+    color: white;
+    button {
+      color: white;
+    }
+  }
+}

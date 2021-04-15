@@ -1,0 +1,378 @@
+
+page-income-tax {
+  .button-md.activated {
+    background-color: #535353 !important;
+  }
+
+ion-footer{
+  .info {
+    ion-col{
+      .toast-message{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+  .decldiv {
+    //padding-left: 20px;
+    margin: auto;
+    text-align: center;
+  }
+  .button-ios.activated {
+    background-color: #535353 !important;
+    opacity: 1;
+  }
+  .derbtn {
+    background-color: #535353; //padding: 10px 6px;
+    font-size: 12px;
+    width: 95%;
+  }
+  .search {
+    //-moz-transition: opacity 0.4s ease-in-out;
+    //-o-transition: opacity 0.4s ease-in-out;
+    //-webkit-transition: opacity 0.4s ease-in-out;
+    transition: max-height 0.5s, overflow 0.5s 0.5s;
+  }
+  .item-inner {
+    border: 0; //
+    padding: 6px;
+  }
+  .pad-7 {
+    padding-top: 2px;
+  }
+  .item-md,
+  .item-ios {
+    padding: 0px !important;
+    padding-bottom: 1px !important
+  }
+  ion-label {
+    text-overflow: unset;
+    white-space: unset;
+  }
+  .search {
+    margin-right: 9px;
+    margin-left: 9px;
+  }
+  .sectionname {
+    font-weight: bold;
+  }
+  .counter {
+    //padding-top: 20px;
+    padding-left: 7px;
+    /* border-right: 1px solid #e5e5e5; */
+    padding-right: 0px;
+    color: #B9BCC2
+  }
+  .checkbox-ios .checkbox-icon {
+    margin-top: 6px !important;
+  }
+  .add-icon {
+    float: right;
+    padding-right: 11px;
+  }
+  .label-md,
+  .label-ios {
+    margin: 0px 0px 0px 0;
+  }
+  .item-block {
+    min-height: 2rem;
+  }
+  .item-md,
+  .item-ios {
+    padding: 6px;
+  }
+  input: {
+    outline: none;
+  }
+  .menu-in {
+    position: absolute;
+    width: 40px;
+    left: -40px;
+    z-index: 9999;
+    top: 60px;
+  }
+  .menu-out {
+    position: absolute;
+    width: 40px;
+    right: 0px;
+    z-index: 9999;
+    top: 60px;
+  }
+  .card-content-md,
+  .card-content-ios {
+    padding: 0px 0px !important;
+  }
+  .no-padding {
+    padding: 0px;
+  }
+  .font-12 {
+    font-size: 12px;
+  }
+  .income-summary {
+    .card-content-md,
+    .card-content-ios {
+      padding: 0px 0px !important;
+    }
+    .card-md,
+    .card-ios {
+      margin: 0px !important;
+      width: 100% !important;
+    }
+    .salary-details {
+      height: 4rem;
+      line-height: 2.8rem;
+      border: 1px solid rgb(232, 232, 232);
+    }
+  }
+  .emp-details {
+    .card-content-md,
+    .card-content-ios {
+      padding: 0px 0px !important;
+    }
+    .card-md,
+    .card-ios {
+      margin: 0px !important;
+      width: 100% !important;
+    }
+    .year {
+      background-color: rgb(185, 188, 194);
+    }
+    .salary-details {
+      height: 4rem;
+      line-height: 2.8rem;
+      border-right: 1px solid rgb(232, 232, 232)
+    }
+  }
+  .position-absolute {
+    position: absolute;
+  }
+  .card-header-md,
+  .card-content-ios {
+    font-size: 12px;
+    padding: 6px !important;
+  }
+  .card-content-md,
+  .card-content-ios {
+    padding: 4px 7px !important;
+    /* font-size: 1.4rem; */
+    line-height: 1.5 !important;
+  }
+  .main-toast-message {
+    background-color: #B9BCC2 !important;
+    color: #333333 !important;
+    padding: 1.5rem;
+  }
+  .incomeTaxCard {
+    ion-icon {
+      color: #7f7f7f !important;
+    }
+    .borderRight {
+      border-right: 1px solid rgb(232, 232, 232);
+    }
+    .borderBottom {
+      border-bottom: 1px solid rgb(232, 232, 232);
+      ion-icon {
+        font-size: 16px;
+      }
+    }
+    .slider {
+      .item-inner {
+        padding: 2px 5px;
+      }
+    }
+    .row-height {
+      height: 3rem !important;
+    }
+    .label-md,
+    .label-ios {
+      padding-left: 0px !important;
+    }
+    .CardFooterBlock ion-item {
+      padding-left: 2px;
+      .input-wrapper {
+        padding-left: 8px !important;
+      }
+    }
+    .item-inner {
+      padding-left: 0;
+    }
+  }
+  .main-menu {
+    .item-md [item-right],
+    .item-ios [item-right] {
+      margin: 0px 0px 0px 0px !important;
+    }
+  }
+  #block_container {
+    text-align: center;
+  }
+  #block1 {
+    width: 50% !important;
+    float: left !important;
+    border-right: 1px solid #B9BCC2;
+    display: inline;
+  }
+  #block2 {
+    display: inline;
+    width: 50% !important;
+    float: right !important;
+  }
+  .ion-md-trash:before {
+    padding-left: 10px !important;
+  }
+  ion-icon {
+    font-size: 15px !important;
+    min-height: 0 !important;
+  }
+  .innerp {
+    padding: 0px 5px;
+    font-weight: bold;
+    font-size: 10px !important
+  }
+  .searchbar-md .searchbar-input {
+    padding: 4px 52px;
+    font-size: 12px;
+    font-weight: 400;
+  }
+  .searchbar-md {
+    padding: 2px;
+  }
+  .slider {
+    position: absolute;
+    width: 100vw;
+    height: 70vh;
+    bottom: 0;
+    overflow: hidden;
+    background-color: #d0d3d8;
+    border-top: 5px #fef200 solid;
+    transition: all 0.5s;
+    box-shadow: 17px 0px 30px 0px rgba(0, 0, 0, 0.30);
+    overflow-y: auto;
+  }
+  .close {
+    //top: 100vh;
+    height: 0px; // -webkit-transition: width 2s;
+    // /* For Safari 3.1 to 6.0 */
+    // transition: width 2s;
+  }
+  .menu-title {
+    //padding: 12px;
+    width: 100vw; // position: absolute;
+    .t1_title {
+      padding: 8px;
+    }
+    .t1 {
+      float: left;
+      padding: 5px;
+      font-weight: bold;
+      .search {
+        transition: all 0.5s;
+        overflow: hidden;
+      }
+    }
+    .t2 {
+      float: right;
+      padding: 13px;
+    }
+    position:fixed;
+    z-index: 9999;
+    background-color: #d0d3d8 !important;
+  }
+  .card-md,
+  .card-ios {
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+  }
+}
+
+.arrowitem {
+  ion-label {
+    text-align: right;
+  }
+}
+
+.approved {
+  border: 1px solid #27ae60;
+  color: #27ae60;
+  padding: 5px;
+  font-size: 9px;
+  border-radius: 4px;
+  margin-right: 37px;
+}
+
+.pending {
+  border: 1px solid #2980b9;
+  color: #2980b9;
+  padding: 5px;
+  font-size: 9px;
+  border-radius: 4px;
+  margin-right: 37px;
+}
+
+.reject {
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  padding: 5px;
+  font-size: 9px;
+  border-radius: 4px;
+  margin-right: 37px;
+}
+
+.Saved {
+  border: 1px solid #2980b9;
+  color: #2980b9;
+  padding: 5px;
+  font-size: 9px;
+  border-radius: 4px;
+  margin-right: 37px;
+}
+
+#declarationDiv {
+  display: none;
+  margin-top: 45px;
+  .incomeTaxCard {
+    .borderBottom {
+      .item-inner {
+        padding: 2px 5px;
+      }
+    }
+  }
+}
+
+#box1 {
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+// .list-md,
+// .list-ios{
+//   height: 55px !important;
+// }
+
+.scroll-div{
+  overflow-y: scroll;
+  height: calc(100% - 230px);
+}
+
+.info{
+  .col{
+    padding: 1px !important;
+  }
+  background: white;
+}
+
+// !* ----------- iPhone 5, 5S, 5C and 5SE ----------- *!
+@media only screen and (device-width: 320px) and (device-height: 568px) and (device-aspect-ratio: 40/71) {
+  page-income-tax{ .scroll-content{margin-bottom: 32%; }}
+}
+//  galaxy s5 portrait
+@media only screen and (min-width: 360px) and (max-width: 640px) and (orientation: portrait) {
+  page-income-tax{ .scroll-content{margin-bottom: 24%; }}
+}
+/* -----------  iphone 6/7/8 plus----------- */
+@media (min-width: 414px) and (max-width: 736px) and (orientation: portrait) {
+  page-income-tax{ .scroll-content{margin-bottom: 21%; }}
+}

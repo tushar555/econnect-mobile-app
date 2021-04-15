@@ -1,0 +1,121 @@
+<ion-header>
+    <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+      <ion-title>Flexi Declaration</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  
+    <ion-card class="personalDetails"  id="flexiCard">
+        <ion-card-content >
+          <ion-row>
+            <ion-col col-6>
+             <p>Flexi Pay:</p>
+             </ion-col>
+            <ion-col col-6>
+               <p><b>{{FlexiPay}}</b></p>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-6>
+                 <p>Declared Amount:</p>
+              </ion-col>
+              <ion-col col-6>
+                  <p><b>{{DeclaredAmount}}</b></p>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-6>
+                  <p>Balance Pay:</p>
+                </ion-col>
+                <ion-col col-6>
+                    <p><b>{{BalanceFlexi}}</b></p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col col-6  >
+                    <p>Year:</p>
+                  </ion-col>
+                  <ion-col col-6>
+                      <p><b>{{FlexiYear}}</b></p>
+                  </ion-col>
+                </ion-row>
+           
+           </ion-card-content>
+          </ion-card>
+    <ion-card class="flexiCard" >
+      <div>
+            <ion-card-header no-padding>
+              <ion-row >
+                <ion-col col-8>
+                   <ion-item>
+                       <h2>Flexi Declaration</h2>
+                     </ion-item> 
+                </ion-col>
+                <ion-col col-4>
+                   <ion-item>
+                       <h2>  Dec. Amt</h2>
+                     </ion-item>  
+                </ion-col>
+              </ion-row>
+             </ion-card-header>
+            
+             <ion-list [ngStyle]="{'max-height': FlexiCard + 'px'}" style="margin: 0px">
+               <!-- <button type="btn" (click)="getFlexiDetails()">submit</button> -->
+              <ion-row *ngFor="let fd of flexiDetails; let i=index"  [ngClass]="{'uneditable':!fd.IsEditable}">
+                <ion-col col-8>
+                   <ion-item>
+                       <h2>{{fd.FlexiComponent}}</h2>
+                       <p>{{fd.Limit}}</p>
+                     </ion-item>
+                </ion-col>
+                <ion-col col-4>
+                   <ion-item>
+                       <!-- <ion-input type="text" placeholder="Enter Amt"  (blur)="validateAmountKeyUp($event,fd.Limit,i)" (ionBlur)="footerToggle('show')" (ionFocus)="footerToggle('hide')" (keyup)="validateAmountKeyUp(event,fd.Limit,i)"
+                       (keypress)="validateAmountKeyPress($event,fd.Limit,i)" [disabled]="!fd.IsEditable"  [(ngModel)]="fd.DeclaredAmount"></ion-input> -->
+                       <ion-input type="text" *ngIf="fd.FlexiId !== 6" class="form-control" (blur)="validateAmountKeyUp($event, fd.Limit, i)"
+                       (keyup)="validateAmountKeyUp(event, fd.Limit, i)" (ionBlur)="footerToggle('show')" (ionFocus)="footerToggle('hide')"
+                       (keypress)="validateAmountKeyPress($event, fd.Limit, i)" placeholder="Enter Amt"
+                       [disabled]="fd.IsEditable == false || fd.isOpted == false " [(ngModel)]="fd.DeclaredAmount" ></ion-input> 
+                       <ion-select  #selectCEA  id="selectCEA1" *ngIf="fd.FlexiId == 6"  [(ngModel)]="fd.DeclaredAmount" (ionChange)="validateAmountKeyUp($event, fd.Limit, i)"  [disabled]="fd.IsEditable == false || fd.isOpted == false ">
+                          <!-- <ion-option *ngFor="let count of quantity" value="count"></ion-option> -->
+                            <ion-option style="padding:20px"  [value]="0">0</ion-option>
+                            <ion-option  style="padding:20px"  [value]="1200" *ngIf="fd.Limit >= 1200">1200</ion-option>
+                            <ion-option  style="padding:20px"  [value]="2400" *ngIf="fd.Limit >= 2400">2400 </ion-option>
+                        </ion-select>
+                       <!-- <select class="form-control" id="selectCEA"  #selectCEA  [value]='fd.DeclaredAmount' *ngIf="fd.FlexiId == 6"  [(ngModel)]="fd.DeclaredAmount" (change)="validateAmountKeyUp($event, fd.Limit, i)"  [disabled]="fd.IsEditable == false || fd.isOpted == false ">
+                         <option style="padding:20px"  [value]="0">0</option>
+                         <option style="padding:20px"  [value]="1200" *ngIf="fd.Limit >= 1200">1200</option>
+                         <option style="padding:20px"  [value]="2400" *ngIf="fd.Limit >= 2400">2400 </option>
+                       </select> -->
+                     </ion-item>
+                </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+                 <button type="button" class="btn  btn-md" style="background: red;padding: 10px;width: 100%" (click)="showSubmitFlexi()">Submit</button>
+              </ion-row> -->
+          </ion-list>
+          </div>
+
+      </ion-card>
+      <ion-footer id="footerFlexi" *ngIf="showFooter && showSubmit == flexiCount">
+          <div *ngIf="FlexiPay !== 0" class="text-center flexiFooterclosed">
+              <span>Flexi Declaration Closed From Admin</span>
+          </div>
+          <div *ngIf="FlexiPay == 0" class="text-center flexiFooterclosed">
+              <span>Employee Had Not Opted For Flexi Pay.</span>
+          </div>
+      </ion-footer>
+      <ion-footer id="footerFlexi" *ngIf="showFooter && showSubmit !== flexiCount">
+        
+            <div class="toast-message font-12-bold" color="dark-gray" text-center="" (click)="showSubmitFlexi()">Submit</div>
+            <!-- <ion-toolbar>
+            <ion-buttons  (click)="showSubmitFlexi()">
+            <button ion-button class="btn" style="width: 100%;">
+               <button  ion-button full color="dark-gray">Submit</button>
+            </button>
+          </ion-buttons>
+      
+        </ion-toolbar> -->
+      </ion-footer>
+</ion-content>

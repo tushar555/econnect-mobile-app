@@ -1,0 +1,113 @@
+<!--
+  Generated template for the TaxSummaryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+    <ion-title>Tax Summary</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngFor="let data of taxDeductionArray">
+    <span>{{data.PeriodStart | date:"MMMM"}}</span>
+  </div>
+</ion-content>
+
+<ion-content>
+  <ion-list class="year">
+    <ion-item>
+      <ion-label class="font-12">Year</ion-label>
+      <ion-select [(ngModel)]="year" (ngModelChange)="onChange($event)">
+        <ion-option class="font-12" *ngFor="let year of yearsArray" [value]="year">{{year}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-content align="center" color="gray-main" class="ion-card-content">
+
+      <span class="font-12-bold"> ₹   {{totalDeduction | inrFormat}} </span>
+    </ion-card-content>
+    <ion-card-content class="no-padding emp-details">
+      <ion-grid class="no-padding ">
+        <ion-row text-center>
+          <ion-col col-3 class="border-details">
+            <span class="font-10-bold"> Name </span>
+            <div class="font-12"> {{name |titlecase}} </div>
+          </ion-col>
+          <ion-col col-3 class="border-details">
+            <span class="font-10-bold">  EmployeeID </span>
+            <div class="font-12">{{userToken}}</div>
+          </ion-col>
+          <ion-col col-3 class="border-details">
+            <span class="font-10-bold"> Designation </span>
+            <div class="font-12">{{designation |titlecase}} </div>
+          </ion-col>
+          <ion-col col-3 class="border-details">
+            <span class="font-10-bold">  Location </span>
+            <div class="font-12">{{location |titlecase}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="no-padding details-card">
+    <ion-card-content>
+      <ion-grid class="no-padding">
+        <ion-row align="left" class="no-padding sal-header">
+          <ion-col col-6 class="sal-details-header border-details font-10">
+            Description
+          </ion-col>
+          <ion-col col-3 class="sal-details-header border-details font-10">
+            Month
+          </ion-col>
+          <ion-col col-3 class="sal-details-header font-10">
+            Deductions
+          </ion-col>
+        </ion-row>
+
+        <div *ngIf="taxDeductionArray?.length>0">
+          <ion-row align="left" class="no-padding" *ngFor="let data of taxDeductionArray; let i=index">
+            <ion-col col-6 class="col-border" [ngStyle]="{'border-bottom':(taxDeductionArray.length-1) === i ? ' 1px solid #C0C1C6 ': '0px'}">
+              <span class="font-12"> {{data.WageTypeDescription}}</span>
+            </ion-col>
+            <ion-col col-3 class="col-border" [ngStyle]="{'border-bottom':(taxDeductionArray.length-1) === i ? ' 1px solid #C0C1C6 ': '0px'}">
+              <span class="font-12"> {{data.PeriodStart | date:"MMMM"}}</span>
+            </ion-col>
+            <ion-col col-3 [ngStyle]="{'border-bottom':(taxDeductionArray.length-1) === i ? ' 1px solid #C0C1C6': '0px'}">
+              <span class="font-12"> {{data.Amount | inrFormat}}</span>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <ion-row *ngIf="taxDeductionArray?.length>0" align="left" class="no-padding sal-header">
+          <ion-col col-6 class="sal-details-header border-details">
+            <span class="font-12-bold"> Total </span>
+          </ion-col>
+          <ion-col col-3 class="sal-details-header border-details">
+
+          </ion-col>
+          <ion-col col-3 class="sal-details-header">
+            <span class="sal-details-header"> {{totalDeduction | inrFormat}} </span>
+          </ion-col>
+        </ion-row>
+        <div *ngIf="taxDeductionArray?.length===0" class="total">
+          <span class="font-12-bold">  Data Not Present </span>
+        </div>
+
+        <!-- <div *ngIf="paymentData?.length>0">
+            Total Net Pay {{total | inrFormat}}
+  
+          </div> -->
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

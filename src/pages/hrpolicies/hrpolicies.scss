@@ -1,0 +1,20 @@
+page-hrpolicies {
+  .col {
+    padding: 4px !important;
+  }
+  .content {
+    padding: 0px !important;
+  }
+  .ios,
+  .md {
+    home-page {
+      .scroll {
+        height: 100%
+      }
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}

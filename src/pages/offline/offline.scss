@@ -1,0 +1,22 @@
+page-offline {
+  .scroll-content {
+    margin-top: 0 !important;
+    background: #ffffff !important;
+  }
+  .offline-content {
+    height: 70%;
+    text-align: center;
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    div {
+      margin: auto;
+      img {
+        width: 50%;
+      }
+    }
+  }
+}

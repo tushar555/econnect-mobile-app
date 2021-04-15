@@ -1,0 +1,507 @@
+<ion-header mode="md">
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'" class="attendanceDetails">
+    <ion-title>Attendance</ion-title>
+
+    <ion-buttons end class="actionBtnBlock">
+      <div class="outerContainer">
+        <div class="TabBtn first" (click)="loadCalendarView()" [ngClass]="showCalendar ? 'actionBtnselected' : ''">
+          <ion-icon name="ios-calendar-outline"></ion-icon>
+        </div>
+        <div class="TabBtn" (click)="loadListView()" [ngClass]="showCalendar ? '' : 'actionBtnselected'">
+          <ion-icon name="ios-list-box-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="dateSelecter" *ngIf="!showCalendar">
+        <ion-item class="iondatemonth">
+          <ion-datetime displayFormat="MMM, YYYY" pickerFormat="YYYY-MMM" [min]="ionDTMin" [max]="ionDTmdMax"
+            [(ngModel)]="ionDTmd" (ngModelChange)="dateChanged($event)"></ion-datetime>
+        </ion-item>
+      </div>
+      <button ion-button icon-only (click)="openAttendancePolicy()" style="margin: 0 0.5rem;">
+        <ion-icon name="ios-information-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding [ngClass]="companyName == 'MIBL'? 'MIBLEMP' : ''">
+  <ion-row *ngIf="isHoEmp && showCalendar" class="weekCount">
+    <ion-col [class.selectedGrid]="i == selectedGrid" (click)="showWeekDetails(i)"
+      *ngFor="let week of arrayOne() ; let i=index" col>
+      <span> W{{i+1}} </span>
+    </ion-col>
+  </ion-row>
+
+  <div class="calendar-body" *ngIf="showCalendar">
+    <div class="calendar-top-header" ion-row>
+      <!--<div class="calendar-today" color="white-main">
+
+            </div>-->
+      <div class="calendar-current-date" ion-col col-8>
+        <!-- <span (click)="this.getDaysOfMonth(today.getMonth()+1, today.getFullYear())">{{today | date:'MMM'}} <span class="current-date">{{today | date:'dd'}}</span> {{today | date:'yyyy'}}</span>-->
+        <span>{{today | date:'MMM'}}
+          <span class="current-date">{{today | date:'dd'}}</span> {{today |
+          date:'yyyy'}}, {{today | date : 'EEE' | uppercase}}</span>
+      </div>
+      <div ion-col col-4>
+        <button ion-button color="dark-gray" *ngIf="IsAttendancePunch" class="btn-small mark-attendance-btn" (click)="markAttendance()">
+         {{loginStatusDesc}}
+        </button>
+      </div>
+    </div>
+    <div class="calendar-header">
+      <ion-row class="calendar-month" no-padding>
+        <ion-col>
+          <ion-item class="iondatemonth dateIcon">
+            <ion-label>Select Month </ion-label>
+            <ion-datetime mode="md" displayFormat="MMM, YYYY" pickerFormat="YYYY-MMM" [min]="ionDTMin"
+              [max]="ionDTmdMax" [(ngModel)]="ionDTmd" (ngModelChange)="dateChanged($event)">
+            </ion-datetime>
+
+            <ion-icon name="ios-arrow-down" item-right></ion-icon>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div (swipe)="swipeCalendar($event)"
+      [ngClass]="{'swipe-left': direction == '2', 'swipe-right': direction == '4', '': direction == '0'}">
+      <ion-grid>
+        <ion-row class="calendar-weekday">
+          <ion-col>Sun</ion-col>
+          <ion-col>Mon</ion-col>
+          <ion-col>Tue</ion-col>
+          <ion-col>Wed</ion-col>
+          <ion-col>Thu</ion-col>
+          <ion-col>Fri</ion-col>
+          <ion-col>Sat</ion-col>
+        </ion-row>
+        <ion-row class="calendar-date">
+          <ion-col col-1 *ngFor="let lastDay of daysInLastMonth"
+            [ngClass]="{'last-month': true, 'applyBorder': lastMonthActive}">
+            <span class="font-10">{{lastDay}}</span>
+          </ion-col>
+          <!--<ion-col col-1 *ngFor="let d of daysInThisMonth; let i=index" (click)="(d.day < currentDate && d.month <= todayMonth) ? dayDetails(d) : (d.day === currentDate ? markAttendance() : false)"
+                      [ngClass]="{'applyBorder':(checkDate(d) && isHoEmp && d.month == todayMonth), 'currentDateCol': currentDate === d.day, 'date-present':d.Status === 'P', 'date-absent':d.Status === 'A','date-leave':d.Status === 'T'}">-->
+          <ion-col col-1 *ngFor="let d of daysInThisMonth; let i=index"
+            (click)="(d.day < currentDate) ? dayDetails(d) : (d.day === currentDate ? markAttendance() : false)"
+            [ngClass]="{'applyBorder':(checkWeekActive(d) && isHoEmp), 'currentDateCol': currentDate === d.day}">
+            <!-- && d.month <= todayMonth -->
+            <span class="currentDate" *ngIf="currentDate === d.day; else otherDate">
+              {{d.day}}
+              <div class="bullet"></div>
+            </span>
+            <!-- <span class="currentDate" *ngIf="checkDate(d)">{{d.day}}</span> -->
+
+            <ng-template #otherDate class="otherDate">
+              <ng-container *ngIf="d.day < currentDate; else disabledDate">
+                <!--<span class="font-10">{{d.Status}}</span>-->
+                <span [ngClass]="{'optional-holiday':(d.Status=='O'||d.Status=='H')}" class="font-bold">
+                  {{d.day}}
+                  <div class="bullet" [ngClass]="'bullet'+d.Status"></div>
+                  <div class="bullet bulletR" *ngIf="d.SFRegularized == true"></div>
+                </span>
+                <br />
+              </ng-container>
+            </ng-template>
+            <ng-template #disabledDate>
+              <ng-container *ngIf="d.day > currentDate">
+                <!--<span class="font-10">{{d.Status}}</span>-->
+                <span [ngClass]="{'optional-holiday':(d.Status=='O'||d.Status=='H')}"
+                  class="disabled-date font-bold">{{d.day}}</span>
+                <br />
+              </ng-container>
+            </ng-template>
+          </ion-col>
+          <ion-col col-1 *ngFor="let nextDay of daysInNextMonth; let i=index;"
+            [ngClass]="{'next-month': true, 'applyBorder': nextMonthActive(i)}">
+            <span class="font-10">{{nextDay}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!--<div class="date-body">-->
+    <!--</div>-->
+  </div>
+  <div class="calendar-list calendarListLayout" *ngIf="!showCalendar">
+    <div class="newTbl">
+      <div class="grid-container">
+        <!-- <div class="gridnew"> -->
+        <div class="grid-col grid-col--fixed-left">
+          <div class="grid-item grid-item--header">
+            <p class="verticalAllignment">Date</p>
+          </div>
+
+          <div *ngFor="let week of weeklyData; let i = index;">
+            <div class="grid-item darkWeekRow" *ngIf="isHoEmp">
+              <p class="weekCounthours">
+                <ion-icon ios="ios-time" md="md-time"></ion-icon>
+                W{{i+1}} Hrs : {{calculateWeeklyTime(i).hours}}h
+                {{calculateWeeklyTime(i).minutes}}m
+              </p>
+            </div>
+            <div *ngFor="let dt of week; let j = index;" class="grid-item gridBlock"
+              [ngClass]="{'notcurmonth': checkDateCurMonth(dt.AttendanceDate), 'typecurrentDate': dt.currentDate}"
+              (click)="checkDateCurMonth(dt.AttendanceDate) ? false : dayDetails(dt)">
+              <div class="triangle" [ngStyle]="{'top':dt.SFRegularized? '0px' : '' }" [ngClass]="'triangle'+dt.Status">
+              </div>
+              <div [ngStyle]="{'top':dt.SFRegularized? '9px' : '' }" class="triangle triangleR"
+                *ngIf="dt.SFRegularized"></div>
+              <p>
+                {{dt.AttendanceDate | date: 'dd-MMM-yy'}} / {{dt.AttendanceDate
+                | date: 'EEE'}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="grid-col" style="display: none;">
+            <div class="grid-item grid-item--header">
+              <p>Day</p>
+            </div>
+            <div *ngFor="let week of weeklyData; let i = index;">
+              <div class="grid-item darkWeekRow " *ngIf="isHoEmp">
+                <p class="weekCounthours"></p>
+              </div>
+              <div *ngFor="let dt of week; let j = index;" class="grid-item" [ngClass]="{'notcurmonth': checkDateCurMonth(dt.AttendanceDate)}" (click)="checkDateCurMonth(dt.AttendanceDate) ? false : dayDetails(dt)">
+                <p>{{dt.AttendanceDate | date: 'EEE'}}</p>
+              </div>
+            </div>
+          </div> -->
+        <div class="grid-col">
+          <div class="grid-item grid-item--header">
+            <p>System <br />Punch In</p>
+          </div>
+          <div *ngFor="let week of weeklyData; let i = index;">
+            <div class="grid-item darkWeekRow " *ngIf="isHoEmp">
+              <p class="weekCounthours"></p>
+            </div>
+
+            <!-- <ng-template #dataCell> -->
+            <div *ngFor="let dt of week; let j = index;" class="grid-item"
+              [ngClass]="{'notcurmonth': checkDateCurMonth(dt.AttendanceDate), 'week-off':dt.Status=='W','typecurrentDate': dt.currentDate}"
+              (click)="checkDateCurMonth(dt.AttendanceDate) ? false : dayDetails(dt)">
+              <p *ngIf="dt.Status=='W'">
+                Weekly Off
+              </p>
+              <p *ngIf="dt.Status!='W'">
+                {{dt.TimeIn==null ? '-' : (formatDate(dt.TimeIn,'HH:mm'))}}
+              </p>
+            </div>
+            <!-- </ng-template> -->
+          </div>
+        </div>
+        <div class="grid-col">
+          <div class="grid-item grid-item--header">
+            <p>System <br />Punch Out</p>
+          </div>
+          <div *ngFor="let week of weeklyData; let i = index;">
+            <div class="grid-item darkWeekRow " *ngIf="isHoEmp">
+              <p class="weekCounthours"></p>
+            </div>
+            <div *ngFor="let dt of week; let j = index;" class="grid-item"
+              [ngClass]="{'notcurmonth': checkDateCurMonth(dt.AttendanceDate), 'week-off':dt.Status=='W','typecurrentDate': dt.currentDate}"
+              (click)="checkDateCurMonth(dt.AttendanceDate) ? false : dayDetails(dt)">
+              <!-- <div class="triangle"></div> -->
+              <p class="week-off" *ngIf="dt.Status=='W'"></p>
+              <p *ngIf="dt.Status!='W'">
+                {{dt.TimeOut==null ? '-' : (formatDate(dt.TimeOut,'HH:mm'))}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-col">
+          <div class="grid-item grid-item--header">
+            <p>Calculated Time In</p>
+          </div>
+          <div *ngFor="let week of weeklyData; let i = index;">
+            <div class="grid-item darkWeekRow " *ngIf="isHoEmp">
+              <p class="weekCounthours"></p>
+            </div>
+            <div *ngFor="let dt of week; let j = index;" class="grid-item"
+              [ngClass]="{'notcurmonth': checkDateCurMonth(dt.AttendanceDate), 'week-off':dt.Status=='W','typecurrentDate': dt.currentDate}"
+              (click)="checkDateCurMonth(dt.AttendanceDate) ? false : dayDetails(dt)">
+              <!-- <div class="triangle"></div> -->
+              <p class="week-off" *ngIf="dt.Status=='W'"></p>
+              <p *ngIf="dt.Status!='W'">
+                {{dt.TimeInConsidered==null ? '-' :
+                (formatDate(dt.TimeInConsidered,'HH:mm'))}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-col">
+          <div class="grid-item grid-item--header">
+            <p>Calculated Time Out</p>
+          </div>
+          <div *ngFor="let week of weeklyData; let i = index;">
+            <div class="grid-item darkWeekRow " *ngIf="isHoEmp">
+              <p class="weekCounthours"></p>
+            </div>
+            <div *ngFor="let dt of week; let j = index;" class="grid-item"
+              [ngClass]="{'notcurmonth': checkDateCurMonth(dt.AttendanceDate), 'week-off':dt.Status=='W', 'typecurrentDate': dt.currentDate}"
+              (click)="checkDateCurMonth(dt.AttendanceDate) ? false : dayDetails(dt)">
+              <!-- <div class="triangle"></div> -->
+              <p class="week-off" *ngIf="dt.Status=='W'"></p>
+              <p *ngIf="dt.Status!='W'">
+                {{dt.TimeOutConsidered==null? '-' :
+                (formatDate(dt.TimeOutConsidered,'HH:mm'))}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="grid-col">
+          <div class="grid-item grid-item--header">
+            <p>
+              Clocked<br />
+              Hours
+            </p>
+          </div>
+          <div *ngFor="let week of weeklyData; let i = index;">
+            <div class="grid-item darkWeekRow " *ngIf="isHoEmp">
+              <p class="weekCounthours"></p>
+            </div>
+            <div *ngFor="let dt of week; let j = index;" class="grid-item"
+              [ngClass]="{'notcurmonth': checkDateCurMonth(dt.AttendanceDate), 'week-off':dt.Status=='W', 'typecurrentDate': dt.currentDate}"
+              (click)="checkDateCurMonth(dt.AttendanceDate) ? false : dayDetails(dt)">
+              <!-- <div class="triangle"></div> -->
+              <p class="week-off" *ngIf="dt.Status=='W'"></p>
+              <p *ngIf="dt.Status!='W'">
+                {{TimeMinutes(dt.MinutesConsidered)}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- <div style="padding: 20px"> Remove this div when new list is functional</div> -->
+  <!-- <div class="calendar-list" *ngIf="!showCalendar">
+    <ion-grid>
+      <ion-row class="calendar-month header-row">
+        <ion-col col-2 (click)="goToLastMonth()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </ion-col>
+        <ion-col col-8>{{today | date:'MMM'}} {{today | date:'yyyy'}}</ion-col>
+        <ion-col col-2 (click)="goToNextMonth()">
+          <ion-icon name="ios-arrow-forward"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="header-row">
+        <ion-col>Date</ion-col>
+        <ion-col>Day</ion-col>
+        <ion-col>Time In</ion-col>
+        <ion-col>Time Out</ion-col>
+        <ion-col>Considered Time In</ion-col>
+        <ion-col>Consdered Time Out</ion-col>
+        <ion-col>Hours</ion-col>
+      </ion-row>
+      <ion-row *ngFor="let d of daysInThisMonth" (click)="(d.day < currentDate && d.month <= todayMonth) ? dayDetails(d) : (d.day === currentDate ? markAttendance() : false)"
+        [ngClass]="{'currentDateCol': currentDate === d.day, 'date-present':d.Status === 'P', 'date-absent':d.Status === 'A', 'date-holiday':d.Status === 'H','date-leave':d.Status === 'T', 'date-weeklyoff': d.Status === 'W', 'date-optional':d.Status === 'O', 'date-regularize':d.SFRegularized}">
+        <ion-col>{{d.AttendanceDate | date:'dd-MMM-yy'}}</ion-col>
+        <ion-col>{{d.AttendanceDate| date:'EE'}}</ion-col>
+        <ion-col>{{(d.TimeIn !=='No details found' && d.TimeIn) ? (formatDate(d.TimeIn,'HH:mm:ss')) : '-'}}
+        </ion-col>
+        <ion-col>{{(d.TimeOut !=='No details found' && d.TimeOut) ? (formatDate(d.TimeOut,'HH:mm:ss')) : '-'}}
+        </ion-col>
+        <ion-col>12:00</ion-col>
+        <ion-col>10:00</ion-col>
+        <ion-col>{{d.clockedHours}}</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+  <div class="weekly-hours" *ngIf="showCalendar && isHoEmp" no-padding>
+    <!--<ion-list>//-->
+    <!--<button>//-->
+    <span *ngIf="futureDateWeek()" class="hrs-label"><strong>No punch data available.</strong></span>
+    <!--<span *ngIf="futureDateWeek()" class="hrs-label"><strong>Cumulative hrs to be calculated at the end of week </strong></span>-->
+    <!--<ng-container>-->
+    <ng-container *ngIf="!futureDateWeek()">
+      <ion-icon name="md-time"></ion-icon>
+      <span class="hrs-label">Weekly Hours:
+        <strong>{{weeklyTotal.hours}} hrs {{weeklyTotal.minutes}} mins
+        </strong></span>
+    </ng-container>
+    <!--</button>//-->
+    <!--</ion-list>//-->
+  </div>
+  <div class="legendPanel" [ngClass]="(openFooter == true) ? 'applyRight' : ''">
+    <!-- <ion-row style="display: none;">
+        <div class="arrow-up"></div>
+        <div class="arrow-down"></div>
+     </ion-row> -->
+    <ion-row *ngIf="companyName != 'MIBL'">
+      <div class="uppertriangle">
+        <img src="assets/img/up-triangle2(1).png" />
+      </div>
+      <div class="downtriangle">
+        <img src="assets/img/down-triangle2(1).png" />
+      </div>
+    </ion-row>
+    <ion-row *ngIf="companyName == 'MIBL'">
+      <div class="uppertriangle">
+        <img src="assets/img/up-triangleRed2(1).png" />
+      </div>
+      <div class="downtriangle">
+        <img src="assets/img/down-triangleRed2(1).png" />
+      </div>
+    </ion-row>
+
+    <ion-row class="legend-grid">
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-present"></ion-icon>
+          <span>Present</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-weeklyoff"></ion-icon>
+          <span>Weekly Off</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-absent"></ion-icon>
+          <span>Absent</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-optional"></ion-icon>
+          <span>Optional</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-leave"></ion-icon>
+          <span>Time Off</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-regularize"></ion-icon>
+          <span>Regularized</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-holiday"></ion-icon>
+          <span>Holiday</span>
+        </button>
+      </div>
+    </ion-row>
+  </div>
+
+  <!-- <div class="legendBtn"  [ngClass]=" {'applyTop': openFooter, 'redTheme':companyName == 'MIBL' ,  'yellowTheme' : companyName !== 'MIBL'}" (click)="openFooter = !openFooter"> <ion-icon name="arrow-back"></ion-icon></div> -->
+  <div class="legendBtn" [ngClass]="(openFooter == true) ? 'applyTop' : ''" (click)="openFooter = !openFooter">
+    <ion-icon name="arrow-back"></ion-icon>
+  </div>
+</ion-content>
+<ion-footer color="white-main" [ngClass]="(openFooter == true) ? 'applyHeight' : ''" style="display: none;">
+  <ion-grid class="legend-grid">
+    <ion-row>
+      <ion-col>
+        <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-present"></ion-icon>
+          <span class="legendTxt">Present</span>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-weeklyoff"></ion-icon>
+          <span class="legendTxt">Weekly Off</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-absent"></ion-icon>
+          <span class="legendTxt">Absent</span>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-optional"></ion-icon>
+          <span class="legendTxt">Optional</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-leave"></ion-icon>
+          <span class="legendTxt">Time Off</span>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button clear padding-right margin-right>
+          <ion-icon name="ios-square" class="icon-regularize"></ion-icon>
+          <span class="legendTxt">Regularized</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-holiday"></ion-icon>
+          <span class="legendTxt">Holiday</span>
+        </button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-grid> -->
+    <!-- <ion-row> -->
+    <!-- <ion-col> -->
+    <!--<div>
+          <ion-icon name="flash"></ion-icon>
+        </div>-->
+    <!-- <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-present"></ion-icon>
+          <span>Present</span>
+        </button> -->
+    <!-- </ion-col> -->
+    <!-- <ion-col> -->
+    <!-- <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-absent"></ion-icon>
+          <span>Absent</span>
+        </button> -->
+    <!-- </ion-col> -->
+    <!-- <ion-col> -->
+    <!-- <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-leave"></ion-icon>
+          <span>Time Off</span>
+        </button> -->
+    <!-- </ion-col> -->
+    <!-- <ion-col> -->
+    <!-- <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-holiday"></ion-icon>
+          <span>Holiday</span>
+        </button> -->
+    <!-- </ion-col> -->
+    <!-- <ion-col> -->
+    <!-- <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-weeklyoff"></ion-icon>
+          <span>Weekly Off</span>
+        </button> -->
+    <!-- </ion-col> -->
+    <!-- <ion-col> -->
+    <!-- <button ion-button clear>
+          <ion-icon name="ios-square" class="icon-optional"></ion-icon>
+          <span>Optional</span>
+        </button> -->
+    <!-- </ion-col> -->
+    <!-- <ion-col> -->
+    <!-- <button ion-button clear padding-right margin-right>
+          <ion-icon name="ios-square" class="icon-regularize"></ion-icon>
+          <span>Regularize</span>
+        </button> -->
+    <!-- </ion-col> -->
+    <!-- </ion-row> -->
+    <!-- </ion-grid> -->
+  </ion-grid>
+</ion-footer>
+<div style="display: none;" class="arrowUpBtn" [ngClass]="(openFooter == true) ? 'applyBottom' : ''"
+  (click)="openFooter = !openFooter">
+  <ion-icon name="arrow-up"></ion-icon>
+</div>

@@ -1,0 +1,928 @@
+page-admin-attendance {
+  .content-ios{
+    .scroll-content {
+    padding-left: env(safe-area-inset-left) !important;   
+    //padding-right: env(safe-area-inset-right) !important;   
+    }
+  }
+  ion-navbar.toolbar {
+    min-height: 40px;
+    // padding-top: 0px;
+  }
+  .fake-input{
+  .searchbar{
+   height:42px;
+  // background: #fff;
+  }
+}
+.iondatemonth{
+  height: 44px;
+  min-height: 44px;
+  .item-inner{
+    border: 0 none !important;
+  }
+}
+  .scroll-content {
+    padding: 8px !important;
+  }
+
+  .card-content-md {
+    padding: 0px;
+  }
+  #userData {
+    padding: 15px;
+    ion-card {
+      margin: 0px;
+      width: 100%;
+      background: transparent !important;
+      box-shadow: none;
+    }
+  }
+  .total {
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem;
+  }
+  .ion-card-content {
+    background-color: #6d6e72;
+    color: #ffffff;
+    border-bottom: 2px solid $yellow; //padding-top: 1rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .emp-details {
+    .border-details {
+      border-right: 1px solid #dfe0e2;
+      border-top: 0px !important;
+    }
+  }
+  .details-card {
+    border: 1px solid #cdcdcf;
+    // max-height: 56%;
+    overflow-y: auto;
+    .sal-header {
+      background-color: #dbdee5;
+      .sal-details-header {
+        font-size: 1.1rem;
+        font-weight: bold; //
+      }
+      .border-details {
+        border-right: 1px solid #c0c1c6;
+      }
+    }
+  }
+  .sal-details-content {
+    // font-size: 1.1rem;
+    .col-border {
+      border-right: 1px solid #dfe0e2;
+    }
+  }
+  .no-padding {
+    padding: 0px;
+  }
+  .total {
+    font-weight: bold;
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem;
+  }
+  .download-btn {
+    width: 100%;
+    margin-left: 5px;
+    padding-right: 2%;
+  }
+  .dec-none {
+    text-decoration: none;
+  }
+  .card-item {
+    padding: 1rem;
+  }
+  .view {
+    background-color: #fef200;
+  }
+  .no-padding {
+    padding: 0px !important;
+  }
+  .card-padding {
+    padding: 0.6rem;
+  }
+  .year {
+    padding: 4px;
+  }
+  .btn {
+    width: 100%;
+  }
+  .yearSelection {
+    margin: 0px 10px;
+
+    ion-select {
+      padding: 10px 10px;
+      width: 100%;
+      max-width: 100%;
+      background: #fff;
+      border-radius: 3px;
+      border: 1px solid #eee;
+    }
+    .p-l-0 {
+      padding-left: 0px;
+    }
+    .p-r-0 {
+      padding-right: 0px;
+    }
+  }
+  .displayBlock {
+    display: block;
+  }
+  .notDataImg {
+    margin: auto;
+    height: 50px;
+    width: 50px;
+  }
+  .personalDetails {
+    padding: 10px;
+    .headerTxt {
+      p {
+        text-transform: uppercase;
+        color: gray;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+    .detailTxt {
+      p {
+        text-transform: capitalize;
+        color: $dark-gray;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+  }
+  .parentTbl table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+  }
+  .childTbl table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #d7d7d7;
+    width: 100%;
+  }
+  .childTbl th,
+  .childTbl td {
+    border: 1px solid #d7d7d7;
+    width: 33%;
+    /* padding: 8px 8px; */
+    text-align: left;
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+    /* padding: 10px; */
+    padding: 6px 0px 6px 10px;
+  }
+  .scrollData {
+    width: 690;
+    overflow-x: hidden;
+  }
+  .tblHeader {
+    background: #f2f4f7;
+    height: 33px;
+  }
+
+  .detailData {
+    padding: 0px;
+    height: 100%;
+    height: calc(100% - 60px);
+    table {
+      thead {
+        tr {
+          display: block;
+        }
+      }
+      tbody {
+        display: block;
+        overflow: auto;
+        height: calc(100% - 60px);
+      }
+    }
+  }
+  /*.yearSelectionDiv{
+        position: absolute;
+        right: 4px;
+        top: 0;
+        width: 20%;
+        height: calc(100% - 8px);
+        padding: 0px;
+        background-color: #fff;
+        margin-top: 4px;
+        !*.toolbar-background{
+          background: #fff;
+          height: 70%;
+          top: 0%;
+          bottom: 0%;
+          top: 50%;
+          transform: translateY(-50%);
+         
+        }*!
+        ion-select{
+          padding: 7px 10px;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+      }*/
+  ion-title {
+    .toolbar-title {
+      margin-right: 20px;
+    }
+  }
+
+  .newTbls {
+    .grid-item:nth-last-child(1) {
+      position: sticky;
+      bottom: 0px;
+      z-index: 999;
+      background-color: #edeff1;
+      border-bottom: 0px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    .grid-col--fixed-left {
+      .grid-item:nth-last-child(1) {
+        background: #cbcdd2;
+      }
+    }
+
+    .ScrollBtn {
+      position: absolute;
+      bottom: 12%;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      background: #d5d5d5;
+      border-radius: 50%;
+      cursor: pointer;
+      i {
+        line-height: 30px;
+        font-size: 17px;
+      }
+      .grid-row {
+        min-width: 100%;
+        display: flex;
+      }
+
+      .gridHeader {
+        padding: 0px 25px 0 0;
+      }
+      .table {
+        max-height: calc(100% - 0%);
+        max-width: calc(100% - 0%);
+        overflow: hidden;
+        overflow: scroll;
+        table-layout: fixed;
+        position: absolute;
+      }
+
+      .row {
+        display: inline-flex;
+        // margin: 0 24px;
+        width: auto;
+        text-align: center;
+        box-sizing: border-box;
+        flex-wrap: unset;
+      }
+      .leftBtn {
+        right: 5.5%;
+      }
+      .rightBtn {
+        right: 2%;
+      }
+    }
+    .grid-row {
+      min-width: 100%;
+      display: flex;
+    }
+
+    .gridHeader {
+      padding: 0px 25px 0 0;
+    }
+    .table {
+      max-height: calc(100% - 0%);
+      max-width: calc(100% - 0%);
+      overflow: hidden;
+      overflow: scroll;
+      table-layout: fixed;
+      position: absolute;
+    }
+  .noData{
+    padding: 7px 0 0px 0;
+    text-align: center;
+    width: 100%;
+    margin: 0px 5px 0 5px;
+    height: 30px;
+    background: white;
+    font-weight: 700;
+  }
+    .row {
+      display: inline-flex;
+      // margin: 0 24px;
+      width: auto;
+      text-align: center;
+      box-sizing: border-box;
+      flex-wrap: unset;
+    }
+    .tableHeader {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 43px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .tableHeader .table_cell {
+      padding: 16px 9px 19px 10px;
+    }
+    .table_cell:first-child {
+      border-left: 1px solid #e0e0e0;
+    }
+    .table_cell {
+      display: table-cell;
+      width: 180px;
+      height: auto;
+      position: relative;
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      padding: 10px 10px 10px 10px;
+      word-break: keep-all;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+    }
+    .stick0 {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      width: 143px;
+    }
+    .stick1 {
+      position: sticky;
+      left: 180px;
+      left: 143px;
+      z-index: 1;
+      width: 93px;
+    }
+    .headerClor {
+      background: #e0e0e0;
+      color: black;
+    }
+    .weekHeader {
+      background: #edeff1;
+    }
+    .tableCellw {
+      width: 95px;
+    }
+    .newTbls {
+      height: 100%;
+      overflow-y: hidden;
+      position: relative;
+      .selectDateMonth {
+        height: 45px;
+        background: #fff;
+        color: #3a3535;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .grid-container {
+        overflow: scroll;
+        height: 100%;
+        width: 100%;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: nowrap;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        /* padding-bottom: 20px; */
+      }
+      .gridnew {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+      .grid-col {
+        width: 80px;
+        min-width: 80px;
+        height: fit-content;
+      }
+
+      .grid-item--header {
+        position: sticky;
+        background: #edeff1 !important;
+        top: -1px;
+        z-index: 999;
+        background-color: #edeff1;
+        border-bottom: 0px;
+        font-weight: 500;
+        font-size: 14px;
+      }
+
+      .grid-col--fixed-left {
+        position: sticky;
+        left: 0;
+        z-index: 9998;
+        width: 165px !important;
+        min-width: 165px !important;
+        .grid-item {
+          background: #edeff1;
+          text-align: left;
+          padding-left: 5px;
+        }
+      }
+      .grid-col--fixed-right {
+        position: sticky;
+        right: 0;
+        z-index: 9998;
+        background: white;
+      }
+
+      .grid-item {
+        height: 24px;
+        border-right: 1px solid #c8c8ca !important;
+        text-align: center;
+        line-height: 24px;
+        border-bottom: 1px solid #c8c8ca;
+        background: #fff;
+        p {
+          // padding: 10px 0px !important;
+          margin: 0px;
+          font-size: 12px;
+          font-weight: 500;
+          color: #000;
+          line-height: 24px;
+        }
+      }
+      .darkWeekRow {
+        background: #535353;
+        color: #fff;
+        border: 1px solid #535353;
+      }
+      .weekCounthours {
+        white-space: nowrap;
+        padding-left: 20px;
+      }
+      .posRel {
+        position: relative;
+      }
+      .week-off {
+        background: #fed598 !important;
+        border-right: 0px !important;
+      }
+      // .gridnew{
+      //   background-color: #cbcdd2 !important;
+      // }
+      .salComponent {
+        background-color: #cbcdd2 !important;
+      }
+    }
+    .calendar-Master {
+      width: 100%;
+    }
+    .calendar-Master .iondatemonth .item-inner {
+      //width: 20vw;
+    }
+    .calendar-Master .datetime {
+      position: absolute;
+      // width: 20vw;
+      // right: 0%;
+    }
+    .calendar-Master .iondatemonth {
+      margin: 0;
+      padding: 0;
+      //width: 20vw;
+      float: right;
+    }
+   .datetime-md {
+      width: 100%;
+    }
+    .calendar-Master .arrowDown {
+      margin-top: 8px;
+      min-height: 2rem;
+      font-size: 2rem;
+      margin: 7px 4px 6px 0;
+    }
+    .search-loader {
+      height: 50px;
+      position: absolute;
+      top: 10%;
+      right: 3em;
+      z-index: 999;
+    }
+    .fake-input {
+      position: relative;
+      height: 55px;
+      // width:240px;
+      .searchbar-ios {
+        background-color: transparent;
+      }
+    }
+    .fake-input ion-searchbar {
+      border: none;
+      // background:#fff;
+      display: block;
+      width: 100%;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    // .fake-input .spinnerLoader {
+    //   height: 3rem;
+    //   width: 3rem;
+    //   position: absolute;
+    //   right: 40px;
+    //   top: 0%;
+    // }
+
+    .header-md {
+      .fake-input img {
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        right: 40px;
+        top: 25%;
+      }
+    }
+    .header-ios {
+      .fake-input img {
+        height: 3rem;
+        width: 3rem;
+        position: absolute;
+        right: 30px;
+        top: calc(50% - 15px);
+      }
+    }
+    .searchbar-input {
+      padding: 0 28px !important;
+      border-radius: 2px !important;
+      height: 4.4rem !important;
+    }
+    .searchbar-search-icon {
+      height: 43px !important;
+      position: absolute !important;
+      top: 1.1em !important;
+      left: 7px !important;
+    }
+    .calendar-Master .searchbar-input {
+      height: 43px !important;
+    }
+    /deep/ .picker-wrapper {
+      max-width: 100% !important;
+    }
+    .vertivalAlignAll {
+      // transform: translateY(50%) !important;
+      display: inherit;
+    }
+    .triangle {
+      top: 0px;
+      position: absolute;
+      width: 0px;
+      right: 0;
+      transform: rotate(90deg);
+      height: 0px;
+      border-style: solid; 
+      border-width: 11px 11px 0 0;
+      border-color: #e2e2e2 transparent transparent transparent;
+    }
+    .triangleP {
+      border-color: rgb(97, 174, 2) transparent transparent transparent;
+    }
+    .triangleA {
+      border-color: rgba(227, 25, 54, 0.6) transparent transparent transparent;
+    }
+    .triangleT {
+      border-color: rgba(254, 215, 0, 0.6) transparent transparent transparent;
+    }
+    .triangleH {
+      border-color: rgb(227, 24, 54) transparent transparent transparent;
+    }
+    .triangleW {
+      border-color: rgb(247, 164, 41) transparent transparent transparent;
+    }
+    .triangleO {
+      border-color: rgb(0, 188, 212) transparent transparent transparent;
+    }
+    .triangleR {
+      border-color: rgb(13, 173, 158) transparent transparent transparent;
+    }
+
+    .statuspending {
+      border-color: rgba(254, 215, 0, 0.6) transparent transparent transparent;
+    }
+
+    .statusapproved {
+      border-color: rgb(97, 174, 2) transparent transparent transparent;
+    }
+
+    .statusrejected {
+      border-color: rgb(227, 24, 54) transparent transparent transparent;
+    }
+
+    
+
+    /* Portrait */ /* ----------- iPhone 4 and 4S ----------- */
+    @media only screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
+      .legendBtn {
+        bottom: 3% !important;
+      }
+      .legendPanel .legend-grid .button {
+        color: #535353 !important;
+        font-size: 10px;
+        padding: 0px;
+        width: 100%;
+        height: 2.2rem !important;
+      }
+      .dateIcon ion-datetime {
+        width: 40% !important;
+      }
+    }
+
+    /* Landscape */ /* ----------- iPhone 4 and 4S ----------- */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation: landscape) {
+      .legend-grid .button {
+        height: 2.2rem !important;
+      }
+      .legendPanel {
+        bottom: 29% !important;
+      }
+      .legendBtn {
+        bottom: 4% !important;
+      }
+    }
+
+    /* Landscape */ /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+      .legend-grid .button {
+        height: 2.2rem !important;
+      }
+      .legendPanel {
+        bottom: 29% !important;
+      }
+      .legendBtn {
+        bottom: 4% !important;
+      }
+      .dateIcon ion-datetime {
+        width: 22%;
+      }
+    }
+
+    /* Landscape */ /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+      .MIBLEMP {
+        .legendBtn {
+          background: #e51837;
+          ion-icon {
+            color: #fff;
+          }
+        }
+        .legendPanel {
+          border: 2px solid #e51837;
+          .uppertriangle {
+            top: -27px;
+          }
+          .downtriangle {
+            bottom: -29px;
+          }
+        }
+      }
+
+      .legend-grid .button {
+        height: 2.2rem !important;
+      }
+      .legendPanel {
+        bottom: 32% !important;
+      }
+      .dateIcon ion-datetime {
+        width: 22% !important;
+      }
+    }
+
+    /* Landscape */ /* ----------- iPhone X ----------- */
+    @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+      .legend-grid .button {
+        height: 2.2rem !important;
+      }
+      .legendPanel {
+        bottom: 35% !important;
+      }
+      .dateIcon ion-datetime {
+        width: 19% !important;
+      }
+    }
+
+    /* ----------- iPhone 6/7/8 and  ----------- */
+
+    @media (min-width: 375px) and (max-width: 667px) {
+      .legend-grid .button {
+        height: 2.9rem;
+      }
+    }
+
+    // !* ----------- iPhone 5, 5S, 5C and 5SE ----------- *!
+    @media only screen and (device-width: 320px) and (device-height: 568px) and (device-aspect-ratio: 40/71) {
+      .legendPanel {
+        bottom: 17% !important;
+        width: 38% !important;
+      }
+      .legendBtn {
+        bottom: 4% !important;
+      }
+      .legend-grid .button {
+        height: 2.2rem !important;
+      }
+      .dateIcon ion-datetime {
+        width: 40% !important;
+      }
+    }
+
+    // !* ----------- Galaxy S4, S5 and Note 3 ----------- *!
+
+    @media screen and (device-width: 360px) and (device-height: 640px) {
+      .legendPanel {
+        bottom: 23% !important;
+        .legend-grid .button {
+          height: 2.5rem !important;
+        }
+      }
+    }
+
+    /* Landscape */
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+      .legend-grid .button {
+        height: 2.2rem !important;
+      }
+      .dateIcon ion-datetime {
+        width: 19% !important;
+      }
+    }
+
+    @media only screen and (min-width: 740px) and (orientation: landscape) {
+      .legend-grid .button {
+        height: 2.2rem !important;
+      }
+      .dateIcon ion-datetime {
+        width: 19% !important;
+      }
+    }
+
+    /*-----------------End-------------*/
+  }
+
+
+  /*-----Neha new CSS for right Panel Start---------*/
+
+  .downtriangle {
+    position: absolute;
+    right: -10px;
+    bottom: -32px;
+  }
+
+  .uppertriangle {
+    position: absolute;
+    right: -11px;
+    top: -28px;
+  }
+
+  .legend-grid {
+    // height: 130px;
+    // overflow-x: auto;
+    // white-space: nowrap;
+    // margin-left: 10px;
+    [col-3] {
+      padding: 0px !important;
+    }
+    .button {
+      // .button-inner {
+      //   padding-left: 0 !important;
+      // }
+      color: $dark-gray !important;
+      font-size: $font-s;
+      /*ion-icon {
+      margin-right: 5px;
+    }*/
+      .icon-present {
+        color: rgb(97, 174, 2);
+      }
+      .icon-absent {
+        color: rgba(227, 25, 54, 0.6);
+      }
+      .icon-holiday {
+        color: rgb(227, 24, 54); //rgba(83, 83, 83, 0.1);
+      }
+      .icon-leave {
+        color: rgba(254, 215, 0, 0.6);
+      }
+      .icon-weeklyoff {
+        color: #f7a429;
+      }
+      .icon-optional {
+        color: #00bcd4;
+      }
+      .icon-regularize {
+        color: #0dad9e;
+      }
+      span {
+        line-height: 1px;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  .arrow-up {
+    width: 20px;
+    height: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffff #ffffff #fef200 transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(141deg);
+    position: absolute;
+    right: -9px;
+    top: -10px;
+    background: #ffff;
+  }
+  .arrow-down {
+    width: 20px;
+    height: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffff #fef200 #ffffff transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(141deg);
+    position: absolute;
+    right: -9px;
+    bottom: -11px;
+    background: #ffff;
+  }
+  .legendPanel {
+    background: #fff;
+    position: absolute;
+    right: -40%;
+    bottom: 22%;
+    height: auto;
+    z-index: 9999999;
+    width: 35%;
+    border: 3px solid #fef202;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 10px 10px 5px;
+    transition: all 0.5s ease-in-out;
+    .legend-grid {
+      display: flex !important;
+      flex-wrap: wrap !important;
+
+      .button {
+        padding: 0px;
+        width: 100%;
+        .button-inner {
+          justify-content: left;
+        }
+        span {
+          padding-left: 8px;
+          font-weight: 600;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .legendBtn {
+    width: 40px;
+    border-radius: 20px 0px 0px 20px;
+    background: #fef200;
+    position: absolute;
+    right: 0%;
+    text-align: center;
+    color: #000;
+    bottom: 12%;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    height: 40px;
+    transition: all 0.5s ease-in-out;
+    ion-icon {
+      font-size: 2.5rem;
+      transform: rotate(0deg);
+      line-height: 40px;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+
+  .applyTop {
+    // bottom: 148px;
+    transition: all 0.5s ease-in-out;
+    ion-icon {
+      transform: rotate(180deg);
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  /*-----Neha new CSS for right Panel Stop---------*/
+}

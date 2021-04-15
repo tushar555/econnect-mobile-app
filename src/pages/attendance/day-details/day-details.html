@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'" hideBackButton>
+    <ion-title>Attendance Summary</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="closeModal()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="padding0">
+    <ion-card class="fullPanel">
+        <ion-list class="attendanceSummaryList">
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/attendance.svg"></div>
+                Attendance Date
+                <div item-end class="width35"><span>{{dateDetails.AttendanceDate | date:'dd-MMM-yyyy'}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/status.svg"></div>
+                Status
+                <div item-end class="width35"><span>{{dateDetails.StatusDescription}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/time-in-source.svg"></div>
+                Time in source
+                <div item-end class="width35"><span>{{dateDetails.TimeInSource ? dateDetails.TimeInSource : 'No Details Found'}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/time-out-source.svg" ></div>
+                Time out source
+                <div item-end class="width35"><span>{{dateDetails.TimeOutSource ? dateDetails.TimeOutSource : 'No Details Found'}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/time-in.svg"></div>
+                System Time in
+                <div item-end class="width35"><span>{{(dateDetails.TimeIn) ? (formatDate(dateDetails.TimeIn,'HH:mm')) : 'No Details Found'}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/time-in.svg"></div>
+                Calculated Time in
+                <div item-end class="width35"><span>{{(dateDetails.TimeInConsidered) ? (formatDate(dateDetails.TimeInConsidered,'HH:mm')) : 'No Details Found'}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/time-out.svg"></div>
+                System Time out
+                <div item-end class="width35"><span>{{(dateDetails.TimeOut) ? (formatDate(dateDetails.TimeOut,'HH:mm')) : 'No Details Found'}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/time-out.svg"></div>
+                Calculated Time out
+                <div item-end class="width35"><span>{{(dateDetails.TimeOutConsidered) ? (formatDate(dateDetails.TimeOutConsidered,'HH:mm')) : 'No Details Found'}}</span></div>
+            </button>
+            <button ion-item>
+                <div item-start><img src="assets/icon/attendanceSummary/clocked-hours.svg"></div>
+                Clocked Hours
+                <div item-end class="width35"><span>{{clockedHours}}</span></div>
+            </button>
+            <button ion-item *ngIf="dateDetails.Remarks">
+                <div item-start><img src="assets/icon/attendanceSummary/clocked-hours.svg"></div>
+                Remarks
+                <div item-end class="width35"><span>{{dateDetails.Remarks}}</span></div>
+            </button>
+                      
+          </ion-list>
+      </ion-card>
+    </ion-grid>
+    <ion-grid class="map-details" *ngIf="latitudeIn || latitudeOut">
+        <ion-row class="attendanceBtns">
+            <ion-col *ngIf="latitudeIn && longitudeIn" [ngClass]="showLoginMap ? 'selected' : ''" (click)="loadInMap()">Punch In</ion-col>
+            <ion-col *ngIf="latitudeOut && longitudeOut" [ngClass]="showLoginMap ? '' : 'selected'" (click)="loadOutMap()">Punch Out</ion-col>
+        </ion-row>
+    </ion-grid>
+    <iframe id="loginMap" #loginMap   [ngStyle]="(showLoginMap) && latitudeIn && longitudeIn?{'display': 'block'} : {'display': 'none'}"  class="mapMargin" width="100%" height="250" *ngIf="loginMapSrc" frameborder="0" style="border:0" [src]="loginMapSrc" allowfullscreen></iframe>
+    <iframe id="logoutMap" #logoutMap   [ngStyle]="(!showLoginMap) && latitudeIn && longitudeIn?{'display': 'block'} : {'display': 'none'}"  class="mapMargin" width="100%" height="250" *ngIf="logoutMapSrc" frameborder="0" style="border:0" [src]="logoutMapSrc" allowfullscreen></iframe>
+</ion-content>

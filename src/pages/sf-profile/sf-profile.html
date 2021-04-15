@@ -1,0 +1,126 @@
+<ion-header>
+  <!-- [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'"> -->
+  <ion-navbar [color]="localUserData.companyName == 'MIBL' ? 'theme-red' : 'theme-red'" color="theme-red">
+    <ion-title>MY PROFILE</ion-title>
+    <ion-buttons end>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card class="detail-card" *ngIf="localUserData">
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail item-start>
+          <!--<ion-icon name="contact"></ion-icon>-->
+          <img src="assets/img/profile.png" />
+        </ion-thumbnail>
+        <h2>{{ localUserData.userName }}</h2>
+        <p class="card-icon">
+          <img src="assets/icon/profile/department.svg" />{{
+            localUserData.userLocation | uppercase
+          }}
+          ({{ localUserData.tokenid | uppercase }})
+        </p>
+        <p class="card-icon">
+          <img src="assets/icon/profile/designation.svg" />{{
+            localUserData.JobTitle | uppercase
+          }}
+        </p>
+        <p class="card-icon">
+          <img src="assets/icon/profile/location.svg" />{{
+            localUserData.locationName | uppercase
+          }}
+        </p>
+      </ion-item>
+    </ion-list>
+   
+  </ion-card>
+  <!-- (ngSubmit)="updateProfile(profileForm)" -->
+  <form class="form-center" [formGroup]="profileForm">
+    <div class="sf-item">
+      <div class="sf-label">Mobile Number</div>
+      <input type="text" name="PhoneNo" class="sf-input" formControlName="mobileNumber" readonly />
+    </div>
+    <div class="sf-item">
+      <div class="sf-label">Email</div>
+      <input readonly type="text" name="Email" class="sf-input" formControlName="email" />
+
+    </div>
+    <div class="sf-item">
+      <div class="sf-label">Location</div>
+      <input readonly type="text" name="add1" class="sf-input" *ngIf="profileForm.controls['add1'].value"
+        formControlName="add1" />
+      <input readonly formControlName="add2" *ngIf="profileForm.controls['add2'].value" type="text" name="add2"
+        class="sf-input" />
+      <input *ngIf="profileForm.controls['add3'].value" readonly type="text" name="add3" class="sf-input"
+        formControlName="add3" />
+      <input *ngIf="profileForm.controls['add4'].value" readonly type="text" name="add4" class="sf-input"
+        formControlName="add4" />
+      <input *ngIf="profileForm.controls['add5'].value" readonly type="text" name="add5" class="sf-input"
+        formControlName="add5" />
+      <input *ngIf="profileForm.controls['add6'].value" readonly type="text" name="add6" class="sf-input"
+        formControlName="add6" />
+      <input *ngIf="profileForm.controls['add7'].value" readonly type="text" name="add7" class="sf-input"
+        formControlName="add7" />
+      <input *ngIf="profileForm.controls['add8'].value" readonly type="text" name="add8" class="sf-input"
+        formControlName="add8" />
+      <input *ngIf="profileForm.controls['add9'].value" readonly type="text" name="add9" class="sf-input"
+        formControlName="add9" />
+      <input readonly type="text" name="add10" *ngIf="profileForm.controls['add10'].value" class="sf-input"
+        formControlName="add10" />
+      <input readonly type="text" name="add11" *ngIf="profileForm.controls['add11'].value" class="sf-input"
+        formControlName="add11" />
+      <input readonly type="text" name="add12" *ngIf="profileForm.controls['add12'].value" class="sf-input"
+        formControlName="add12" />
+      <input readonly type="text" name="add13" *ngIf="profileForm.controls['add13'].value" class="sf-input"
+        formControlName="add13" />
+      <input readonly type="text" name="zipcode" *ngIf="profileForm.controls['zipcode'].value" class="sf-input"
+        formControlName="zipcode" />
+    </div>
+    <div class="sf-item">
+      <div class="sf-label">Aadhar</div>
+      <input readonly type="text" name="Aadhar" class="sf-input" formControlName="aadhar" />
+    </div>
+    <div class="sf-item">
+      <div class="sf-label">PAN</div>
+      <input readonly type="text" name="PAN" class="sf-input" formControlName="pan" />
+    
+    </div>
+    <div class="sf-item emergencydiv">
+      <div class="sf-label">Emergency Contact</div>
+      <div class="sf-tbl">
+        <ion-row class="sf-tbl-header">
+          <ion-col>Name</ion-col>
+          <ion-col>Phone No.</ion-col>
+        </ion-row>
+        <ion-row *ngFor="
+            let emcontact of SfProfileData.emergencyContact;
+            let i = index
+          ">
+          <ion-col col-6>
+            <input readonly type="text" class="form-control col-md-8"
+              [value]="emcontact.Name == null ? 'NA' : emcontact.Name" />
+          </ion-col>
+          <ion-col col-6>
+            <input readonly type="text" class="form-control col-md-8"
+              [value]="emcontact.PhoneNo == null ? 'NA' : emcontact.PhoneNo" />
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div class="sf-item dependantdiv">
+      <div class="sf-label">Dependants</div>
+      <div class="sf-tbl">
+        <ion-row class="sf-tbl-header">
+          <ion-col>Name</ion-col>
+          <ion-col>Relationship</ion-col>
+        </ion-row>
+        <ion-row *ngFor="let dependant of SfProfileData.dependants; let i = index">
+          <ion-col>{{ dependant.Name }}</ion-col>
+          <ion-col>{{ dependant.Relationship }}</ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+  
+    <ion-navbar  color="theme-red">
+      <ion-title>PaySlip Summary</ion-title>
+      
+    </ion-navbar>
+  
+  </ion-header>
+  
+<ion-content class="allpadding">
+    
+  <ion-list>
+        <ion-item>
+            <ion-label>Year</ion-label>
+            <ion-select [(ngModel)]="year"  (ngModelChange)="onChange($event)">
+              <ion-option *ngFor="let year of yearsArray" [value]="year">{{year}}</ion-option>
+            </ion-select>
+          </ion-item>
+        <ion-item>
+          <ion-label>Months</ion-label>
+          <ion-select [(ngModel)]="month">
+            <ion-option  *ngFor="let month of monthsArray" [value]="month">{{month}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <br>
+          <div class="download-btn"  (click)="getSalaryDetails(month,year)">
+              <button ion-button full color="gray-main" round >Get My PaySlip</button>
+              
+          </div>  
+      
+      </ion-list>
+        <!-- <ion-card *ngFor="let data of salaryData">
+                <ion-card-content style="padding:10px"  class="ion-card-content">
+                <span style="color:grey;"> {{data.month}} </span>
+                <span style="color:white; font-size:1.8rem;" float-right>₹ {{data.salary}}</span>
+                </ion-card-content>
+                <ion-card-content  class="no-padding">
+                    <ion-grid class="no-padding">
+                        
+                        <ion-row>
+                          <ion-col col-3 class="coloumn-border-right coloumn-border-bottom coloumn-border-left">
+                             <span class="emp-info-header " center> Name</span><br>
+                           <span class="emp-info-content"> Rahul Kumar  </span>
+                          </ion-col>
+                          <ion-col col-3 class="coloumn-border-right coloumn-border-bottom">
+                            <span class="emp-info-header" center> EmployeeID </span><br>
+                           <span class="emp-info-content"> 11082 </span>
+                          </ion-col>
+                          <ion-col col-3 class="coloumn-border-right coloumn-border-bottom">                
+                            <span class="emp-info-header" center> Designation</span><br>
+                            <span class="emp-info-content">Consultant</span>
+                          </ion-col>
+                          <ion-col col-3 class="coloumn-border-right coloumn-border-bottom">                
+                            <span class="emp-info-header" center> Location </span><br>
+                            <span class="emp-info-content"> Mumbai </span>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row>
+                           <ion-col text-center style="font-size:1.2rem"> See Details &nbsp; > </ion-col>
+                        </ion-row>    
+                      </ion-grid>
+                </ion-card-content>  
+                
+              </ion-card> -->
+              
+</ion-content>

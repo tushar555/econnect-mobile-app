@@ -1,0 +1,80 @@
+page-modal {
+  .border-class {
+    border: 1px solid red !important;
+  }
+  .scroll-content {
+    padding-bottom: 0px !important;
+    position: absolute !important;
+  }
+  .add-icon {
+    float: right;
+    padding-right: 11px;
+  }
+  .no-padding {
+    padding: 5px;
+  }
+  input[type=number]::-webkit-inner-spin-button,
+  input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+  .pin {
+    width: 100%;
+    border-radius: 2px;
+  }
+  .accordion-list {
+    transition: all 0.5s;
+    background: color($colors, light);
+  }
+  .card-md,
+  .card-ios {
+    background: transparent;
+  }
+  .section {
+    background: #f7f7f7;
+    color: #000; // margin-bottom: 4px;
+  }
+  .section-active {
+    background: #f7f7f7;
+    color: #000;
+    margin-bottom: 5px;
+  }
+  .label {
+    margin: 0px;
+  }
+  .input {
+    border: 1px solid #DCDCDC;
+    border-radius: 1px;
+    background-color: #ffff;
+    padding: 1px;
+  }
+  ion-select {
+    max-width: 100% !important;
+    border: 1px solid #DCDCDC;
+    background-color: #ffff; // height: 3.5rem !important;
+  }
+  ion-input {
+    // height: 3.5rem !important;
+    padding-bottom: 12px;
+  }
+  .input-md {
+    padding-bottom: 12px;
+  }
+  ion-datetime {
+    padding: 9px !important;
+  }
+  .card-md,
+  .card-ios {
+    -webkit-box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0px rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0) !important;
+  }
+  .fab-md,
+  .fab-ios {
+    color: #fff;
+    background-color: #454545 !important;
+  }
+}
+
+

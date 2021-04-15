@@ -1,0 +1,46 @@
+{
+  "userInfo": [{
+    "name": "Rahul Kumar",
+    "empId": "11082",
+    "Designation": "Consultant",
+    "location": "Mumbai"
+  }],
+  "journeyDetails": {
+    "origin": "Mumbai",
+    "Destination": "Ranchi",
+    "travelFromDate": "20-07-2018",
+    "travelToDate": "30-07-2018"
+  },
+  "lta": [{
+      "name": "Rahul Kumar",
+      "dob": "30-04-1987",
+      "modeOfTransport": "Air",
+      "relationship": "self",
+      "airTicketNo": "A123-BC",
+      "airfair": 6893,
+      "class": "self"
+    },
+    {
+      "name": "Shusmita singh",
+      "dob": "30-04-1990",
+      "modeOfTransport": "Air",
+      "relationship": "wife",
+      "airTicketNo": "A123-BC",
+      "airfair": 6893,
+      "class": "wife"
+    },
+    {
+      "name": "sonu singh",
+      "dob": "30-04-2003",
+      "modeOfTransport": "Air",
+      "relationship": "son",
+      "airTicketNo": "A123-BC",
+      "airfair": 6893,
+      "class": "son"
+    }
+  ],
+  "total":{
+    "totalCost":20679,
+    "costInText":"twenty thousand six hundred seventy nine"
+  }
+}

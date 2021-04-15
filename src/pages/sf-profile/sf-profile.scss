@@ -1,0 +1,68 @@
+page-sf-profile {
+  .scroll-content {
+    background-color: #f7f8fa !important;
+  }
+
+  .emergencydiv {
+    input {
+      border: none;
+    }
+  }
+
+  .error-box {
+    color: red;
+  }
+
+  .sf-label {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+  .sf-input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #c7c7c7;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    background: #ffffff !important;
+  }
+
+  .dependantdiv {
+    margin-top: 10px;
+  }
+
+  .detail-card {
+    margin: -16px -16px 16px -16px !important;
+    width: calc(100% + 32px) !important;
+    h2 {
+      font-weight: 600;
+    }
+    .card-icon {
+      font-size: 11px;
+      margin-top: 5px;
+      white-space: normal;
+      line-height: 1.8;
+      img {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .sf-tbl {
+    .sf-tbl-header {
+      ion-col {
+        background-color: #d8d7d7 !important;
+        font-weight: 600;
+      }
+    }
+    ion-col {
+      background-color: #ffffff;
+      border: 1px solid #c7c7c7;
+      padding: 10px;
+    }
+  }
+}

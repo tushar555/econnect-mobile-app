@@ -1,0 +1,1365 @@
+page-attendance-details {
+  /*  .content-md{
+      background-color: #e8e8e8;
+    }*/
+    .content-ios{
+      .scroll-content {
+      padding-left: env(safe-area-inset-left) !important;   
+      //padding-right: env(safe-area-inset-right) !important;   
+      }
+    }
+  .actionBtnBlock {
+    display: flex;
+    align-items: center;
+    height: 30px;
+
+    .outerContainer {
+      border: 1px solid #e1e1e1;
+      height: 100%;
+      width: 65px;
+      margin: 0 0.5rem;
+      .TabBtn {
+        width: 50%; 
+        float: left;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        ion-icon {
+          margin: auto;
+          color: #fff;
+          font-size: 20px;
+        }
+      }
+      .first {
+        border-right: 1px solid #fff;
+      }
+    }
+  }
+  .dateSelecter {
+    border: 1px solid #fff;
+    height: 100%;
+    width: 115px;
+    margin: 0 0.5rem;
+
+    ion-item {
+      background: transparent;
+      height: 100%;
+      min-height: 100%;
+      color: #fff;
+      padding-left: 0px;
+      font-size: 14px;
+      .item-inner {
+        padding-right: 0px;
+        ion-datetime {
+          position: absolute;
+          width: 100%;
+        }
+      }
+    }
+    ion-icon {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+  }
+  // .attendanceDetails{
+  //   ion-title{
+  //     text-align: left !important;
+  //     padding-left: 7% !important;
+
+  //     // padding-left: 30px !important;
+  //   }
+  // }
+
+  .tabActionBtn {
+    border: 1px solid;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    cursor: pointer;
+    ion-icon {
+      font-size: 1.2em !important;
+    }
+  }
+  .actionBtnselected {
+    background: #ffffffd1;
+    ion-icon {
+      color: #444 !important;
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+  .headerOuterBlock {
+    display: inline-block;
+    width: 100px;
+    .headerItem {
+      min-height: 3.5rem;
+      height: 3.5rem;
+      padding-left: 0px;
+      font-size: 14px;
+      .item-inner {
+        padding-right: 0px !important;
+        .datetime-md {
+          padding: 13px 8px 13px 10px !important;
+        }
+      }
+      ion-icon {
+        font-size: 17px;
+        display: flex;
+        align-items: center;
+      }
+      ion-datetime {
+        position: absolute;
+        width: 100%;
+      }
+    }
+  }
+  .typecurrentDate {
+    background-color: #fff59d !important;
+  }
+  .uppertriangle {
+    position: absolute;
+    right: -11px;
+    top: -28px;
+  }
+  ul {
+    padding-left: 16px;
+    margin-top: 0px;
+  }
+  .downtriangle {
+    position: absolute;
+    right: -10px;
+    bottom: -32px;
+  }
+  .arrow-up {
+    width: 20px;
+    height: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffff #ffffff #fef200 transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(141deg);
+    position: absolute;
+    right: -9px;
+    top: -10px;
+    background: #ffff;
+  }
+  .arrow-down {
+    width: 20px;
+    height: 20px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ffff #fef200 #ffffff transparent;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(141deg);
+    position: absolute;
+    right: -9px;
+    bottom: -11px;
+    background: #ffff;
+  }
+  .legendPanel {
+    background: #fff;
+    position: absolute;
+    right: -40%;
+    bottom: 22%;
+    height: auto;
+    z-index: 99;
+    width: 35%;
+    border: 3px solid #fef202;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px 10px 10px 5px;
+    transition: all 0.5s ease-in-out;
+    .legend-grid {
+      .button {
+        padding: 0px;
+        width: 100%;
+        .button-inner {
+          justify-content: left;
+        }
+        span {
+          padding-left: 8px;
+          font-weight: 600;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+  .legendBtn {
+    width: 40px;
+    border-radius: 20px 0px 0px 20px;
+    background: #fef200;
+    position: absolute;
+    right: 0%;
+    text-align: center;
+    color: #000;
+    bottom: 12%;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+    height: 40px;
+    transition: all 0.5s ease-in-out;
+    ion-icon {
+      font-size: 2.5rem;
+      transform: rotate(0deg);
+      line-height: 40px;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+
+  .admin-icon {
+    float: right;
+    margin-right: 9px;
+    font-size: 2.4rem;
+  }
+  .optional-holiday {
+    color: rgb(227, 24, 54) !important;
+  }
+  .scroll-content {
+    padding: 8px !important;
+    background-color: $light-gray-bg !important;
+    font-size: 14px;
+  }
+  .col {
+    text-align: center; //padding: 5px;
+    padding: 10px 5px;
+    color: $dark-gray;
+  }
+  .view-options {
+    text-align: center;
+    padding: 0px;
+    .row:first-child {
+      margin-bottom: 0px;
+      .col {
+        padding: 10px;
+        background: $light;
+        color: #000000;
+        ion-icon {
+          margin-right: 5px;
+        }
+      }
+    }
+    .selected {
+      background: #535353 !important;
+      font-weight: 500;
+      color: #fff !important;
+    }
+  }
+  .bullet {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .bulletP {
+    background-color: rgb(97, 174, 2);
+  }
+  .bulletA {
+    background-color: rgba(227, 25, 54, 0.6);
+  }
+  .bulletT {
+    background-color: rgba(254, 215, 0, 0.6);
+  }
+  .bulletH {
+    background-color: #e31836;
+  }
+  .bulletW {
+    background-color: #f7a429;
+  }
+  .bulletO {
+    background-color: #00bcd4;
+  }
+  .bulletR {
+    background-color: #0dad9e;
+    top: 13px;
+  }
+  /*.selected-date {
+    width: 20px;
+    height: 2px;
+    background-color: blue;
+  }
+  .unselected-date {
+    border: none;
+  }*/
+  .calendar-body {
+    //margin-bottom: 10px;
+    // margin-bottom: 50px;
+    .calendar-today {
+      background-color: $yellow;
+      text-align: center;
+      padding: 10px;
+    }
+    .calendar-top-header {
+      //border: 1px solid gray;
+      //border: 1px solid $lighter-gray;
+      border: none;
+      text-align: center;
+      padding: 10px 0px;
+      /*border-left: 1px solid gray;
+      border-right: 1px solid gray;
+      border-top: 1px solid gray;*/
+      .calendar-current-date {
+        //background-color: #ffffff;
+        background-color: transparent;
+        color: $dark-gray;
+
+        //padding: 20px;
+        //font-size: 25px;
+        font-size: 15px;
+        font-weight: 100;
+        text-transform: uppercase;
+        display: inline-block;
+        width: 68%;
+        text-align: left;
+      }
+      .current-date {
+        /*font-size: 50px;
+        font-weight: 300;
+        margin: 0 5px;*/
+        font-size: 30px;
+        font-weight: 900;
+        margin: 0;
+        color: #000;
+      }
+      .mark-attendance-btn {
+        width: 100%;
+        float: right;
+        margin: 0;
+      }
+    }
+    .calendar-header {
+      background-color: #ffffff;
+      color: $dark-gray;
+      /*border-left: 1px solid gray;
+      border-right: 1px solid gray;*/
+      border-left: 1px solid $lighter-gray;
+      border-right: 1px solid $lighter-gray;
+      .calendar-month {
+        .col {
+          padding: 0;
+          border: none !important;
+        }
+        ion-select {
+          padding: 3px !important;
+          float: right;
+          margin-top: -4px;
+          margin-right: 7px;
+        }
+      }
+    }
+    .grid {
+      /*border-left: 1px solid gray;
+      border-right: 1px solid gray;*/
+      padding: 0;
+      /*border-top: 1px solid #dedede;
+      border-bottom: 1px solid #dedede;*/
+      /*border-top: solid 1px #1a732d;
+      border-bottom: solid 1px #1a732d;*/
+      //border-left: 1px solid gray;
+      //border-left: 1px solid #f2f2f2;
+      .calendar-weekday {
+        //border: 1px solid gray;
+        background: #f2f4f7;
+        border: 1px solid $lighter-gray;
+      }
+      .calendar-date {
+        background-color: #ffffff; //border-bottom: solid 1px gray;
+        .row:last-child {
+          border-bottom: none !important;
+        }
+        [col-1] {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 8.33333%;
+          -ms-flex: 0 0 8.33333%;
+          flex: 0 0 14.285714285714286%;
+          width: 14.285714285714286% !important;
+          max-width: 14.285714285714286% !important;
+        }
+        .col {
+          /*border-right: 1px solid gray !important;
+          border-bottom: 1px solid gray !important;*/
+          border-right: 1px solid $lighter-gray !important;
+          border-bottom: 1px solid $lighter-gray !important;
+          /*border-right: 1px solid #f2f2f2 !important;
+          border-bottom: 1px solid #f2f2f2 !important;*/
+        }
+        .col:nth-child(7n + 1) {
+          //border-left: 1px solid gray !important;
+          border-left: 1px solid $lighter-gray !important;
+        }
+        .currentDateCol {
+          //background-color: #000000 !important;
+          //background-color: #fef2006b !important;
+          background-color: rgba(254, 242, 0, 0.42) !important;
+          padding: 5px !important;
+          .currentDate {
+            font-weight: 600;
+            font-size: 1.6rem;
+            /*background-color: $yellow;
+            color: $dark-gray;*/
+            //color: $yellow;
+            /*border-radius: 30px;*/
+            display: inline-block;
+            min-width: 26px;
+          }
+        }
+        .last-month,
+        .next-month,
+        .disabled-date {
+          color: #999999; //font-size: $font-s;
+          //font-size: 90%;
+        }
+        .currentDate,
+        .otherDate {
+          padding: 5px;
+          font-weight: bold;
+        }
+      }
+    }
+    /*    .grid {
+
+      padding: 0;
+      !*border-top: 1px solid #dedede;
+      border-bottom: 1px solid #dedede;*!
+      !*border-top: solid 1px #1a732d;
+      border-bottom: solid 1px #1a732d;*!
+      //border-left: 1px solid gray;
+      //border-left: 1px solid #f2f2f2;
+      .calendar-date {
+
+        border-bottom: solid 1px gray;
+        .row:last-child {
+          border-bottom: none !important;
+        }
+        [col-1] {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 8.33333%;
+          -ms-flex: 0 0 8.33333%;
+          flex: 0 0 14.285714285714286%;
+          width: 14.285714285714286% !important;
+          max-width: 14.285714285714286% !important;
+        }
+        .col {
+          border-right: 1px solid gray !important;
+          border-bottom: 1px solid gray !important;
+          !*border-right: 1px solid #f2f2f2 !important;
+          border-bottom: 1px solid #f2f2f2 !important;*!
+        }
+        .col:nth-child(7n) {
+          border-right: none !important;
+        }
+        .currentDateCol {
+          background-color: #000000 !important;
+          padding: 5px !important;
+          .currentDate {
+            font-weight: bold;
+            !*background-color: $yellow;
+            color: $dark-gray;*!
+            color: $yellow;
+            !*border-radius: 30px;*!
+            display: inline-block;
+            min-width: 26px;
+          }
+        }
+        .last-month, .next-month, .disabled-date {
+          color: #999999;
+          font-size: $font-s;
+          //font-size: 90%;
+        }
+        .currentDate, .otherDate {
+          padding: 5px;
+          font-weight: bold;
+        }
+      }
+    }*/
+    .calendar-weekday,
+    .calendar-date {
+      text-align: center;
+      margin: 0;
+    }
+    .calendar-weekday {
+      //font-weight: 100;
+      color: #808080;
+      border-top: 1px solid $lighter-gray;
+      border-bottom: 1px solid $lighter-gray;
+      /*border-top: 1px solid gray;
+      border-bottom: 1px solid gray;*/
+      //border: 1px solid #f2f2f2;
+      //background-color: #26ab56;
+    }
+  }
+  /*  .date-body {
+    background-color: #ffffff;
+
+
+  }*/
+  .calendar-list {
+    max-height: 100%;
+    overflow-y: hidden;
+    .grid {
+      padding: 0px;
+      background-color: #ffffff;
+      /*margin-bottom: 50px;*/
+      .header-row {
+        background: #ffffff !important;
+        position: fixed;
+        width: calc(100% - 32px);
+        height: 35px;
+        z-index: 99;
+      }
+      font-size: 1.2rem;
+      .row:first-child {
+        width: 95%;
+        border-top: 1px solid $light-gray;
+        .col {
+          border: none;
+        }
+      }
+      .row:nth-child(2) {
+        //border-top: 1px solid $light-gray;
+        background-color: #ffffff;
+        padding: 0;
+        margin-top: 35px;
+        width: 95%;
+        .col {
+          padding: 10px 0px; //border-right: 1px solid $light-gray;
+        }
+      }
+      .row:nth-child(3) {
+        margin-top: 70px;
+      }
+      .row {
+        border-left: 1px solid $light-gray;
+        border-right: 1px solid $light-gray;
+        border-bottom: 1px solid $light-gray;
+        padding: 10px 0;
+        .col {
+          padding: 0;
+          border-right: 0.1px solid #c9c9c9;
+        }
+        .col:last-child {
+          border: none;
+        }
+      }
+      .currentDateCol {
+        background-color: #000000 !important;
+        .col {
+          font-weight: bold;
+          color: $yellow !important;
+        }
+      }
+    }
+  }
+  .legend-grid {
+    // height: 130px;
+    // overflow-x: auto;
+    // white-space: nowrap;
+    // margin-left: 10px;
+    [col-3] {
+      padding: 0px !important;
+    }
+    .button {
+      // .button-inner {
+      //   padding-left: 0 !important;
+      // }
+      color: $dark-gray !important;
+      font-size: $font-s;
+      /*ion-icon {
+        margin-right: 5px;
+      }*/
+      .icon-present {
+        color: rgb(97, 174, 2);
+      }
+      .icon-absent {
+        color: rgba(227, 25, 54, 0.6);
+      }
+      .icon-holiday {
+        color: rgb(227, 24, 54); //rgba(83, 83, 83, 0.1);
+      }
+      .icon-leave {
+        color: rgba(254, 215, 0, 0.6);
+      }
+      .icon-weeklyoff {
+        color: #f7a429;
+      }
+      .icon-optional {
+        color: #00bcd4;
+      }
+      .icon-regularize {
+        color: #0dad9e;
+      }
+      span {
+        line-height: 1px;
+        padding-left: 5px;
+      }
+    }
+  }
+  .date-present {
+    background: rgba(97, 174, 2, 0.3);
+  }
+  .date-absent {
+    background: rgba(227, 25, 54, 0.3);
+  }
+  .date-leave {
+    background: rgba(254, 215, 0, 0.3);
+  }
+  .date-holiday {
+    background: #e31836;
+  }
+  .date-weeklyoff {
+    background: #f7a429;
+  }
+  .date-optional {
+    background: #00bcd4;
+  }
+  .date-regularize {
+    background: #13e8d4;
+  }
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  .swipe-left {
+    animation-duration: 1s;
+    animation-name: swipe-left1; //animation: swipe-left1 5s;
+  }
+  .swipe-right {
+    animation-duration: 1s;
+    animation-name: swipe-right1; //animation: swipe-right1 5s;
+  }
+  /* Direction - 2 */
+  @keyframes swipe-left1 {
+    from {
+      margin-left: 100%;
+      width: 100%;
+    }
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  /* Direction - 4 */
+  @keyframes swipe-right1 {
+    from {
+      margin-left: -100%;
+      width: 100%;
+    }
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  .weekCount {
+    //margin-bottom: 4px;
+    border: 1px solid #e6e6e6;
+    border-right: none;
+    [col] {
+      // flex: 0 0 20% !important;
+      // max-width: 20% !im portant;
+      background: #fff;
+      border-right: 1px solid #e6e6e6;
+    }
+    .selectedGrid {
+      //background-color: #fff;
+      background-color: #e4e7ed;
+    }
+  }
+  .applyBorder {
+    //color: yellow !important; // background-color: yellowgreen
+    //border-top: 5px solid #fff !important;
+    //border-bottom: 5px solid #fff !important;
+    //border-right: 1px solid #fff !important;
+    z-index: 9;
+    background: rgba(254, 242, 0, 0.16) !important;
+    //background: #fef2005e;
+  }
+  .applyBorder:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    //background: #fff;
+    //border: 5px solid #fef20029;
+    /*border-right: 5px solid #fef20000;
+    border-left: 5px solid #fef2001a;
+    border-top: 5px solid #fef2005e;
+    border-bottom: 5px solid #fef2005e;
+    box-shadow: 0px 3px 0px rgba(192, 192, 192, 0.4);*/
+    z-index: 0;
+  }
+  .weekly-hours {
+    width: 100%;
+    padding: 10px 16px;
+    background: #f2f4f7;
+    border: 1px solid #e0e2e7;
+    border-top: none;
+    text-align: center;
+    //border-left: 3px solid #fef200;
+    ion-icon {
+      font-size: 6vw;
+      color: #000;
+    }
+    .hrs-label {
+      font-size: 3.75vw;
+      color: #544b4b;
+      font-weight: 500;
+      display: inline-block;
+      //transform: translateY(-18%);
+      padding-left: 10px;
+    }
+  }
+  .status-label {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    line-height: 1.5;
+    font-size: 9px;
+    color: #fff;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  ion-footer {
+    border-top: 4px solid #414141;
+    height: 0px;
+    transition: all 0.5s ease-in-out;
+    .col {
+      padding: 3px;
+      text-align: left;
+    }
+    .legend-grid {
+      .button {
+        color: #535353 !important;
+        font-size: 10px;
+        height: 2rem;
+        font-weight: 600;
+      }
+    }
+  }
+  .arrowUpBtn {
+    bottom: 0px;
+    z-index: 99;
+    background: #414141;
+    position: absolute;
+    height: 25px;
+    width: 40px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+
+    ion-icon {
+      color: #fff;
+      transform: rotate(0deg);
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  .applyHeight {
+    height: 150px;
+    transition: all 0.5s ease-in-out;
+  }
+  .applyRight {
+    right: -3px;
+    transition: all 0.5s ease-in-out;
+  }
+  .applyBottom {
+    bottom: 148px;
+    transition: all 0.5s ease-in-out;
+    ion-icon {
+      transform: rotate(180deg);
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  .applyTop {
+    // bottom: 148px;
+    transition: all 0.5s ease-in-out;
+    ion-icon {
+      transform: rotate(180deg);
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  .calendarListLayout {
+    padding: 0px;
+    border: 1px solid $lighter-gray;
+    height: 80vh;
+    button.item-ios:not([detail-none]) .item-inner {
+      background-image: none !important;
+    }
+    .row {
+      border-bottom: 1px solid $lighter-gray;
+      position: relative;
+      .col {
+        font-size: 3.2vw;
+        white-space: normal;
+        padding: 10px 5px;
+      }
+      .col:last-child {
+        border-right: none !important;
+      }
+    }
+
+    .detailsCard {
+      margin: 0px;
+      width: 100%;
+
+      .button-clear-ios,
+      .button-clear-md {
+        color: #000;
+        font-weight: 500;
+        font-size: 1.2rem;
+      }
+      .col {
+        border-right: 1px solid #e2dddd;
+        max-width: 18.75%;
+      }
+      .darkRow {
+        background: #535353;
+        padding: 0px;
+        border-bottom: none;
+        .col {
+          max-width: 100%;
+          color: #fff;
+          border-right: 0px !important;
+          border-bottom: 0px !important;
+          ion-icon {
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+    .fixedCard {
+      margin: 0px;
+      width: 100%;
+      .fixedHdrFirst {
+        .col {
+          padding: 3px 0px;
+          span {
+            ion-icon {
+              color: #d0caca;
+            }
+          }
+        }
+        .button-clear-ios,
+        .button-clear-md {
+          margin: 0.4rem 0;
+          color: #000;
+          font-weight: 500;
+          font-size: 3.2vw;
+        }
+      }
+    }
+    .attendanceList {
+      overflow-x: scroll;
+      ion-card {
+        width: 150%;
+      }
+      .fixedHdrSecond {
+        width: 150%;
+        background: #f2f4f7;
+        //border: 1px solid #e2dddd;
+        .button-clear-ios,
+        .button-clear-md {
+          color: #000;
+          font-weight: 500;
+          font-size: 1.3rem;
+        }
+        // .col {
+        //   border-right: 1px solid #e2dddd;
+        //   max-width: 18.75%;
+        // }
+      }
+      [col-2] {
+        flex: 0 0 13.3%;
+      }
+      [col-3] {
+        max-width: 20% !important;
+      }
+    }
+  }
+  .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 11px 11px 0 0;
+    border-color: #e2e2e2 transparent transparent transparent;
+  }
+  .triangleNew {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 11px 11px 0 0;
+    border-color: #e2e2e2 transparent transparent transparent;
+  }
+  .orangetriangle {
+    border-color: #ff9800 transparent transparent transparent;
+  }
+  .greentriangle {
+    border-color: #27ae60 transparent transparent transparent;
+  }
+  .redtriangle {
+    border-color: #e51837 transparent transparent transparent;
+  }
+
+  .triangleP {
+    border-color: rgb(97, 174, 2) transparent transparent transparent;
+  }
+  .triangleA {
+    border-color: rgba(227, 25, 54, 0.6) transparent transparent transparent;
+  }
+  .triangleT {
+    border-color: rgba(254, 215, 0, 0.6) transparent transparent transparent;
+  }
+  .triangleH {
+    border-color: rgb(227, 24, 54) transparent transparent transparent;
+  }
+  .triangleW {
+    border-color: rgb(247, 164, 41) transparent transparent transparent;
+  }
+  .triangleO {
+    border-color: rgb(0, 188, 212) transparent transparent transparent;
+  }
+  .triangleR {
+    border-color: rgb(13, 173, 158) transparent transparent transparent;
+  }
+
+  .notcurmonth {
+    // opacity: 0.4;
+    // background: #f7f6f6 !important;
+  }
+  .marginAuto {
+    margin: auto;
+  }
+  .iondatemonth {
+    padding: 0 0 0 16px;
+    ion-label {
+      color: #000 !important;
+    }
+    .item-inner {
+      border-bottom: none !important;
+    }
+  }
+}
+
+.newTbl {
+  height: 100%;
+  overflow-y: hidden;
+  position: relative;
+  .gridBlock{
+    position: relative;
+  }
+  .selectDateMonth {
+    height: 45px;
+    background: #fff;
+    color: #3a3535;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .grid-container {
+    display: grid; /* This is a (hacky) way to make the .grid element size to fit its content */
+    overflow: scroll;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+  }
+  .gridnew {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .grid-col {
+    width: 100px;
+    min-width: 100px;
+    height: fit-content;
+    padding-bottom: 25px;
+  }
+
+  .grid-item--header {
+    // height: 100px;
+    // min-height: 100px;
+    position: sticky;
+    position: -webkit-sticky;
+    background: #f2f4f7 !important;
+    top: -1px;
+    z-index: 99;
+    height: 50px !important;
+    line-height: unset !important;
+    p {
+      // margin: 10px 0px !important;
+      transform: none !important;
+      font-size: 14px;
+      transform: translateY(25%) !important;
+    }
+    .verticalAllignment {
+      transform: translateY(100%) !important;
+    }
+  }
+
+  .grid-col--fixed-left {
+    position: sticky;
+    left: 0;
+    z-index: 9998;
+    width: 140px !important;
+    min-width: 140px !important;
+    // background: white;
+  }
+  .grid-col--fixed-right {
+    position: sticky;
+    right: 0;
+    z-index: 9998;
+    background: white;
+  }
+
+  .grid-item {
+    height: 40px;
+    border: 1px solid #eee;
+    text-align: center;
+    background: #fff;
+    line-height: 40px;
+    p {
+      margin: 0px;
+      // -webkit-transform: translateY(50%);
+      //  transform: translateY(50%);
+    }
+  }
+  .darkWeekRow {
+    background: #535353;
+    color: #fff;
+    border: 1px solid #535353;
+  }
+  .weekCounthours {
+    white-space: nowrap;
+    padding-left: 10px;
+    font-size: 13px;
+  }
+  .posRel {
+    position: relative;
+  }
+  .week-off {
+    border-right: 0px !important;
+    background: rgba(254, 213, 152, 0.5) !important;
+    border: 1px solid rgba(254, 213, 152, 0.5) !important;
+    border-right: 0px !important;
+  }
+}
+
+/* Landscape */ /* ----------- Galaxy S3 ----------- */
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .orientationLandscape {
+    width: 50%;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .legendPanel {
+    bottom: 35% !important;
+  }
+  .dateIcon ion-datetime {
+    width: 19% !important;
+  }
+}
+
+/* Portrait */ /* ----------- iPhone 4 and 4S ----------- */
+@media only screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
+  .legendBtn {
+    bottom: 3% !important;
+  }
+  .legendPanel .legend-grid .button {
+    color: #535353 !important;
+    font-size: 10px;
+    padding: 0px;
+    width: 100%;
+    height: 2.2rem !important;
+  }
+  .dateIcon ion-datetime {
+    width: 40% !important;
+  }
+}
+/* Landscape */ /* ----------- iPhone 4 and 4S ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation: landscape) {
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .orientationLandscape {
+    width: 50%;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .legendPanel {
+    bottom: 29% !important;
+  }
+  .legendBtn {
+    bottom: 4% !important;
+  }
+}
+// @media only screen and (min-device-width: 320px)  and (max-device-width: 480px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 2/3) and (orientation:landscape)
+// {
+//   .newTbl{
+//     .grid-col--fixed-left { width: 20% !important; }
+//     .grid-col { width: 16%; }
+//           }
+//           .orientationLandscape{
+//             width: 50%;
+//           }
+//           .legend-grid .button {
+//             height: 2.2rem !important;
+//         }
+//         .legendPanel {
+//           bottom: 29% !important;
+//       }
+//       .legendBtn {
+//         bottom: 4% !important;
+//       }
+// }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+}
+
+/* Landscape */ /* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .orientationLandscape {
+    width: 50%;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .legendPanel {
+    bottom: 29% !important;
+  }
+  .legendBtn {
+    bottom: 4% !important;
+  }
+  .dateIcon ion-datetime {
+    width: 22%;
+  }
+}
+
+/* Landscape */ /* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .MIBLEMP {
+    .legendBtn {
+      background: #e51837;
+      ion-icon {
+        color: #fff;
+      }
+    }
+    .legendPanel {
+      border: 2px solid #e51837;
+      .uppertriangle {
+        top: -27px;
+      }
+      .downtriangle {
+        bottom: -29px;
+      }
+    }
+  }
+
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .orientationLandscape {
+    width: 50%;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .legendPanel {
+    bottom: 32% !important;
+  }
+  .dateIcon ion-datetime {
+    width: 22% !important;
+  }
+}
+
+/* Landscape */ /* ----------- iPhone 6/7/8 + landscape  ----------- */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .dateIcon ion-datetime {
+    width: 19% !important;
+  }
+}
+
+/* Landscape */ /* ----------- iPhone X ----------- */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .orientationLandscape {
+    width: 50%;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .legendPanel {
+    bottom: 35% !important;
+  }
+  .dateIcon ion-datetime {
+    width: 19% !important;
+  }
+}
+/* ----------- iPhone 6/7/8 and  ----------- */
+
+@media (min-width: 375px) and (max-width: 667px) {
+  .legend-grid .button {
+    height: 2.9rem;
+  }
+}
+// !* ----------- iPhone 5, 5S, 5C and 5SE ----------- *!
+@media only screen and (device-width: 320px) and (device-height: 568px) and (device-aspect-ratio: 40/71) {
+  .legendPanel {
+    bottom: 17% !important;
+    width: 38% !important;
+  }
+  .legendBtn {
+    bottom: 4% !important;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .dateIcon ion-datetime {
+    width: 40% !important;
+  }
+}
+
+// !* ----------- Galaxy S4, S5 and Note 3 ----------- *!
+
+@media screen and (device-width: 360px) and (device-height: 640px) {
+  .legendPanel {
+    bottom: 23% !important;
+    .legend-grid .button {
+      height: 2.5rem !important;
+    }
+  }
+}
+// !* ----------- iphone X ----------- *!
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) {
+  .applyRight {
+    right: -4px !important;
+  }
+}
+.MIBLEMP {
+  .legendBtn {
+    background: #e51837;
+    ion-icon {
+      color: #fff;
+    }
+  }
+  .legendPanel {
+    border: 2px solid #e51837;
+    .uppertriangle {
+      top: -27px;
+    }
+    .downtriangle {
+      bottom: -29px;
+    }
+  }
+}
+.dateIcon {
+  ion-icon {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  ion-datetime {
+    position: absolute;
+    width: 36%;
+    right: 0%;
+  }
+}
+
+/* ----------- iPad 1, 2, Mini and Air ----------- */
+
+/* Landscape */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .orientationLandscape {
+    width: 50%;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .dateIcon ion-datetime {
+    width: 19% !important;
+  }
+}
+
+@media only screen and (min-width: 740px) and (orientation: landscape) {
+  .newTbl {
+    .grid-col--fixed-left {
+      width: 20% !important;
+    }
+    .grid-col {
+      width: 16%;
+    }
+  }
+  .orientationLandscape {
+    width: 50%;
+  }
+  .legend-grid .button {
+    height: 2.2rem !important;
+  }
+  .dateIcon ion-datetime {
+    width: 19% !important;
+  }
+}

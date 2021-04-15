@@ -1,0 +1,173 @@
+<!--
+  Generated template for the SalaryCardPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red' : 'theme-red'">
+    <ion-title>Attendance Approval</ion-title>
+    <!-- <ion-buttons end>
+          <ion-select [(ngModel)]="year" (ngModelChange)="onChange($event)" style="background: #fff; padding: 5px 10px; max-width: 100%;">
+              <ion-option class="font-12" *ngFor="let year of yearsArray" [value]="year">{{year}}</ion-option>
+          </ion-select>
+      </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content [ngClass]="companyName == 'MIBL' ? 'MIBLEMP' : ''">
+  <ion-row class="calendar-Master" no-padding>
+    <ion-col col-8>
+      <div class="fake-input">
+        <ion-searchbar #mySearchbar  (ionClear)="reset($event)"   (keyup)="searchFn($event)" placeholder="Search By Employee"></ion-searchbar>
+        <img src="assets/loader.gif" *ngIf="smallLoader" width="25" />
+      </div>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item class="iondatemonth">
+        <ion-datetime mode="md" class="datetime" displayFormat="MMM, YYYY" pickerFormat="YYYY-MMM" [min]="ionDTMin"
+          [max]="ionDTmdMax" (ionChange)="ionDateTimeChange()" [(ngModel)]="ionDTmd"></ion-datetime>
+        <!-- <ion-datetime display-format="MMMM YYYY" min="2016" max="2020-10-31"></ion-datetime>  -->
+        <!-- <ion-icon name="ios-arrow-down" class="arrowDown" item-right></ion-icon> -->
+      </ion-item>
+    </ion-col>
+  </ion-row>
+  <!-- New Design Code Start -->
+  <!-- <ion-grid id="userData"> -->
+  <!-- <ion-row class="yearSelection">
+        <ion-col col-2 >  
+           <ion-select [(ngModel)]="year" (ngModelChange)="onChange($event)">
+                  <ion-option class="font-12" *ngFor="let year of yearsArray" [value]="year">{{year}}</ion-option>
+                </ion-select>
+         </ion-col>
+      </ion-row> -->
+  <!-- <ion-row>  -->
+  <div class="detailData">
+    <div class="newTbls">
+        <div class="grid-container" *ngIf="responseArr?.length==0">
+          <div class="noData">No Data Found</div>
+        </div>  
+      <div class="grid-container" *ngIf="responseArr?.length>0">
+        <div class="table">
+          <div class="row tableHeader">
+            <div class="table_cell stick0 headerClor">Employee Name</div>
+            <div class="table_cell stick1 headerClor">Token ID</div>
+            <div class="table_cell weekHeader tableCellw" *ngFor="let week of weeks; let i = index">
+              W{{ i + 1 }}
+            </div>
+          </div>
+          <div class="row" *ngFor="let data of responseArr; let i = index">
+            <div class="table_cell stick0">
+              <div class="vertivalAlignAll">{{ data.EmployeeName }}</div>
+            </div>
+            <div class="table_cell stick1">
+              <div class="vertivalAlignAll">{{ data.TokenID }}</div>
+            </div>
+            <div class="table_cell tableCellw" *ngFor="let dataW of data.Weeks; let i = index"
+              (click)="employeeDetails(data, dataW)">
+              <div class="triangle" [ngClass]="'status' + dataW.ApprovalStatus"></div>
+              <div class="vertivalAlignAll">{{ dataW.WeeklyHours || "-" }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </ion-row>
+</ion-grid> -->
+  <!-- New Design Code Stop -->
+
+  <!-- <div class="legendBtn" [ngClass]="openFooter == true ? 'applyTop' : ''" (click)="openFooter = !openFooter">
+    <ion-icon name="arrow-back"></ion-icon>
+  </div>
+
+  <div class="legendPanel" [ngClass]="openFooter == true ? 'applyRight' : ''">
+    <ion-row *ngIf="companyName != 'MIBL'">
+      <div class="uppertriangle">
+        <img src="assets/img/up-triangle2(1).png" />
+      </div>
+      <div class="downtriangle">
+        <img src="assets/img/down-triangle2(1).png" />
+      </div>
+    </ion-row>
+    <ion-row *ngIf="companyName == 'MIBL'">
+      <div class="uppertriangle">
+        <img src="assets/img/up-triangleRed2(1).png" />
+      </div>
+      <div class="downtriangle">
+        <img src="assets/img/down-triangleRed2(1).png" />
+      </div>
+    </ion-row>
+
+    <ion-row class="legend-grid">
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-present"></ion-icon>
+          <span>Present</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-weeklyoff"></ion-icon>
+          <span>Weekly Off</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-absent"></ion-icon>
+          <span>Absent</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-optional"></ion-icon>
+          <span>Optional</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-leave"></ion-icon>
+          <span>Time Off</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-regularize"></ion-icon>
+          <span>Regularized</span>
+        </button>
+      </div>
+      <div class="col-12 orientationLandscape">
+        <button ion-button clear col-12>
+          <ion-icon name="ios-square" class="icon-holiday"></ion-icon>
+          <span>Holiday</span>
+        </button>
+      </div>
+    </ion-row>
+  </div> -->
+
+  <ion-footer *ngIf="paymentData?.length > 0" style="display: none;">
+    <ion-toolbar>
+      <ion-buttons (click)="createPDF()">
+        <button ion-button class="btn">
+          <button ion-button full color="gray-main" round>Download</button>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+
+  <div style="display: none;" class="arrowUpBtn" [ngClass]="(openFooter == true) ? 'applyBottom' : ''"
+    (click)="openFooter = !openFooter">
+    <ion-icon name="arrow-up"></ion-icon>
+  </div>
+</ion-content>
+
+<!-- <ion-footer *ngIf="paymentData?.length>0">
+  <ion-toolbar>
+    <ion-buttons (click)='createPDF()'>
+      <button ion-button class="btn">
+         <button  ion-button full color="gray-main" round>Download</button>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-footer> -->

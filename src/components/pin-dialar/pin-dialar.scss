@@ -1,0 +1,74 @@
+pin-dialar {
+
+  .main-Div {
+    width: 100%;
+  }
+
+  ion-icon {
+    font-size: 1.5em !important;
+  }
+
+
+  .top-right {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+  }
+
+  .button-outline-md {
+    border-color: #000000 !important;
+    color: #000000 !important;
+  }
+
+  .button-outline-ios {
+    border-color: #000000 !important;
+    color: #000000 !important;
+  }
+
+  .scrollcontent {
+    background: #fff !important;
+    overflow-y: hidden !important;
+
+    .scroll-content {
+      padding-top: 0px !important;
+      margin-top: 0px !important;
+      background: #fff !important;
+      //background-image: url("../assets/img/footerimage.png") !important;
+      background-image: url("../assets/img/login-bg.png") !important;
+      background-position: bottom !important;
+      background-repeat: no-repeat !important;
+      //background-size: contain !important;
+      background-size: cover !important;
+      padding-bottom: 0px !important;
+      display: flex;
+      align-items: center;
+      /* width: 100%; */
+      justify-content: center;
+    }
+  }
+
+
+
+  .back-img {
+    background: url("../assets/img/login_bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .scroll-content {
+      background-color: transparent !important;
+      background: transparent !important;
+    }
+  }
+
+
+
+  .btn {
+    margin-top: 3%;
+    padding: 26px 0;
+    margin: 20px 0;
+    border-radius: 3px;
+  }
+
+
+
+}

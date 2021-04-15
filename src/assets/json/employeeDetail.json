@@ -1,0 +1,99 @@
+{
+
+  "SalaryCardItems": [
+
+    {
+
+      "WageType": "1000",
+
+      "WageTypeDescription": "Basic",
+
+      "Amount": 122986
+
+    },
+
+    {
+
+      "WageType": "1275",
+
+      "WageTypeDescription": "Balance Flexi Pay",
+
+      "Amount": 1845
+
+    },
+
+    {
+
+      "WageType": "5079",
+
+      "WageTypeDescription": "ESOP Adjustment",
+
+      "Amount": 27552501
+
+    },
+
+    {
+
+      "WageType": "5152",
+
+      "WageTypeDescription": "M&M Credit Society",
+
+      "Amount": 9500000
+
+    },
+
+    {
+
+      "WageType": "/3F1",
+
+      "WageTypeDescription": "Employee PF",
+
+      "Amount": 72198
+
+    },
+
+    {
+
+      "WageType": "/3F2",
+
+      "WageTypeDescription": "Employee VPF",
+
+      "Amount": 218910000
+
+    },
+
+    {
+
+      "WageType": "/3P1",
+
+      "WageTypeDescription": "Professional Tax",
+
+      "Amount": 250000
+
+    },
+
+    {
+
+      "WageType": "/460",
+
+      "WageTypeDescription": "Income Tax",
+
+      "Amount": 905
+
+    },
+
+    {
+
+      "WageType": "/560",
+
+      "WageTypeDescription": "NET PAY",
+
+      "Amount": 2500000
+
+    }
+
+  ],
+
+  "Message": "Success"
+
+}

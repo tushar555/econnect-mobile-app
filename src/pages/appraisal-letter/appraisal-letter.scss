@@ -1,0 +1,36 @@
+page-appraisal-letter {
+  .yearCard {
+    width: 100% !important;
+    margin: 0px !important;
+    border-left: .2rem solid #fed700;
+    box-shadow: 0px 1px 15px 1px rgba(69, 65, 78, 0.08);
+    cursor: pointer;
+    font-weight: 700;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+
+  .card-content-md {
+    padding: 0px 0px !important;
+
+
+  }
+
+  .label-md {
+    font-size: 12px !important;
+  }
+
+  .card-content-ios {
+    padding: 0px 0px !important;
+
+  }
+
+  .no-record {
+    padding: 11px 19px !important;
+    text-align: center !important;
+  }
+
+  .label-ios {
+    font-size: 12px !important;
+  }
+}

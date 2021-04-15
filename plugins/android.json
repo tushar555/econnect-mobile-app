@@ -1,0 +1,88 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "call-number": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-advanced-http": {
+      "OKHTTP_VERSION": "3.10.0",
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-app-launcher": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-app-version": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-calendar": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-camera": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-file-opener2": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-geolocation": {
+      "GPS_REQUIRED": "true",
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-request-location-accuracy": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova.plugins.diagnostic": {
+      "ANDROID_SUPPORT_VERSION": "28.+",
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "ionic-plugin-keyboard": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "phonegap-plugin-mobile-accessibility": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "cordova-android-support-gradle-release": {
+      "ANDROID_SUPPORT_VERSION": "27.+",
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "com.mahindrafinance.weconnect"
+    }
+  }
+}

@@ -1,0 +1,71 @@
+page-emergency-contacts {
+  .contactList{
+    .input-wrapper{
+        text-align: left !important;
+      }
+      ion-icon {
+        font-size: 2.2rem;
+     }
+    
+  }
+  .scroll-content {
+    div {
+      height: 100%;
+      // text-align: center;
+    }
+  }
+  .no-records {
+    .img_center {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+    img {
+      vertical-align: middle;
+    }
+  }
+  .search-loader{
+    // height: 50px;
+    position: absolute;
+    top: 1em;
+    right: 3em;
+    z-index: 999;
+  }
+  .fake-input { 
+    position: relative;
+    height: 55px;
+    .searchbar-ios {
+      padding: 13px 8px;
+      background-color: transparent;
+    }
+    // width:240px; 
+  }
+  .fake-input ion-searchbar { 
+    border:none; 
+    // background:#fff; 
+    display:block; 
+    width: 100%; 
+    box-sizing: border-box;
+  }
+  .header-md{
+      .fake-input .spinnerLoader { 
+        height: 30px;
+        width: 30px;
+        position: absolute;
+        right: 35px;
+        top: 25%;
+      }
+  }
+  .header-ios{
+      .fake-input .spinnerLoader { 
+        height: 3rem;
+        width: 3rem;
+        position: absolute;
+        right: 26px;
+        top: 0%;
+      }
+  }
+  .item-md.item-block .item-inner{
+    border-bottom: none;
+  }
+}

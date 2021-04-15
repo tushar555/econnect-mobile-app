@@ -1,0 +1,388 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+@import "ionic.globals";
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  /* make scrollbar transparent */
+}
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+$colors: (primary: #488aff,
+  secondary: #32db64,
+  danger: #f53d3d,
+  light: #f4f4f4,
+  dark: #222,
+  red-main: #dd1b1c,
+  orange: #ff7801,
+  yellow: #fed700,
+  theme-red: (base: #E51837,
+    contrast: #ffffff),
+  yellow-main: (base: #fef200,
+    contrast: #000000),
+  white-main: (base: #ffffff,
+    contrast: #000000), light-gray-main: (base: #c1c1c1,
+    contrast: #535353), gray-main: (base: #939499,
+    contrast: #ffffff), black: (base: #000000,
+    contrast: #ffffff), dark-gray: (base: #535353,
+    contrast: #ffffff), light-redGray-shade: (base: #bdb7b7,
+    contrast: #ffffff));
+//SASS Variables declaration for color codes
+$light: #f4f4f4;
+$yellow: #fef200;
+$dark-gray: #535353;
+$gray: #939499;
+$light-gray: #c1c1c1;
+$lighter-gray: #e0e2e7;
+$red: #e31635;
+$bgColor: #e8e8e8;
+$total:rgb(185, 188, 194);
+$font-s: 10px;
+$font-m: 12px;
+$font-l: 20px;
+$light-gray-bg: #f7f8fa;
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+@import "ionic.theme.default";
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+@import "ionic.ionicons";
+// Fonts
+// --------------------------------------------------
+/*@import "roboto";
+@import "noto-sans";*/
+
+@import '../assets/font/Arial/arial.ttf';
+
+@font-face {
+  font-family: 'Arial';
+  src: url('../assets/font/Arial/arial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Icons Style Start */
+
+.icon-attendance {
+  background: url("../assets/icon/icon-attendance.png");
+}
+
+.icon-payslip {
+  background: url("../assets/icon/icon-payslip.png");
+}
+
+.icon-tax {
+  background: url("../assets/icon/icon-tax.png");
+}
+
+.icon-lta {
+  background: url("../assets/icon/icon-lta.png");
+}
+
+.icon-holiday {
+  background: url("../assets/icon/icon-holiday.png");
+}
+
+.icon-hrpolicies {
+  background: url("../assets/icon/icon-hrpolicies.png");
+}
+
+.icon-feedback {
+  background: url("../assets/icon/icon-feedback.png");
+}
+
+.icon-history {
+  background: url("../assets/icon/icon-history.png");
+}
+
+.icon-hospitals {
+  background: url("../assets/icon/icon-hospitals.png");
+}
+
+.icon-emergency {
+  background: url("../assets/icon/icon-emergency.png");
+}
+
+.icon-offers {
+  background: url("../assets/icon/icon-offers.png");
+}
+
+.icon-m2all {
+  background: url("../assets/icon/icon-m2all.png");
+}
+
+.icon-sf {
+  background: url("../assets/icon/icon-sf.png");
+}
+
+
+/* Dashboard Icons Start */
+
+.black-attendance {
+  background: url("../assets/icon/dashboard/black/attendance.svg");
+}
+
+.black-contacts {
+  background: url("../assets/icon/dashboard/black/emergency.svg");
+}
+
+.black-emergency {
+  background: url("../assets/icon/dashboard/black/emergency.svg");
+}
+
+.black-form16 {
+  background: url("../assets/icon/dashboard/black/form-16.svg");
+}
+
+.black-holiday {
+  background: url("../assets/icon/dashboard/black/holiday.svg");
+}
+
+.black-home {
+  background: url("../assets/icon/dashboard/black/home.png");
+}
+
+.black-hospital {
+  background: url("../assets/icon/dashboard/black/hospital.svg");
+}
+
+.black-income-summary {
+  background: url("../assets/icon/dashboard/black/income-summary.png");
+}
+
+.black-income-tax {
+  background: url("../assets/icon/dashboard/black/income-tax.svg");
+}
+
+.black-info {
+  background: url("../assets/icon/dashboard/black/info.svg");
+}
+
+.black-lock {
+  background: url("../assets/icon/dashboard/black/lock.png");
+}
+
+.black-logout {
+  background: url("../assets/icon/dashboard/black/logout.png");
+}
+
+.black-lta-summary {
+  background: url("../assets/icon/dashboard/black/lta-summary.svg");
+}
+
+.black-m2all {
+  background: url("../assets/icon/dashboard/black/m2all.png");
+}
+
+.black-offer {
+  background: url("../assets/icon/dashboard/black/offers.svg");
+}
+
+.black-payroll {
+  background: url("../assets/icon/dashboard/black/payroll.svg");
+}
+
+.black-payslip {
+  background: url("../assets/icon/dashboard/black/my-payroll.svg");
+}
+
+.black-policy {
+  background: url("../assets/icon/dashboard/black/policy.png");
+}
+
+.black-salary-card {
+  background: url("../assets/icon/dashboard/black/salary-card.svg");
+}
+
+.black-sf {
+  background: url("../assets/icon/dashboard/black/sf.svg");
+}
+
+.black-summary {
+  background: url("../assets/icon/dashboard/black/summary.png");
+}
+
+.black-time-attendance {
+  background: url("../assets/icon/dashboard/black/time-attendance.png");
+}
+
+.black-time {
+  background: url("../assets/icon/dashboard/black/time.svg");
+}
+
+.black-user {
+  background: url("../assets/icon/dashboard/black/user.png");
+}
+
+.black-feedback {
+  background: url("../assets/icon/dashboard/black/feedback.svg");
+}
+
+.black-flexi {
+  background: url("../assets/icon/dashboard/black/flexi-pay.svg");
+}
+
+.white-attendance {
+  background: url("../assets/icon/dashboard/white/attendance.png");
+}
+
+.white-contacts {
+  background: url("../assets/icon/dashboard/white/contacts.png");
+}
+
+.white-emergency {
+  background: url("../assets/icon/dashboard/white/emergency.png");
+}
+
+.white-form16 {
+  background: url("../assets/icon/dashboard/white/form-16.svg");
+}
+
+.white-holiday {
+  background: url("../assets/icon/dashboard/white/holiday.png");
+}
+
+.white-home {
+  background: url("../assets/icon/dashboard/white/home.png");
+}
+
+.white-hospital {
+  background: url("../assets/icon/dashboard/white/hospital.png");
+}
+
+.white-income-summary {
+  background: url("../assets/icon/dashboard/white/income-summary.png");
+}
+
+.white-income-tax {
+  background: url("../assets/icon/dashboard/white/incometax.png");
+}
+
+.white-info {
+  background: url("../assets/icon/dashboard/white/info.svg");
+}
+
+.white-lock {
+  background: url("../assets/icon/dashboard/white/lock.png");
+}
+
+.white-logout {
+  background: url("../assets/icon/dashboard/white/logout.png");
+}
+
+.white-lta-summary {
+  background: url("../assets/icon/dashboard/white/lta-summary.png");
+}
+
+.white-m2all {
+  background: url("../assets/icon/dashboard/white/m2all.png");
+}
+
+.white-offer {
+  background: url("../assets/icon/dashboard/white/offers.svg");
+}
+
+.white-payroll {
+  background: url("../assets/icon/dashboard/white/payroll.svg");
+}
+
+.white-payslip {
+  background: url("../assets/icon/dashboard/white/payslip.png");
+}
+
+.white-policy {
+  background: url("../assets/icon/dashboard/white/policy.png");
+}
+
+.white-salary-card {
+  background: url("../assets/icon/dashboard/white/salarycard.png");
+}
+
+.white-sf {
+  background: url("../assets/icon/dashboard/white/sf-grey.png");
+}
+
+.white-summary {
+  background: url("../assets/icon/dashboard/white/summary.png");
+}
+
+.white-time-attendance {
+  background: url("../assets/icon/dashboard/white/time.svg");
+}
+
+.white-time {
+  background: url("../assets/icon/dashboard/white/time.png");
+}
+
+.white-user {
+  background: url("../assets/icon/dashboard/white/user.png");
+}
+
+.white-feedback {
+  background: url("../assets/icon/dashboard/white/user.png");
+}
+
+.white-flexi {
+  background: url("../assets/icon/dashboard/white/flexi-pay.svg");
+}
+
+.white-csr {
+  background: url("../assets/icon/dashboard/white/csr2.png");
+}
+
+.black-csr {
+  background: url("../assets/icon/dashboard/black/csr.png");
+}
+
+.white-25 {
+  background: url("../assets/icon/dashboard/white/25Yearslogo.png");
+}
+
+.black-25 {
+  background: url("../assets/icon/dashboard/black/25Yearslogo.png");
+}
+
+.toolbar-title {
+  font-weight: bold !important;
+}
+
+/* Dashboard Icons End */
+
+
+/* Icons Style End */

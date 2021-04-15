@@ -1,0 +1,326 @@
+page-holiday {
+  .col {
+    text-align: center; //padding: 5px;
+    padding: 10px 5px;
+    color: #535353;
+  }
+  .weekly-hours {
+    width: 100%;
+    padding: 10px 16px;
+    background: #f2f4f7;
+    border: 1px solid #e0e2e7;
+    border-top: none;
+    //border-left: 3px solid #fef200;
+    ion-icon {
+      font-size: 6vw;
+      color: #000;
+    }
+    .hrs-label {
+      font-size: 3.75vw;
+      color: #544b4b;
+      font-weight: 500;
+    }
+  }
+  .iondatemonth{
+    padding: 0 0 0 16px;
+    ion-label{
+      color: #000 !important;
+    }
+    .item-inner {
+      border-bottom: none !important;
+    }
+  }
+  /*  .event-bullet {
+    margin: 2px auto;
+    height: 4px;
+    width: 4px;
+    background-color: green;
+    border-radius: 30px;
+  }*/
+  /*.selected-date {
+    width: 20px;
+    height: 2px;
+    background-color: blue;
+  }
+  .unselected-date {
+    border: none;
+  }*/
+  .calendar-body {
+    // margin-bottom: 40px;
+    // border: 1px solid gray;
+    .calendar-today {
+      background-color: $yellow;
+      text-align: center;
+      padding: 10px;
+    }
+    .calendar-top-header {
+      text-align: center;
+      /*border-left: 1px solid gray;
+      border-right: 1px solid gray;
+      border-top: 1px solid gray;*/
+      .calendar-current-date {
+        background-color: $light-gray;
+        color: $dark-gray;
+        padding: 20px;
+        font-size: 25px;
+        font-weight: 100;
+        text-transform: uppercase;
+      }
+      .current-date {
+        font-size: 50px;
+        font-weight: 300;
+        margin: 0 5px;
+        color: #000;
+      }
+    }
+    
+    .calendar-month {
+        .col {
+          padding: 0px !important;
+          border: none !important;
+        }
+        ion-select {
+          padding: 3px !important;
+          float: right;
+          margin-top: -4px;
+          margin-right: 7px;
+        }
+      }
+   
+    .grid {
+      padding: 0;
+      /*border-top: 1px solid #dedede;
+      border-bottom: 1px solid #dedede;*/
+      /*border-top: solid 1px #1a732d;
+      border-bottom: solid 1px #1a732d;*/
+      //border-left: 1px solid gray;
+      //border-left: 1px solid #f2f2f2;
+      .calendar-weekday {
+        //border: 1px solid gray;
+        background: #f2f4f7;
+        border: 1px solid $lighter-gray;
+      }
+      .calendar-date {
+        background-color: #ffffff; //border-bottom: solid 1px gray;
+        .row:last-child {
+          border-bottom: none !important;
+        }
+        [col-1] {
+          -webkit-box-flex: 0;
+          -webkit-flex: 0 0 8.33333%;
+          -ms-flex: 0 0 8.33333%;
+          flex: 0 0 14.285714285714286%;
+          width: 14.285714285714286% !important;
+          max-width: 14.285714285714286% !important;
+        }
+        .col {
+          /*border-right: 1px solid gray !important;
+          border-bottom: 1px solid gray !important;*/
+          border-right: 1px solid $lighter-gray !important;
+          border-bottom: 1px solid $lighter-gray !important;
+          /*border-right: 1px solid #f2f2f2 !important;
+          border-bottom: 1px solid #f2f2f2 !important;*/
+        }
+        .col:nth-child(7n+1) {
+          //border-left: 1px solid gray !important;
+          border-left: 1px solid $lighter-gray !important;
+        }
+        .currentDateCol {
+          //background-color: #000000 !important;
+          background-color: #fef2006b !important;
+          padding: 5px !important;
+          .currentDate {
+            font-weight: 600;
+            font-size: 1.6rem;
+            /*background-color: $yellow;
+            color: $dark-gray;*/
+            //color: $yellow;
+            /*border-radius: 30px;*/
+            display: inline-block;
+            min-width: 26px;
+          }
+        }
+        .last-month,
+        .next-month,
+        .disabled-date {
+          color: #999999;
+          font-size: $font-s; //font-size: 90%;
+        }
+        .currentDate,
+        .otherDate {
+          padding: 5px;
+          font-weight: bold;
+        }
+      }
+    }
+    .calendar-weekday,
+    .calendar-date {
+      text-align: center;
+      margin: 0;
+    }
+    .calendar-weekday {
+      //font-weight: 100;
+      color: #808080;
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray; //border: 1px solid #f2f2f2;
+      //background-color: #26ab56;
+    }
+  }
+  .legend-grid {
+    max-height: 50px;
+    overflow-x: auto;
+    white-space: nowrap;
+    [col-3] {
+      padding: 0px !important;
+    }
+    .button {
+      .button-inner {
+        padding-left: 0 !important;
+      }
+      color: $dark-gray !important;
+      font-size: $font-s;
+      /*ion-icon {
+        margin-right: 5px;
+      }*/
+      .icon-present {
+        color: rgba(97, 174, 2, 0.3);
+      }
+      .icon-absent {
+        color: rgba(227, 25, 54, 0.3);
+      }
+      .icon-holiday {
+        color: rgb(227, 24, 54); //rgba(83, 83, 83, 0.1);
+      }
+      .icon-leave {
+        color: rgba(254, 215, 0, 0.3);
+      }
+      .icon-weeklyoff {
+        color: #f7a429;
+      }
+      .icon-optional {
+        color: #00BCD4;
+      }
+      .icon-regularize {
+        color: #0dad9e;
+      }
+      span {
+        line-height: 1px;
+        padding-left: 5px;
+      }
+    }
+  }
+  .holiday-desc {
+    padding: 5px;
+    font-size: 11px;
+  }
+  .date-holiday {
+    // color: rgb(227, 24, 54) !important // background: #E5E5E5 !important;
+    //background: rgb(227, 24, 54) !important;
+    //color: #fff !important;
+  }
+  .week-holiday {
+    // background: rgb(163, 164, 168) !important;
+  }
+  .optional-holiday {
+    color: rgb(227, 24, 54) !important // background: #E5E5E5 !important;
+  }
+  .swipe-left {
+    animation-duration: 1s;
+    animation-name: swipe-left1; //animation: swipe-left1 5s;
+  }
+  .swipe-right {
+    animation-duration: 1s;
+    animation-name: swipe-right1; //animation: swipe-right1 5s;
+  }
+  .no_padding {
+    padding: 0px;
+  }
+  .left-align {
+    text-align: left;
+  }
+  .optionalHoliday {
+    color: #E5E5E5 !important;
+  }
+  .generalHoliday {
+    color: rgb(227, 24, 54) !important;
+  }
+  .bullet {
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  .bulletP{
+    background-color: rgba(97,174,2,.6);
+  }
+  .bulletA{
+    background-color: rgba(227,25,54,.6);
+  }
+  .bulletT{
+    background-color: rgba(254,215,0,.6);
+  }
+  .bulletH{
+    background-color: #e31836;
+  }
+  .bulletW{
+    background-color: #f7a429;
+  }
+  .bulletO{
+    background-color: #00bcd4;
+  }
+  .bulletR{
+    background-color: #0dad9e;
+    top: 13px;
+  }
+
+  /* Direction - 2 */
+  @keyframes swipe-left1 {
+    from {
+      margin-left: 100%;
+      width: 100%;
+    }
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  /* Direction - 4 */
+  @keyframes swipe-right1 {
+    from {
+      margin-left: 0%;
+      width: 100%;
+    }
+    to {
+      margin-left: 100%;
+      width: 100%;
+    }
+  }
+  .dateIcon{
+    ion-icon{
+      font-size: 14px;display: flex;align-items: center;
+      cursor: pointer;
+    }
+    ion-datetime{
+      position: absolute;
+      width: 36%;
+      right: 0%;
+    }
+  }
+  // !* ----------- iPhone 5, 5S, 5C and 5SE ----------- *!
+  @media only screen and (device-width: 320px) and (device-height: 568px) and (device-aspect-ratio: 40/71) {
+    
+    .dateIcon ion-datetime {
+      width: 44% !important;
+    }
+  }
+  /* Portrait */ /* ----------- iPhone 4 and 4S ----------- */
+  @media only screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1) {
+   .dateIcon ion-datetime {
+      width: 44% !important;
+    }
+  }
+}
+

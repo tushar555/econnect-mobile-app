@@ -1,0 +1,108 @@
+<!--
+  Generated template for the GiftAcknowledgementPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red' : 'theme-red'">
+    <ion-title>Gift Acknowledgement</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding class="font-14">
+  <ion-row padding>
+    <p class="contentack">
+      We are pleased to announce that as a mark of completing 25 years of
+      Mahindra Finance, you will receive a silver plaque to thank you for your
+      continuous support and contribution. Kindly acknowledge the same by
+      sharing the below information:
+    </p>
+    <form [formGroup]="acknowledgeForm">
+      <ion-item style="font-size: 14px;">
+        <ion-label stacked>SAP Code</ion-label>
+        <ion-input type="text" disabled formControlName="TokenId" name="TokenId"></ion-input>
+      </ion-item>
+      <ion-item style="font-size: 14px;">
+        <ion-label stacked>Location</ion-label>
+        <ion-input type="text" (keypress)="checkCharOnly($event)" disabled formControlName="Location" name="Location">
+        </ion-input>
+      </ion-item>
+      <ion-item style="font-size: 14px;">
+        <ion-label stacked> <span style='color: red'>*</span> Mobile No.</ion-label>
+        <ion-input type="text" [maxlength]='20' [disabled]="respData" formControlName="MobileNo" name="MobileNo">
+        </ion-input>
+      </ion-item>
+      <div class="PAN-no" *ngIf="this.acknowledgeForm?.get('MobileNo')?.value !== this.data?.MobileNo &&
+         this.acknowledgeForm?.get('MobileNo')?.value.length === 10 &&
+         this.acknowledgeForm.get('MobileNo')?.value
+        !=='' ">
+        * Your Mobile No. doesn't match with our record
+      </div>
+      <div *ngIf="acknowledgeForm.controls['MobileNo'].invalid && (acknowledgeForm.controls['MobileNo'].dirty ||
+            acknowledgeForm.controls['MobileNo'].touched)">
+        <div class="PAN-no" *ngIf="acknowledgeForm.controls['MobileNo'].errors.pattern">
+          *Enter valid Mobile No.
+        </div>
+      </div>
+      <ion-item style="font-size: 14px;">
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" (keypress)="checkCharOnly($event)" disabled formControlName="Name" name="Name">
+        </ion-input>
+      </ion-item>
+
+      <ion-item style="font-size: 14px;">
+        <ion-label stacked>RHR</ion-label>
+        <ion-input type="text" disabled (keypress)="checkCharOnly($event)" formControlName="RHR" name="RHR"></ion-input>
+      </ion-item>
+      <ion-row class="font-12" *ngIf="!respData" padding>
+        Thank you for your contribution, please click on <b style="margin-right: 3px;">YES</b> if you received the
+        25 years silver gift?
+      </ion-row>
+      <ion-item *ngIf="!respData" style="font-size: 14px;">
+        <ion-label stacked>YES. I have received?</ion-label>
+        <ion-checkbox formControlName="Status"></ion-checkbox>
+
+        <!-- <ion-input type="checkbox"  name="Status"></ion-input> -->
+      </ion-item>
+      <ion-item *ngIf="acknowledgeForm.get('Status').value">
+        <ion-label stacked><span style='color: red'>*</span>Bank Account No.</ion-label>
+        <ion-input type="text" [disabled]="respData" formControlName="BankAccountNo" name="BankAccountNo"></ion-input>
+      </ion-item>
+      <div class="PAN-no" *ngIf="this.acknowledgeForm?.get('BankAccountNo')?.value !== this.data?.BankAccountNo && this.acknowledgeForm?.get('BankAccountNo')?.value.length === 12 && this.acknowledgeForm.get('BankAccountNo')?.value
+        !=='' ">
+        * Your Bank Account No. doesn't match with our record
+      </div>
+      <br />
+    </form>
+  </ion-row>
+
+  <!-- <ion-row padding>
+    <ion-col align-self-center text-center>
+        <button ion-button color="theme-red" (click)="acknowlegeGift(true)">Received</button>
+        <button ion-button color="theme-red" [disabled]="!respData" (click)="acknowlegeGift(false)">Not Received</button>
+        <button ion-button color="theme-red" *ngIf="!respData" (click)="acknowlegeGift(true)">Received</button>
+        <button ion-button color="theme-red" *ngIf="!respData" [disabled]="!respData" (click)="acknowlegeGift(false)">Not Received</button>
+      </ion-col>
+  </ion-row> -->
+</ion-content>
+
+<ion-footer>
+  <div *ngIf="respData" class="tabButtonBlock">
+    <b color="theme-red" class="rcv">Thank You!</b><br />
+    <span class="received">
+      You have acknowledged for receiving the gift as on:
+      <div>{{ data?.ReceivedDate | date: "dd-MM-yyyy" }}.</div></span>
+  </div>
+  <button *ngIf="!respData" class="giftButton" (click)="acknowlegeGift()" ion-button color="theme-red" [disabled]="
+      !acknowledgeForm.get('Status').value ||
+      this.acknowledgeForm.get('BankAccountNo').value !== this.data.BankAccountNo||
+       this.acknowledgeForm.get('MobileNo').value !== this.data.MobileNo
+      ||
+      acknowledgeForm.invalid ||
+      (acknowledgeForm.get('TokenId').value == '' ||
+        acknowledgeForm.get('TokenId').value == null)
+    ">
+    Submit Details
+  </button>
+</ion-footer>

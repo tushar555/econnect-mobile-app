@@ -1,0 +1,51 @@
+
+<ion-content class="scrollcontent">
+  <img class="ridge" src="assets/img/mahindra-ridge.png" />
+  <div class="centeredlogo" margin-bottom>
+    <img src="assets/img/we-connect-logo.png">
+  </div>
+
+  <form class="form-center" [formGroup]="loginForm" margin-top>
+    <ion-item class="input-box" margin-bottom>
+      <ion-icon name="ios-person-outline" item-left></ion-icon>
+      <ion-input type="text" formControlName="username" placeholder="Username" (ionBlur)="footerToggle('show')"
+        (ionFocus)="footerToggle('hide')"></ion-input>
+    </ion-item>
+    <ion-item class="input-box">
+      <ion-icon name="ios-lock-outline" item-left></ion-icon>
+      <ion-input *ngIf="loginType == 'normal'" placeholder="Password" formControlName="password"
+        [type]="showPassword? 'text' : 'password'" (ionBlur)="footerToggle('show')" (ionFocus)="footerToggle('hide')"
+        value=""></ion-input>
+      <button type="button" item-end (click)="showPassword = !showPassword"
+        style="position: absolute; right: 0; bottom: 0; background: transparent">
+        <ion-icon style="font-size: 24px" [name]="showPassword? 'eye' : 'eye-off'"></ion-icon>
+      </button>
+
+      <ion-input *ngIf="loginType == 'with_pin'" placeholder="Pin" formControlName="pin"
+        [type]="showPassword? 'text' : 'password'" disabled (click)="openPinDialar()" value="">
+      </ion-input>
+      <!-- <button item-end (click)="passwordType='password'" *ngIf="passwordType=='text'" style="position: absolute; right: 0; bottom: 0; background: transparent"><ion-icon style="font-size: 25px" name="eye-off"></ion-icon></button> -->
+    </ion-item>
+    <button (click)="loginAction()" class="btn" [disabled]="!loginForm.valid || alreadyClick" ion-button full
+      color="red-main" round>Login</button>
+      <div id="version">ENT Version: 1.0</div>
+    <div class="item" (click)="onForgotClick()">
+
+      <span *ngIf="loginType == 'with_pin'" style="float:right">Forgot Pin?</span>
+    </div>
+  </form>
+
+
+  <ion-footer padding text-center *ngIf="showFooter">
+
+    <img class="ridge" src="assets/img/mahindra-finance.png" />
+  </ion-footer>
+
+  <!-- <div text-center *ngIf="!ShowPin">
+    <button (click)="showPin()">Enter Pin</button>
+    <br>
+    <label *ngIf="Pin">Pin entered is {{Pin}}</label>
+  </div> -->
+
+
+</ion-content>

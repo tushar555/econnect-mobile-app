@@ -1,0 +1,35 @@
+<!--
+  Generated template for the HrpoliciesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="theme-red">
+    <ion-title>HR Policies</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content">
+  <div color="theme-red">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </div>
+  <ion-list>
+    <ion-item *ngFor="let item of menuArray">
+      <ion-row>
+        <ion-col col-2>
+          <ion-icon [name]="item.icon"></ion-icon>
+        </ion-col>
+        <ion-col col-8 style="font-size:16px;">
+          <span style="padding:2px;"> {{ item.name }} </span>
+        </ion-col>
+        <ion-col col-2 align="right">
+          <ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>

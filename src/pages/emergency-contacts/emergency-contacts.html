@@ -1,0 +1,111 @@
+<!--
+  Generated template for the EmergencyContactsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+    <ion-title>Emergency</ion-title>
+  </ion-navbar>
+  <div class="fake-input">
+    <ion-searchbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'" placeholder="Search Employee Name.." [(ngModel)]="myInput"
+      (ionInput)="searchContact($event)" (ionClear)="onCancel($event)">
+    </ion-searchbar>
+    <img src="assets/loader.gif" class="search-loader" *ngIf="smallLoader" width="25">
+  </div>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf='contactDetails.length !==0 && showDetails; else showSearchData'>
+    <!-- <div style="margin:20px;"> Your Emergency contact:</div> -->
+
+    <ion-item class="contactList" *ngFor="let contact of contactDetails">
+        <h2>{{contact.ContactName || NA}}</h2>
+        <p>{{ contact.MobileNo }}</p>
+        <ion-icon ios="ios-call" md="md-call" item-end (click)="call(contact.MobileNo)"> </ion-icon>
+      </ion-item>
+      <!-- old code -->
+    <ion-item *ngFor="let contact of contactDetails" style="display: none">
+      <ion-row>
+        <ion-col col-2 align="left">
+          <span *ngIf="contact.ContactName!=='NA';else noName" style="font-size:12px;"> {{contact.ContactName}} </span>
+          <ng-template #noName>
+            <span style="font-size:12px;"> NA </span>
+          </ng-template>
+        </ion-col>
+        <ion-col col-8 align="right">
+          <span *ngIf="contact.MobileNo!==null;else noMobile" style="font-size:12px;"> {{ contact.MobileNo }} </span>
+        </ion-col>
+        <ion-col col-2 align="right" (click)="call(contact.MobileNo)">
+          <ion-icon ios="ios-call" md="md-call"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+      <!-- old code -->
+    <div *ngIf="contactList.length===0 && contactDetails.length ===0 ">
+      <div class="no-records">
+        <img [src]='datanotfound'>
+      </div>
+    </div>
+  </ion-list>
+
+  <ng-template #showSearchData>
+    <!-- <ng-container *ngIf="(contactDetails.length !== 0 && contactDetails[0].MobileNo !==''); else showNoDetails">
+        <ion-card *ngFor="let contact of contactDetails; let i=index ">
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-4>
+                <span style="font-size:12px;">  Contact No </span>
+              </ion-col>
+              <ion-col col-8 align="right">
+                <span *ngIf="contact.MobileNo!=='';else mobile" style="font-size:12px;"> {{ contact.MobileNo }}</span>
+                <ng-template #mobile style="padding:9px;">NA</ng-template>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+
+      </ng-container> -->
+
+    <div *ngIf="contactList.length !==0; else showNoDetails">
+        <ion-item class="contactList" *ngFor="let contact of contactList">
+            <h2>{{contact.Name || NA}}</h2>
+            <p>{{contact.ContactNumber }}</p>
+            <ion-icon name="ios-arrow-dropright-outline" item-end (click)="openEmergencyContacts(contact)"> </ion-icon>
+            
+          </ion-item>
+          <!-- old code -->
+      <ion-item *ngFor="let contact of contactList" style="display: none">
+        <ion-row>
+          <ion-col col-2 align="left">
+            <span *ngIf="contact.Name!==null;else noNamefound" style="font-size:12px;"> {{contact.Name}} </span>
+            <ng-template #noNamefound>
+              <span style="font-size:12px;"> NA </span>
+            </ng-template>
+          </ion-col>
+          <ion-col col-8 align="right">
+            <span *ngIf="contact.ContactNumber!==null;else noContactNumber" style="font-size:12px;"> {{ contact.ContactNumber}} </span>
+            <ng-template #noContactNumber>
+              <span style="font-size:12px;"> NA </span>
+            </ng-template>
+          </ion-col>
+          <ion-col col-2 align="right" (click)="openEmergencyContacts(contact)">
+            <ion-icon name="ios-arrow-dropright-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+       <!-- old code -->
+    </div>
+
+  </ng-template>
+  <ng-template #showNoDetails>
+    <div class="no-records" text-center>
+      <span class="img_center">
+      </span>
+      <img [src]='datanotfound'>
+    </div>
+  </ng-template>
+</ion-content>

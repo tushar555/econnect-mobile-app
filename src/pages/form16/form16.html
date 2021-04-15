@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar [color]="companyName == 'MIBL' ? 'theme-red':'theme-red'">
+      <ion-title>Form 16</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <!-- <ion-list>
+    <ion-item>
+      <ion-label>Year</ion-label>
+      <ion-select  [(ngModel)]="year" value="brown" okText="Okay" cancelText="Dismiss" (change)="downloadPdf()">
+        <ion-option  *ngFor="let year of yearsArray;let i=index" [value]="year">{{yearsArray[i]}}</ion-option>
+     </ion-select>
+    </ion-item>
+  </ion-list> -->
+  <ion-row>
+       <ion-col  col-12 class="monthBlock"  (click)="downloadPdf(year)" *ngFor="let year of yearsArray;let i=index">
+        <ion-card class="yearCard">
+            <ion-card-content>
+              <ion-item>
+                <ion-label>FY {{yearsArray[i]}}</ion-label>
+              </ion-item>
+            </ion-card-content>
+          </ion-card>
+       </ion-col>
+   </ion-row>
+</ion-content>

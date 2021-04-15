@@ -1,0 +1,34 @@
+<!--
+  Generated template for the ShowDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="theme-red">
+    <ion-title>{{details.FirstName}} {{details.LastName}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only clear (click)="closeModal()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let contact of contactDetails">
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4>
+          <span style="font-size:12px;">  Contact No </span>
+        </ion-col>
+
+        <ion-col col-8 align="right">
+          <span *ngIf="contact.MobileNo!=='';else mobile" style="font-size:12px;"> {{ contact.MobileNo }}</span>
+          <ng-template #mobile style="padding:9px;">Not Present</ng-template>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,119 @@
+page-hospitals {
+
+
+/*  .border-left-style {
+
+  }*/
+/*  .banner-img {
+    height: 35%;
+    background-image: url(../assets/img/bg-top-container.jpg);
+    background-repeat: no-repeat;
+  }*/
+/*  .searchbar-md {
+    background: inherit;
+    padding: 0px 8px;
+  }*/
+  a {
+    text-decoration: none;
+    color: #000000;
+  }
+  .hospital-card {
+    /*position: absolute;
+    top: 18rem;*/
+    width: 100%;
+    ion-icon {
+      font-size: 1.1em;
+      color: $gray;
+    }
+    ion-searchbar {
+      padding: 10px 10px 0px 10px;
+    }
+    ion-card {
+      border-left: 2px solid $gray;
+      border-radius: .4rem;
+      .col {
+        padding: 10px;
+      }
+      .hospital-name {
+        color: $dark-gray;
+        font-weight: bold;
+        padding-bottom: 0;
+      }
+      .hospital-address {
+        border-bottom: .1rem solid $light-gray;
+        font-size: $font-m;
+        color: $gray;
+        ion-icon {
+          //font-size: 1.1em;
+        }
+      }
+      .hospital-info {
+        font-size: $font-m;
+        .contact {
+          border-right: .1rem solid $light-gray;
+        }
+      }
+    }
+  }
+  .search-loader{
+    height: 50px;
+    position: absolute;
+    top: 10%;
+    right: 3em;
+    z-index: 999;
+  }
+  .fake-input { 
+    position: relative;
+    height: 55px;
+    // width:240px;
+    .searchbar-ios {
+      padding: 13px 8px;
+      background-color: transparent;
+    }
+  }
+  .fake-input ion-searchbar { 
+    border:none; 
+    // background:#fff; 
+    display:block; 
+    width: 100%; 
+    box-sizing: border-box 
+  }
+  // .fake-input .spinnerLoader { 
+  //   height: 3rem;
+  //   width: 3rem;
+  //   position: absolute;
+  //   right: 40px;
+  //   top: 0%;
+  // }
+
+  .header-md{
+    .fake-input img { 
+      height: 30px;
+      width: 30px;
+      position: absolute;
+      right: 40px;
+      top: 25%;
+    }
+}
+.header-ios{
+    .fake-input img { 
+      height: 3rem;
+      width: 3rem;
+      position: absolute;
+      right: 30px;
+      top: calc(50% - 15px);
+    }
+}
+.no-records {
+  height: 100%;
+  text-align: center;
+  .img_center {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+  img {
+    vertical-align: middle;
+  }
+}
+}

@@ -1,0 +1,74 @@
+
+<ion-header>
+
+  <ion-navbar (click)='sliderFunction()' color="theme-red">
+    <ion-title>Income Tax </ion-title>
+    <!-- <ion-icon [hidden]="!showAdd" class="add-icon" ios="ios-add" md="md-add"></ion-icon> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content *ngIf="serverResponse.Schemes !==undefined">
+  <ion-list>
+    <ion-item>
+      <ion-label>Select Scheme</ion-label>
+      <ion-select (ionChange)="onSelect($event)" value="brown" okText="Okay" cancelText="Dismiss">
+
+        <ion-option *ngFor="let scheme of this.serverResponse.Schemes;let i=index"
+          [selected]="scheme.Section==='General'" [value]="i">{{scheme.Section}}</ion-option>
+
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-card>
+ 
+    <ion-card-content>
+      <div>
+        <div>
+          <label>Section Limit:</label> {{serverResponse.Schemes[selectedSchemeNo].SectionLimit | number : '1.2-2' }}
+        </div>
+        <div>
+          <label>Amount Consider:</label>
+          {{serverResponse.Schemes[selectedSchemeNo].amountConsider | number : '1.2-2' }}
+        </div>
+        <div>
+          <label>Declared Amount:</label>
+          {{serverResponse.Schemes[selectedSchemeNo].declaredAmount | number : '1.2-2' }}
+        </div>
+        <!-- {{this.serverResponse.Schemes[selectedSchemeNo]?.Section}} -->
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <div>
+    <ion-card *ngFor="let obj of this.serverResponse.Schemes[selectedSchemeNo].subSectiondetails">
+      <!-- <ion-item>
+              <ion-icon name="pin" slot="start"></ion-icon>
+              <ion-label>ion-item in a card, icon left, button right</ion-label>
+              <ion-button fill="outline" slot="end">View</ion-button>
+            </ion-item> -->
+
+      <ion-card-content>
+        {{obj.SchemeName}}
+        <ion-item>
+          <ion-label position="stacked">Amount</ion-label>
+          <ion-input type="number" (focusout)="save(obj)" [(ngModel)]="obj.Amount" min=0></ion-input>
+        </ion-item>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-row class="info">
+    <ion-col size="6">
+      <div class="toast-message font-12-bold" text-center color="dark-gray">Taxable Amt.
+        {{totalTaxableSalary  | number : '1.2-2' }}</div>
+    </ion-col>
+    <ion-col size="6">
+      <div class="toast-message font-12-bold" text-center color="dark-gray">Tax
+        {{totalTaxableAmount | number : '1.2-2' }}</div>
+    </ion-col>
+  </ion-row>
+  <div (click)='saveAsDraft()' class="toast-message font-12-bold" text-center color="dark-gray">Save</div>
+</ion-footer>

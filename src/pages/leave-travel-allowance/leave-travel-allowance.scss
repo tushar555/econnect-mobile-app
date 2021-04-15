@@ -1,0 +1,274 @@
+page-leave-travel-allowance {
+  .card-content-md {
+    padding: 0px;
+  }
+  .scroll-content {
+    padding: 0px !important;
+  }
+  .ion-card-content {
+    font-weight: 400;
+    background-color: #6D6E72;
+    color: #ffffff;
+    border-bottom: 2px solid $yellow;
+    padding-top: 1rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .emp-details {
+    font-size: 1.1rem;
+    .border-details {
+      border: 1px solid #DFE0E2;
+      border-top: 0px !important;
+    }
+  }
+  .details-card {
+    border: 1px solid #CDCDCF;
+    .sal-header {
+      background-color: #DBDEE5;
+      .sal-details-header {
+        font-size: 1.1rem;
+        font-weight: bold; //
+      }
+      .border-details {
+        border-right: 1px solid #C0C1C6;
+      }
+    }
+  }
+  .sal-details-content {
+    font-size: 1.1rem;
+    .col-border {
+      border-right: 1px solid #DFE0E2;
+    }
+  }
+  .no-padding {
+    padding: 0px;
+  }
+  .total {
+    font-weight: bold;
+    font-size: 2.0rem;
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem;
+  }
+  .download-btn {
+    width: 100%;
+    margin-left: 5px;
+    padding-right: 2%;
+  }
+  .dec-none {
+    text-decoration: none;
+  }
+  .card-item {
+    padding: 1rem;
+  }
+  .view {
+    background-color: #fef200;
+  }
+  .no-padding {
+    padding: 0px !important;
+  }
+  .card-padding {
+    padding: 0.6rem;
+  }
+  .year {
+    padding: 4px;
+  }
+  .btn {
+    width: 100%
+  }
+  ion-toolbar.yearSelectionDiv{
+    position: absolute;
+    right: 6px;
+    top: 0px;
+    width: 30%;
+    height: auto;
+    padding: 0px;
+    .toolbar-background{
+      background: #fff;
+      height: 70%;
+      top: 0%;
+      bottom: 0%;
+      top: 50%;
+      transform: translateY(-50%);
+     
+    }
+    ion-select{
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+  }
+  .personalDetails{
+    padding: 10px;
+    .headerTxt{
+      p{
+        text-transform: uppercase;
+        color: #868686;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+    .detailTxt{
+      p{
+        text-transform: capitalize;
+        color: $dark-gray;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+    }
+   ion-card-content{
+      padding: 0px;
+    }
+  }
+  .LTADeatilCard{
+    border: 1px solid #eee;
+    box-shadow: none !important;
+    background: transparent;
+    ion-card-header{
+      ion-col{
+        border-right: 1px solid #b0b0b5;
+        background: #dbdee5;
+        h2{
+          font-size: 13px;
+         font-weight: 600;
+        }
+      }
+    }
+    ion-list{
+      // height: 100vh;
+      // overflow-y: scroll;
+      ion-row{
+        border-bottom: 1px solid #ece7e7;
+      }
+      ion-col{
+        border-right: 1px solid #ece7e7;
+        p{
+          font-size: 12px;
+          font-weight: 500;
+          color: #6b6363;
+        }
+      }
+    }
+     }
+     .errorBlock{
+      margin: 30px;
+       img{
+          width: 30%;
+          height: 30%;
+          margin: auto;
+        }
+        .total-text{
+          text-align: center;
+          font-weight: 600;
+          font-size: 15px;
+          color: #585757;
+          margin: 10px 0px;
+        }
+      }
+
+
+// .LTADeatilCard{
+//       table {
+//         position: relative;
+//         width: 700px;
+//         background-color: #aaa;
+//         overflow: hidden;
+//         border-collapse: collapse;
+//       }
+//       /*thead*/
+      
+//       thead {
+//         position: relative;
+//         display: block;
+//         /*seperates the header from the body allowing it to be positioned*/
+//         width: 700px;
+//         overflow: visible;
+//       }
+//       thead th {
+//         background-color: #99a;
+//         min-width: 120px;
+//         height: 36px;
+//         min-height: 36px;
+//         border: 1px solid #222;
+//       }
+//       thead th:nth-child(1) {
+//         /*first cell in the header*/
+//         position: relative;
+//         display: block;
+//         background-color: #88b;
+//       }
+//       tbody tr td:nth-child(2) {
+//         margin-left: 124px;
+//         display: block;
+//       }
+//       /*tbody*/
+      
+//       tbody {
+//         display: block;
+//         width: 700px;
+//         height: 239px;
+//         overflow-y: auto;
+//       }
+//       tbody td {
+//         background-color: #bbc;
+//         min-width: 120px;
+//         border: 1px solid #222;
+//         height: 36px;
+//         min-height: 36px;
+//       }
+//       tbody tr td:nth-child(1) {
+//         /*the first cell in each tr*/
+//         position: absolute;
+//         display: inline-block;
+//         background-color: #99a;
+//       }
+//       }
+
+
+
+.ltaCustTbl {
+  height: 50vh;
+    width: 100%;
+    display: inline-block;
+    overflow: auto;
+   background: transparent;
+
+table {
+  overflow-x: scroll;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: gray;
+  color: #fff;
+  width: 86px;
+  padding: 0px;
+  /* display: table-cell; */
+  max-width: 200px;
+  /* line-height: normal; */
+  height: 40px;
+  div{
+    width:150px;
+  }
+}
+
+td {
+  width: 40px;
+  padding: 0.6em 2em;
+  // border-right: 1px solid #c1bcbc;
+  text-align: center;
+}
+
+table tr {
+  color: #212121;
+  border-bottom: 1px solid #c1bcbc;
+}
+
+
+}
+.lta-data-label {
+  color: #868686;
+}
+}

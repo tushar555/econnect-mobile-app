@@ -1,0 +1,131 @@
+page-flexi {
+#footerFlexi .toolbar-background{
+    background-color: #e8e8e8;
+    border: none;
+    } 
+ion-item{
+    border: none !important;
+    box-shadow: none !important;
+}  
+.card-content-ios {
+    padding: 13px 10px 14px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+}
+ion-label{
+    padding:7px 0px 15px 0;
+}
+.toolbar{
+    padding: 0;
+}
+.flexiFooterclosed {
+    padding: 10px;
+    text-align: center;
+    font-size: 15px;
+    background: white;
+    color: red;
+    width: 100%;
+    z-index: 111;
+  
+    button {
+      background: #6d6e72;
+      color: #fff;
+      width: 100px;
+    }
+  }
+.bar-button{
+  padding: 0;
+}
+#selectCEA1{
+    max-width: 100px;
+    margin: 11px 8px 11px 0;
+    padding: 0 0px 0 10px;
+}
+#selectCEA1 .select-text{
+    width: 100px;     
+}
+.personalDetails{
+    padding: 10px;
+    width: 100%;
+    margin: 0px 0px 10px 0px;
+    
+    p{
+      color: $dark-gray;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    
+  }      
+.flexiCard{
+    width: 100%;
+    margin: 0px;
+    // margin-bottom: 10px;
+    ion-card-header{
+        background: #F2F4F7;
+        ion-item{
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            ion-label{
+                margin: 0px;
+                h2{
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+        }
+     
+        .col{
+            border-right: 1px solid #eee; 
+        }
+    }
+    ion-list{
+        ion-row{
+            ion-label{
+               h2{
+                font-size: 14px;
+                font-weight: normal;
+                font-weight: 600;
+                color: #353333;
+                }
+            }
+        }
+    }
+    .personalDetails{
+        padding: 10px;
+
+        p{
+          color: $dark-gray;
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+        
+      }
+
+    ion-list{
+        height: 100vh;
+        overflow-y: scroll;
+        margin-bottom: 30px;
+        .row{
+            border-top: 1px solid #eee;
+            .col{
+                border-right: 1px solid #eee;
+                ion-item{
+                    background: transparent !important;
+                }
+                h2{
+                    white-space: normal;
+                }
+            }
+        }
+    }
+}
+
+.uneditable{
+    background-color: #f7f7f7 !important;
+    color: #bbbbbb;
+    input{
+      color: #bbbbbb;
+    }
+  }
+}

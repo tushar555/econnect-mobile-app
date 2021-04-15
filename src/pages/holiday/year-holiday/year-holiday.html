@@ -1,0 +1,219 @@
+<!--
+  Generated template for the YearHolidayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-buttons class="headertitle">
+      <!-- <button ion-button icon-only>
+        <ion-icon name="md-calendar"></ion-icon>
+      </button> -->
+      <button ion-button text-only class="nav-label">
+        <strong> Holidays-2019 </strong>
+      </button>
+      <button (click)="close()" ion-button icon-only float-right>
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-grid class="view-options">
+    <ion-row>
+      <ion-col
+        [ngClass]="fixedholiday ? 'selected' : ''"
+        (click)="loadFixedView()"
+      >
+        <!-- <ion-icon name="ios-calendar-outline"></ion-icon> -->
+        Fixed
+      </ion-col>
+      <ion-col
+        [ngClass]="optionalholiday ? 'selected' : ''"
+        (click)="loadOptionalView()"
+      >
+        <!-- <ion-icon name="ios-list-box-outline"></ion-icon> -->
+        Optional
+      </ion-col>
+      <ion-col
+        [ngClass]="weekoffholiday ? 'selected' : ''"
+        (click)="loadWeeklyView()"
+      >
+        <!-- <ion-icon name="ios-list-box-outline"></ion-icon> -->
+        On Weekly Off
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content padding>
+  <ion-card class="card-class" *ngIf="fixedholiday">
+    <ion-row class="row-class headerrow">
+      <ion-col col-3 class="col-class">
+        <strong>Date</strong>
+      </ion-col>
+      <ion-col col-6 class="col-class">
+        <strong>Description</strong>
+      </ion-col>
+      <ion-col col-3 class="col-class">
+        <strong>Day</strong>
+      </ion-col>
+    </ion-row>
+    <div>
+      <ion-row *ngFor="let holiday of FixedHolidays" class="row-class">
+        <ion-col col-3 class="col-class">
+          {{ holiday.HolidayDate | date: "dd-MMM-yyyy" }}
+        </ion-col>
+        <ion-col col-6 class="col-class">
+          {{ holiday.HolidayDescription }}
+        </ion-col>
+        <ion-col col-3 class="col-class">
+          {{ getDay(holiday.HolidayDate) }}
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+
+  <ion-card class="card-class" *ngIf="optionalholiday">
+    <ion-row class="row-class headerrow">
+      <ion-col col-3 class="col-class">
+        <strong>Date</strong>
+      </ion-col>
+      <ion-col col-6 class="col-class">
+        <strong>Description</strong>
+      </ion-col>
+      <ion-col col-3 class="col-class">
+        <strong>Day</strong>
+      </ion-col>
+    </ion-row>
+    <div>
+      <ion-row *ngFor="let holiday of OptionalHolidays" class="row-class">
+        <ion-col col-3 class="col-class">
+          {{ holiday.HolidayDate | date: "dd-MMM-yyyy" }}
+        </ion-col>
+        <ion-col col-6 class="col-class">
+          {{ holiday.HolidayDescription }}
+        </ion-col>
+        <ion-col col-3 class="col-class">
+          {{ getDay(holiday.HolidayDate) }}
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+
+  <ion-card class="card-class" *ngIf="weekoffholiday">
+    <ion-row class="row-class headerrow">
+      <ion-col col-3 class="col-class">
+        <strong>Date</strong>
+      </ion-col>
+      <ion-col col-6 class="col-class">
+        <strong>Description</strong>
+      </ion-col>
+      <ion-col col-3 class="col-class">
+        <strong>Day</strong>
+      </ion-col>
+    </ion-row>
+    <div>
+      <ion-row *ngFor="let holiday of WeekoffHolidays" class="row-class">
+        <ion-col col-3 class="col-class">
+          {{ holiday.HolidayDate | date: "dd-MMM-yyyy" }}
+        </ion-col>
+        <ion-col col-6 class="col-class">
+          {{ holiday.HolidayDescription }}
+        </ion-col>
+        <ion-col col-3 class="col-class">
+          {{ getDay(holiday.HolidayDate) }}
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+
+  <!-- <ion-card class="card-class">
+   <ion-label style="margin-left: 10px;" *ngIf="FixedHolidays">
+      <strong> Fixed Holidays </strong>
+    </ion-label>
+     <ion-row *ngIf="FixedHolidays" class="row-class">
+      <ion-col class="col-class">
+        <strong>Date</strong>
+      </ion-col>
+      <ion-col class="col-class">
+        <strong>Description</strong>
+      </ion-col>
+      <ion-col class="col-class">
+        <strong>Day</strong>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="FixedHolidays">
+      <ion-row *ngFor="let holiday of FixedHolidays" class="row-class">
+        <ion-col class="col-class">
+          {{ holiday.HolidayDate | date: "dd-MMM-yyyy" }}
+        </ion-col>
+        <ion-col class="col-class">
+          {{ holiday.HolidayDescription }}
+        </ion-col>
+        <ion-col class="col-class">
+          {{ getDay(holiday.HolidayDate) }}
+        </ion-col>
+      </ion-row>
+    </div> 
+  </ion-card> -->
+
+  <!-- <ion-card class="card-class">
+    <ion-label style="margin-left: 10px;" *ngIf="OptionalHolidays">
+      <strong> Optional Holidays </strong>
+    </ion-label>
+    <ion-row *ngIf="OptionalHolidays" class="row-class">
+      <ion-col class="col-class">
+        <strong>Date</strong>
+      </ion-col>
+      <ion-col class="col-class">
+        <strong>Description</strong>
+      </ion-col>
+      <ion-col class="col-class">
+        <strong>Day</strong>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="OptionalHolidays">
+      <ion-row *ngFor="let holiday of OptionalHolidays" class="row-class">
+        <ion-col class="col-class">
+          {{ holiday.HolidayDate | date: "dd-MMM-yyyy" }}
+        </ion-col>
+        <ion-col class="col-class">
+          {{ holiday.HolidayDescription }}
+        </ion-col>
+        <ion-col class="col-class">
+          {{ getDay(holiday.HolidayDate) }}
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card> -->
+
+  <!-- <ion-card class="card-class">
+    <ion-label style="margin-left: 10px;" *ngIf="WeekoffHolidays">
+      <strong> Holidays on week off</strong>
+    </ion-label>
+    <ion-row *ngIf="WeekoffHolidays" class="row-class">
+      <ion-col class="col-class">
+        <strong>Date</strong>
+      </ion-col>
+      <ion-col class="col-class">
+        <strong>Description</strong>
+      </ion-col>
+      <ion-col class="col-class">
+        <strong>Day</strong>
+      </ion-col>
+    </ion-row>
+    <div *ngIf="WeekoffHolidays">
+      <ion-row *ngFor="let holiday of WeekoffHolidays" class="row-class">
+        <ion-col class="col-class">
+          {{ holiday.HolidayDate | date: "dd-MMM-yyyy" }}
+        </ion-col>
+        <ion-col class="col-class">
+          {{ holiday.HolidayDescription }}
+        </ion-col>
+        <ion-col class="col-class">
+          {{ getDay(holiday.HolidayDate) }}
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card> -->
+</ion-content>
