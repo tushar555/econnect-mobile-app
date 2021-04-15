@@ -1,4 +1,0 @@
-#Thu Apr 15 16:36:59 IST 2021
-base.0=/Users/tushar/Projects/econnect-workspace/econnect-mobile-app/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex
